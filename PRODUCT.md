@@ -16,7 +16,7 @@ Kling bygger nettsider, automatiseringer og digitale systemer som reduserer manu
 
 ## Positioning
 
-Kling kombinerer Web, Automation og Systems og ser på hele arbeidsflyten i stedet for å selge ett verktøy. Arbeidet starter med problemet og friksjonen i bedriften. Teknologi og AI brukes bare når det skaper praktisk verdi.
+Kling kombinerer nettsider, automatisering og systemer og ser på hele arbeidsflyten i stedet for å selge ett verktøy. Arbeidet starter med problemet og friksjonen i bedriften. Teknologi og AI brukes bare når det skaper praktisk verdi.
 
 ## Operating Context
 
@@ -24,7 +24,7 @@ Kundene arbeider ofte med manuell registrering, gjentatte e-poster, spredt infor
 
 ## Capabilities and Constraints
 
-- Tjenester: Web, Automation og Systems.
+- Tjenester: Nettsider, automatisering og systemer.
 - AI er et virkemiddel på tvers av tjenestene, ikke en egen tjenestepilar.
 - Primær handling: «Finn ut hva dere kan automatisere».
 - Primær handling leder til kontaktskjemaet.
