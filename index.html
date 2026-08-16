@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <!--
+      THESIS: Kling gjør skjult arbeidsfriksjon synlig og viser hvordan den blir til flyt. Siden avviser et generisk teknologibyrå med løsrevne funksjonskort.
+      OWN-WORLD: Krem, marine, himmelblå og bie-gul. Myke noder, forbindelseslinjer, kraftige runde overskrifter og presise arbeidsflyter.
+      STORY: Besøkeren kjenner igjen tidstyvene, ser hvordan Kling løser dem, forstår tilbudet og tar kontakt for en kartlegging.
+      FIRST VIEWPORT: Verditilbud og to CTA-er til venstre. Et levende kart fra henvendelse til oppfølging til høyre, med maskoten som guide.
+      FORM: Persuade. En arbeidsflyt som sidearkitektur, valgt fordi den demonstrerer Klangs mekanisme med faktiske oppgaver i stedet for påstander.
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kling Systems | Smartere systemer. Enklere arbeid.</title>
+    <meta
+      name="description"
+      content="Kling bygger nettsider, automatiseringer og digitale systemer som sparer norske bedrifter for tid og manuelt arbeid."
+    />
+    <meta name="theme-color" content="#0F2940" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nb_NO" />
+    <meta property="og:title" content="Kling Systems | Smartere systemer. Enklere arbeid." />
+    <meta
+      property="og:description"
+      content="Vi finner tidstyvene, bygger løsningen og automatiserer arbeidet."
+    />
+    <meta property="og:image" content="./assets/kling-logo-mascot.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="./assets/kling-symbol-transparent.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" type="module"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#innhold">Hopp til innholdet</a>
+
+    <header class="site-header" data-header>
+      <div class="container nav-shell">
+        <a class="brand" href="#topp" aria-label="Kling Systems, tilbake til toppen">
+          <img src="./assets/kling-logo-navy-transparent.png" width="469" height="222" alt="Kling" />
+        </a>
+
+        <nav class="desktop-nav" aria-label="Hovedmeny">
+          <a href="#tjenester">Tjenester</a>
+          <a href="#slik-jobber-vi">Slik jobber vi</a>
+          <a href="#eksempler">Løsninger</a>
+          <a href="#om">Om Kling</a>
+        </nav>
+
+        <a class="button button--small button--nav" href="#kontakt">Ta en prat</a>
+
+        <button class="menu-button" type="button" aria-label="Åpne meny" aria-expanded="false" aria-controls="mobilmeny">
+          <i class="ph ph-list menu-icon menu-icon--open" aria-hidden="true"></i>
+          <i class="ph ph-x menu-icon menu-icon--close" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="mobile-nav" id="mobilmeny" aria-hidden="true">
+        <nav aria-label="Mobilmeny">
+          <a href="#tjenester">Tjenester</a>
+          <a href="#slik-jobber-vi">Slik jobber vi</a>
+          <a href="#eksempler">Løsninger</a>
+          <a href="#om">Om Kling</a>
+          <a class="button button--primary" href="#kontakt">Finn ut hva dere kan automatisere</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="innhold">
+      <section class="hero" id="topp">
+        <div class="hero-glow hero-glow--one" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow--two" aria-hidden="true"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="service-line" aria-label="Web, Automation og Systems">
+              <span>Web</span><i></i><span>Automation</span><i></i><span>Systems</span>
+            </p>
+            <h1>
+              <span class="hero-line">Smartere <span class="hero-inline-image" aria-hidden="true"><img src="./assets/mascot/kling-bee-fast.png" alt="" /></span> systemer.</span>
+              <span class="hero-line hero-line--accent">Enklere arbeid.</span>
+            </h1>
+            <p class="hero-lede">
+              Vi bygger nettsider, automatiseringer og digitale systemer som sparer bedriften din for tid og manuelt arbeid.
+            </p>
+            <div class="hero-actions">
+              <a class="button button--primary" href="#kontakt">
+                Finn ut hva dere kan automatisere
+                <i class="ph ph-arrow-right" aria-hidden="true"></i>
+              </a>
+              <a class="text-link" href="#eksempler">
+                Se hva vi bygger
+                <i class="ph ph-arrow-down" aria-hidden="true"></i>
+              </a>
+            </div>
+            <p class="hero-note"><span aria-hidden="true">●</span> Første steg er en uforpliktende kartlegging.</p>
+          </div>
+
+          <div class="hero-system reveal" data-delay="2" aria-label="Eksempel på automatisert arbeidsflyt">
+            <div class="system-topline">
+              <span>Arbeidsflyt i praksis</span>
+              <span class="live-pill"><i></i> Aktiv</span>
+            </div>
+            <div class="workflow-canvas">
+              <div class="workflow-intro">
+                <span class="workflow-eyebrow">Fra innsendt skjema</span>
+                <h3>Én henvendelse.<br />Fire oppgaver løst.</h3>
+                <div class="workflow-engine">
+                  <span class="workflow-engine-mark" aria-hidden="true"><i></i></span>
+                  <div><strong>Kling-flyt</strong><small>Flytter informasjonen automatisk</small></div>
+                </div>
+              </div>
+
+              <ol class="workflow-steps">
+                <li>
+                  <span class="workflow-step-icon"><i class="ph ph-file-text" aria-hidden="true"></i></span>
+                  <div><small>Steg 01</small><strong>Henvendelse mottatt</strong><p>Fra nettsiden</p></div>
+                  <i class="ph ph-check workflow-check" aria-hidden="true"></i>
+                </li>
+                <li>
+                  <span class="workflow-step-icon workflow-step-icon--gold"><i class="ph ph-user-plus" aria-hidden="true"></i></span>
+                  <div><small>Steg 02</small><strong>CRM oppdatert</strong><p>Data på riktig sted</p></div>
+                  <i class="ph ph-check workflow-check" aria-hidden="true"></i>
+                </li>
+                <li>
+                  <span class="workflow-step-icon"><i class="ph ph-envelope-simple" aria-hidden="true"></i></span>
+                  <div><small>Steg 03</small><strong>Svar sendt</strong><p>Kunden får beskjed</p></div>
+                  <i class="ph ph-check workflow-check" aria-hidden="true"></i>
+                </li>
+                <li>
+                  <span class="workflow-step-icon workflow-step-icon--gold"><i class="ph ph-calendar-dots" aria-hidden="true"></i></span>
+                  <div><small>Steg 04</small><strong>Oppfølging planlagt</strong><p>Ingenting blir glemt</p></div>
+                  <i class="ph ph-check workflow-check" aria-hidden="true"></i>
+                </li>
+              </ol>
+            </div>
+            <div class="system-footer">
+              <span><i class="status-ok"></i> 4 steg fullført automatisk</span>
+              <span>0 manuelle overføringer</span>
+            </div>
+          </div>
+        </div>
+        <div class="container hero-proofline reveal" data-delay="3">
+          <p>Teknologi for arbeidshverdagen, ikke teknologi for teknologiens skyld.</p>
+          <div><span>Problem</span><i></i><span>Løsning</span><i></i><span>Bedre flyt</span></div>
+        </div>
+      </section>
+
+      <section class="friction section" id="problemer">
+        <div class="container friction-grid">
+          <div class="friction-intro reveal">
+            <p class="kicker">Kjenner dere igjen dette?</p>
+            <h2>Arbeid som burde gått av seg selv.</h2>
+            <p>
+              Små, manuelle oppgaver virker uskyldige. Når de gjentas hver dag, blir de en dyr og frustrerende del av driften.
+            </p>
+            <div class="search-flight" aria-hidden="true">
+              <svg class="search-flight__route" viewBox="0 0 1200 190" preserveAspectRatio="none">
+                <defs>
+                  <clipPath id="search-flight-reveal" clipPathUnits="userSpaceOnUse">
+                    <rect class="search-flight__clip" x="0" y="0" width="1200" height="190" />
+                  </clipPath>
+                </defs>
+                <path class="search-flight__path" d="M 70 130 C 230 182, 420 22, 620 92 S 980 170, 1150 46" clip-path="url(#search-flight-reveal)" />
+              </svg>
+              <img class="section-mascot section-mascot--analysis" src="./assets/mascot/kling-bee-search-flight.png" width="322" height="346" alt="" loading="lazy" />
+            </div>
+          </div>
+
+          <div class="friction-list reveal" data-delay="1">
+            <article>
+              <div><h3>Informasjon kopieres for hånd</h3><p>Fra e-post til CRM, regneark eller kalender.</p></div>
+              <span class="friction-time">Igjen og igjen</span>
+            </article>
+            <article>
+              <div><h3>Systemene snakker ikke sammen</h3><p>Data ligger spredt og oversikten forsvinner mellom verktøy.</p></div>
+              <span class="friction-time">Unødvendige steg</span>
+            </article>
+            <article>
+              <div><h3>Oppfølging avhenger av hukommelsen</h3><p>Henvendelser, oppgaver og kunder får svar senere enn de burde.</p></div>
+              <span class="friction-time">Tapt fremdrift</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="container question-banner reveal">
+          <div class="question-mark" aria-hidden="true">?</div>
+          <p>Hva bruker dere tid på i dag som egentlig burde gått av seg selv?</p>
+          <a href="#kontakt">La oss finne svaret <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </section>
+
+      <section class="services section" id="tjenester">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div>
+              <p class="kicker">Tre fagområder. Én arbeidsflyt.</p>
+              <h2>Vi bygger det bedriften trenger for å flyte bedre.</h2>
+            </div>
+            <p>Web, Automation og Systems henger sammen. Derfor ser vi på helheten før vi velger løsning.</p>
+          </div>
+
+          <div class="service-stage">
+            <article class="service-card service-card--web reveal is-expanded">
+              <div class="service-index">
+                <span>Web</span>
+                <button class="service-toggle" type="button" data-service-toggle aria-expanded="true" aria-controls="service-web-content" aria-label="Vis Web">
+                  <i class="ph ph-caret-down" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="service-content" id="service-web-content">
+                <div class="service-mascot-stage service-mascot-stage--web" aria-hidden="true">
+                  <img src="./assets/mascot/kling-bee-code.png" width="369" height="273" alt="" loading="lazy" />
+                </div>
+                <div>
+                  <h3>Nettsider som gjør en jobb</h3>
+                  <p>Moderne nettsider som bygger tillit, fanger henvendelser og kobler kundereisen videre.</p>
+                </div>
+                <ul><li>Tydelig posisjonering</li><li>Henvendelser og timebestilling</li><li>CRM og automatisering</li></ul>
+              </div>
+            </article>
+
+            <article class="service-card service-card--automation reveal" data-delay="1">
+              <div class="service-index">
+                <span>Automation</span>
+                <button class="service-toggle" type="button" data-service-toggle aria-expanded="false" aria-controls="service-automation-content" aria-label="Vis Automation">
+                  <i class="ph ph-caret-down" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="service-content" id="service-automation-content">
+                <div class="service-mascot-stage service-mascot-stage--automation" aria-hidden="true">
+                  <img src="./assets/mascot/kling-bee-workflow.png" width="386" height="294" alt="" loading="lazy" />
+                </div>
+                <div>
+                  <h3>Rutiner som går av seg selv</h3>
+                  <p>Vi kobler sammen oppgaver og verktøy så informasjon flyttes, svar sendes og oppfølging skjer automatisk.</p>
+                </div>
+                <ul><li>Oppfølging av henvendelser</li><li>E-post og varsler</li><li>Registrering og rapportering</li></ul>
+              </div>
+            </article>
+
+            <article class="service-card service-card--systems reveal" data-delay="2">
+              <div class="service-index">
+                <span>Systems</span>
+                <button class="service-toggle" type="button" data-service-toggle aria-expanded="false" aria-controls="service-systems-content" aria-label="Vis Systems">
+                  <i class="ph ph-caret-down" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="service-content" id="service-systems-content">
+                <div class="service-mascot-stage service-mascot-stage--systems" aria-hidden="true">
+                  <img src="./assets/mascot/kling-bee-integration.png" width="314" height="279" alt="" loading="lazy" />
+                </div>
+                <div>
+                  <h3>Systemer bygget rundt arbeidet</h3>
+                  <p>Skreddersydde verktøy når standardløsningen ikke passer måten bedriften faktisk jobber på.</p>
+                </div>
+                <ul><li>CRM og kundeportaler</li><li>Styringsbilder og oversikt</li><li>Interne verktøy og integrasjoner</li></ul>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="process section" id="slik-jobber-vi">
+        <div class="container process-layout">
+          <div class="process-copy reveal">
+            <h2>Fra tidstyv til bedre arbeidsflyt.</h2>
+            <p>Vi starter i arbeidshverdagen, ikke i verktøykassen.</p>
+            <a class="button button--cream" href="#kontakt">Start med en kartlegging</a>
+          </div>
+
+          <ol class="process-steps">
+            <li class="reveal">
+              <div class="process-marker"><span>01</span><i></i></div>
+              <div><h3>Finn friksjonen</h3><p>Vi kartlegger oppgaver, flaskehalser og systemer som ikke henger sammen.</p></div>
+            </li>
+            <li class="reveal" data-delay="1">
+              <div class="process-marker"><span>02</span><i></i></div>
+              <div><h3>Velg den enkleste løsningen</h3><p>Ikke alle problemer trenger AI eller spesialbygget programvare. Vi velger det som faktisk passer.</p></div>
+            </li>
+            <li class="reveal" data-delay="2">
+              <div class="process-marker"><span>03</span><i></i></div>
+              <div><h3>Bygg og koble sammen</h3><p>Vi utvikler nettsiden, systemet eller automatiseringen og får verktøyene til å samarbeide.</p></div>
+            </li>
+            <li class="reveal" data-delay="3">
+              <div class="process-marker process-marker--done"><span>✓</span></div>
+              <div><h3>Gjør arbeidet enklere</h3><p>Dere får bedre oversikt, færre manuelle steg og en flyt som fungerer i praksis.</p></div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="comparison section" id="for-etter">
+        <div class="container">
+          <div class="section-heading section-heading--center reveal">
+            <div><p class="kicker">Se forskjellen</p><h2>Samme henvendelse. En helt annen arbeidsdag.</h2></div>
+            <p>Et enkelt eksempel på hvordan manuelle mellomledd kan forsvinne.</p>
+          </div>
+
+          <div class="comparison-switch" role="group" aria-label="Velg arbeidsflyt">
+            <button type="button" class="is-active" data-view="before" aria-pressed="true">Før Kling</button>
+            <button type="button" data-view="after" aria-pressed="false">Med Kling</button>
+          </div>
+
+          <div class="comparison-board reveal" data-comparison>
+            <div class="comparison-side comparison-side--before" data-panel="before">
+              <div class="comparison-label"><span>Manuell flyt</span><small>Mange overleveringer</small></div>
+              <div class="manual-flow">
+                <div class="manual-step"><span>1</span><p>Kunden sender skjema</p><small>09:04</small></div>
+                <i></i>
+                <div class="manual-step"><span>2</span><p>En ansatt leser e-posten</p><small>Når det passer</small></div>
+                <i></i>
+                <div class="manual-step"><span>3</span><p>Informasjon kopieres til CRM</p><small>Manuelt</small></div>
+                <i></i>
+                <div class="manual-step"><span>4</span><p>Svar og oppfølging opprettes</p><small>Senere</small></div>
+              </div>
+              <p class="comparison-result comparison-result--bad"><span aria-hidden="true">×</span> Fire manuelle steg. Flere steder å miste fart.</p>
+            </div>
+
+            <div class="comparison-side comparison-side--after" data-panel="after">
+              <div class="comparison-label"><span>Automatisert flyt</span><small>Én sammenhengende prosess</small></div>
+              <div class="auto-flow">
+                <div class="auto-source"><span>Skjema sendt</span><small>09:04</small></div>
+                <span class="auto-connector" aria-hidden="true"></span>
+                <div class="auto-core-group">
+                  <div class="auto-core"><span class="auto-core-logo" aria-hidden="true"></span></div>
+                  <div class="auto-core-copy"><strong>Kling-flyt</strong><small>Behandler og fordeler</small></div>
+                </div>
+                <span class="auto-connector" aria-hidden="true"></span>
+                <div class="auto-outcomes">
+                  <div><span>✓</span><p>CRM oppdatert</p></div>
+                  <div><span>✓</span><p>Kunden får svar</p></div>
+                  <div><span>✓</span><p>Ansvarlig varsles</p></div>
+                  <div><span>✓</span><p>Oppfølging planlagt</p></div>
+                </div>
+              </div>
+              <p class="comparison-result comparison-result--good"><span aria-hidden="true">✓</span> Alt skjer med én gang. Den ansatte tar over når det faktisk trengs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="solutions section" id="eksempler">
+        <div class="container">
+          <div class="section-heading section-heading--solutions reveal">
+            <div><p class="kicker">Eksempler på hva vi kan løse</p><h2>Bygget rundt problemet, ikke en ferdig pakke.</h2></div>
+            <div class="solution-heading-aside">
+              <p>Dette er løsningseksempler, ikke oppdiktede kundecaser. Den riktige kombinasjonen avhenger av arbeidshverdagen deres.</p>
+              <div class="solution-controls" aria-label="Bla mellom løsningseksempler">
+                <button type="button" data-solution-prev aria-label="Forrige løsning"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
+                <span data-solution-status aria-live="polite"><b data-solution-current>1</b> / 4</span>
+                <button type="button" data-solution-next aria-label="Neste løsning"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="solution-grid">
+            <article class="solution-feature is-featured" data-solution-card data-solution-name="Henvendelse og oppfølging">
+              <div class="solution-copy">
+                <span class="solution-tag">Web + Automation</span>
+                <h3>Fra ny henvendelse til ryddig oppfølging.</h3>
+                <p>Et kontaktskjema som ikke bare sender en e-post, men starter hele kundereisen.</p>
+                <ul><li>Henvendelsen registreres automatisk</li><li>Kunden får riktig svar</li><li>Oppfølging legges på rett person</li></ul>
+              </div>
+              <div class="solution-demo" aria-label="Illustrasjon av automatisk behandling av en henvendelse">
+                <div class="demo-entry"><span>Ny henvendelse</span><small>Fjell &amp; Tak AS</small></div>
+                <span class="demo-connector" aria-hidden="true"></span>
+                <div class="demo-kling"><span>k</span><i></i></div>
+                <span class="demo-connector" aria-hidden="true"></span>
+                <div class="demo-stack">
+                  <span><i>✓</i> CRM oppdatert</span>
+                  <span><i>✓</i> Svar sendt</span>
+                  <span><i>✓</i> Oppgave opprettet</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="solution-mini" data-solution-card data-solution-name="Driftsoversikt">
+              <div class="mini-icon">
+                <i class="ph ph-chart-line-up" aria-hidden="true"></i>
+              </div>
+              <span class="solution-tag">Systems</span>
+              <h3>Driftsoversikt</h3>
+              <p>Samle kunder, oppgaver og nøkkelinformasjon i ett oversiktlig verktøy.</p>
+              <a href="#kontakt">Snakk med oss <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+              <img class="solution-slide-mascot" src="./assets/mascot/kling-bee-presentation.png" width="430" height="352" alt="" aria-hidden="true" loading="lazy" />
+            </article>
+
+            <article class="solution-mini solution-mini--blue" data-solution-card data-solution-name="Kundeoppfølging">
+              <div class="mini-icon">
+                <i class="ph ph-envelope-simple" aria-hidden="true"></i>
+              </div>
+              <span class="solution-tag">Automation</span>
+              <h3>Kundeoppfølging</h3>
+              <p>Send informasjon, påminnelser og neste steg til riktig tid uten manuell oppfølging.</p>
+              <a href="#kontakt">Snakk med oss <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+              <img class="solution-slide-mascot" src="./assets/mascot/kling-bee-calendar.png" width="382" height="270" alt="" aria-hidden="true" loading="lazy" />
+            </article>
+
+            <article class="solution-wide" data-solution-card data-solution-name="Dokumentbehandling">
+              <div>
+                <span class="solution-tag">Systems + Automation</span>
+                <h3>Dokumenter inn. Strukturert informasjon ut.</h3>
+                <p>La systemet hente ut, sortere og sende informasjonen videre til riktig arbeidsflyt.</p>
+              </div>
+              <div class="document-flow" aria-hidden="true">
+                <span class="doc-paper"><i></i><i></i><i></i></span>
+                <b><i class="ph ph-arrow-right"></i></b>
+                <span class="doc-process">k</span>
+                <b><i class="ph ph-arrow-right"></i></b>
+                <img class="document-bee" src="./assets/mascot/kling-bee-database.png" width="291" height="271" alt="" loading="lazy" />
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="outcomes section">
+        <div class="container outcomes-grid">
+          <div class="outcomes-copy reveal">
+            <h2>Mer tid til arbeid som faktisk skaper verdi.</h2>
+            <p>Vi lover ikke magiske prosenter. Vi bygger konkrete forbedringer som merkes i den daglige driften.</p>
+          </div>
+          <div class="outcome-ledger reveal" data-delay="1" aria-label="Forventede gevinster">
+            <div>
+              <span class="outcome-icon"><i class="ph ph-arrows-clockwise" aria-hidden="true"></i></span>
+              <strong>Mindre manuelt arbeid</strong>
+              <p>Gjentatte steg flyttes fra mennesker til systemet.</p>
+            </div>
+            <div>
+              <span class="outcome-icon"><i class="ph ph-timer" aria-hidden="true"></i></span>
+              <strong>Raskere kundesvar</strong>
+              <p>Henvendelser sendes videre uten unødvendig venting.</p>
+            </div>
+            <div>
+              <span class="outcome-icon"><i class="ph ph-eye" aria-hidden="true"></i></span>
+              <strong>Bedre oversikt</strong>
+              <p>Informasjon samles der arbeidet faktisk skjer.</p>
+            </div>
+            <div>
+              <span class="outcome-icon"><i class="ph ph-bell-ringing" aria-hidden="true"></i></span>
+              <strong>Færre glemte oppgaver</strong>
+              <p>Oppfølging opprettes og varsles til riktig tid.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="difference section">
+        <div class="container difference-grid">
+          <div class="difference-statement reveal">
+            <h2>Vi starter med <span>problemet</span>, ikke teknologien.</h2>
+          </div>
+          <div class="difference-copy reveal" data-delay="1">
+            <p>Kling er ikke et tradisjonelt webbyrå og ikke et generisk «AI-byrå».</p>
+            <p class="scrub-copy">Vi kombinerer Web, Automation og Systems fordi utfordringen sjelden stopper i ett verktøy. Først forstår vi arbeidsflyten. Deretter bygger vi den enkleste løsningen som fjerner friksjonen.</p>
+            <blockquote>Teknologien er verktøyet. Resultatet er produktet.</blockquote>
+          </div>
+        </div>
+        <div class="container principle-flow reveal">
+          <span>Forstå arbeidet</span><i class="ph ph-arrow-right" aria-hidden="true"></i><span>Finn friksjonen</span><i class="ph ph-arrow-right" aria-hidden="true"></i><span>Bygg løsningen</span><i class="ph ph-arrow-right" aria-hidden="true"></i><span>Forenkle hverdagen</span>
+        </div>
+      </section>
+
+      <section class="about section" id="om">
+        <div class="container about-grid">
+          <div class="about-visual reveal">
+            <div class="about-mascot-stage">
+              <img src="./assets/mascot/kling-bee-idea-pro.png" width="323" height="265" alt="Kling-maskoten viser frem en idé" loading="lazy" />
+            </div>
+            <div class="about-caption"><strong>Kling Systems</strong><span>Web · Automation · Systems</span></div>
+          </div>
+          <div class="about-copy reveal" data-delay="1">
+            <h2>Komplisert bak kulissene. Enkelt for dere.</h2>
+            <p class="about-lede">Kling finnes for å gjøre bedrifter enklere å drive.</p>
+            <p>Vi tror god teknologi skal fjerne steg, ikke legge til nye. Derfor setter vi oss inn i hvordan dere jobber, forklarer mulighetene uten unødvendig fagspråk og bygger løsninger som fungerer i den virkelige arbeidshverdagen.</p>
+            <div class="about-principles">
+              <div><span class="about-principle-icon"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></span><p><strong>Problem først</strong> Vi løser det som faktisk skaper friksjon.</p></div>
+              <div><span class="about-principle-icon"><i class="ph ph-chats-circle" aria-hidden="true"></i></span><p><strong>Enkelt forklart</strong> Dere skal forstå både valget og verdien.</p></div>
+              <div><span class="about-principle-icon"><i class="ph ph-check-circle" aria-hidden="true"></i></span><p><strong>Bygget for praksis</strong> Systemet skal fungere når arbeidsdagen er travel.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact section" id="kontakt">
+        <div class="container contact-shell">
+          <div class="contact-copy reveal">
+            <h2>Hva bruker dere tid på som burde gått av seg selv?</h2>
+            <p>Fortell kort om arbeidshverdagen. Vi ser etter muligheter for mindre manuelt arbeid og bedre flyt.</p>
+            <div class="contact-expectation">
+              <span>1</span><p><strong>Dere beskriver situasjonen</strong><br />Kort og uforpliktende.</p>
+              <span>2</span><p><strong>Vi vurderer mulighetene</strong><br />Ingen ferdig løsning presses på.</p>
+              <span>3</span><p><strong>Vi tar en prat</strong><br />Om hva som kan gi reell verdi.</p>
+            </div>
+          </div>
+
+          <div class="contact-form-wrap reveal" data-delay="1">
+            <form class="contact-form" novalidate>
+              <div class="form-heading">
+                <div><span class="kling-dot kling-dot--small">k</span><h3>Start kartleggingen</h3></div>
+                <p>Feltene merket med * må fylles ut.</p>
+              </div>
+
+              <div class="form-grid">
+                <label>
+                  <span>Navn *</span>
+                  <input type="text" name="name" autocomplete="name" required placeholder="Ditt navn" aria-describedby="name-error" />
+                  <small class="field-error" id="name-error"></small>
+                </label>
+                <label>
+                  <span>Bedrift *</span>
+                  <input type="text" name="company" autocomplete="organization" required placeholder="Bedriftens navn" aria-describedby="company-error" />
+                  <small class="field-error" id="company-error"></small>
+                </label>
+              </div>
+
+              <label>
+                <span>E-post *</span>
+                <input type="email" name="email" autocomplete="email" required placeholder="navn@bedrift.no" aria-describedby="email-error" />
+                <small class="field-error" id="email-error"></small>
+              </label>
+
+              <fieldset>
+                <legend>Hva trenger dere hjelp med?</legend>
+                <div class="choice-row">
+                  <label><input type="radio" name="service" value="Web" /><span>Web</span></label>
+                  <label><input type="radio" name="service" value="Automation" /><span>Automation</span></label>
+                  <label><input type="radio" name="service" value="Systems" /><span>Systems</span></label>
+                  <label><input type="radio" name="service" value="Usikker" checked /><span>Usikker</span></label>
+                </div>
+              </fieldset>
+
+              <label>
+                <span>Hva tar unødvendig mye tid i dag? *</span>
+                <textarea name="message" rows="5" required minlength="20" placeholder="For eksempel manuell oppfølging av henvendelser, rapportering eller informasjon som må kopieres mellom systemer." aria-describedby="message-error"></textarea>
+                <small class="field-error" id="message-error"></small>
+              </label>
+
+              <button class="button button--gold button--submit" type="submit" aria-label="Send inn kartleggingen" aria-busy="false">
+                <span class="button-label">Send inn kartleggingen</span>
+                <span class="button-loader" aria-hidden="true"></span>
+                <i class="ph ph-arrow-right" aria-hidden="true"></i>
+              </button>
+              <p class="form-note">Skjemaet er en lokal demonstrasjon og sender ikke informasjon videre ennå.</p>
+              <div class="form-status" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-main">
+        <div class="footer-brand">
+          <img src="./assets/kling-logo-cream-transparent.png" width="454" height="218" alt="Kling" loading="lazy" />
+          <p>Nettsider, automatiseringer og digitale systemer som gjør bedrifter enklere å drive.</p>
+        </div>
+        <div class="footer-links">
+          <div><h2>Tjenester</h2><a href="#tjenester">Web</a><a href="#tjenester">Automation</a><a href="#tjenester">Systems</a></div>
+          <div><h2>Kling</h2><a href="#slik-jobber-vi">Slik jobber vi</a><a href="#eksempler">Løsninger</a><a href="#om">Om Kling</a></div>
+          <div><h2>Kontakt</h2><a href="#kontakt">Start en kartlegging</a><a href="#topp">Tilbake til toppen</a></div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© <span data-year></span> Kling Systems</p>
+        <p>Smartere systemer. Enklere arbeid.</p>
+      </div>
+    </footer>
+  </body>
+</html>
