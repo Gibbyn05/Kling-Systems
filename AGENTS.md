@@ -43,6 +43,10 @@ Use Phosphor Icons for all new interface icons. Install or import icons from the
 
 There is no unit-test framework or coverage threshold yet. Extend `scripts/check.mjs` when adding testable structural requirements. Manually verify desktop and mobile layouts, keyboard navigation, the mobile menu, service accordions, solution controls, reduced-motion behavior, and contact-form states. Confirm there are no console errors or horizontal overflow.
 
+## Production Deployment
+
+The repository owner authorizes production publishing after requested changes. Once `npm run check` and `npm run build` pass, commit the complete in-scope change and push it directly to `main`, which is the Vercel production branch. Do not leave verified website changes only in the local worktree unless the user explicitly asks to keep them local. Report the commit hash and push result after publishing.
+
 ## Commit & Pull Request Guidelines
 
 The repository has no established commit history. Use concise Conventional Commit messages, for example `feat: add service accordion` or `fix: prevent mobile hero overflow`.
