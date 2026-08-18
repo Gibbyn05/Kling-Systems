@@ -101,6 +101,7 @@ const closeConsentBanner = (returnFocusTo) => {
 
   const banner = activeBanner;
   activeBanner = null;
+  document.body.classList.remove("has-consent-dialog");
   banner.classList.add("is-closing");
   banner.addEventListener("animationend", () => banner.remove(), { once: true });
   window.setTimeout(() => banner.remove(), 300);
@@ -111,9 +112,12 @@ const createConsentBanner = ({ returnFocusTo = null } = {}) => {
   if (activeBanner) return;
 
   const existingConsent = readConsent();
+  const isSettingsDialog = Boolean(returnFocusTo);
   const banner = document.createElement("section");
   banner.className = "analytics-consent";
-  banner.setAttribute("role", "region");
+  if (isSettingsDialog) banner.classList.add("analytics-consent--settings");
+  banner.setAttribute("role", isSettingsDialog ? "dialog" : "region");
+  if (isSettingsDialog) banner.setAttribute("aria-modal", "true");
   banner.setAttribute("aria-labelledby", "analytics-consent-title");
 
   const content = document.createElement("div");
@@ -146,6 +150,9 @@ const createConsentBanner = ({ returnFocusTo = null } = {}) => {
   acceptButton.type = "button";
   acceptButton.textContent = "Tillat analyse";
 
+  if (existingConsent === "denied") declineButton.setAttribute("aria-pressed", "true");
+  if (existingConsent === "granted") acceptButton.setAttribute("aria-pressed", "true");
+
   const chooseConsent = (status) => {
     const mustReload = status === "denied" && analyticsLoaded;
     saveConsent(status);
@@ -175,6 +182,12 @@ const createConsentBanner = ({ returnFocusTo = null } = {}) => {
 
   content.append(copy, actions);
   banner.append(content);
+  if (isSettingsDialog) {
+    document.body.classList.add("has-consent-dialog");
+    banner.addEventListener("click", (event) => {
+      if (event.target === banner) closeConsentBanner(returnFocusTo);
+    });
+  }
   document.body.append(banner);
   activeBanner = banner;
   declineButton.focus({ preventScroll: true });
@@ -187,7 +200,8 @@ const initializePrivacyControls = () => {
 };
 
 document.addEventListener("click", (event) => {
-  const control = event.target.closest("[data-open-consent]");
+  const eventTarget = event.target instanceof Element ? event.target : event.target?.parentElement;
+  const control = eventTarget?.closest("[data-open-consent]");
   if (!control) return;
 
   event.preventDefault();
@@ -199,7 +213,7 @@ document.addEventListener("click", (event) => {
   }
 
   createConsentBanner({ returnFocusTo: control });
-});
+}, { capture: true });
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && activeBanner && readConsent()) {
