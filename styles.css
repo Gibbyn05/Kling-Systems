@@ -639,6 +639,8 @@ legend { margin-bottom: 10px; }
 .footer-links .footer-privacy-button:hover { color: var(--cream); }
 .footer-bottom { padding-top: 22px; border-top: 1px solid rgba(255,249,210,.1); display: flex; justify-content: space-between; gap: 20px; font-size: .66rem; color: rgba(255,249,210,.5); }
 .footer-bottom p { margin: 0; }
+.legal-identity { display: flex; flex-wrap: wrap; gap: 5px 14px; }
+.legal-identity span { white-space: nowrap; }
 
 .reveal { opacity: 1; transform: none; }
 
@@ -773,6 +775,7 @@ legend { margin-bottom: 10px; }
   .choice-row span { text-align: center; }
   .footer-links { grid-template-columns: 1fr 1fr; row-gap: 35px; }
   .footer-bottom { flex-direction: column; }
+  .footer-bottom .legal-identity { flex-direction: column; }
   .thanks-header { min-height: 74px; }
   .thanks-brand { width: 98px; height: 50px; }
   .thanks-brand img { width: 102px; height: 48px; }
@@ -790,6 +793,7 @@ legend { margin-bottom: 10px; }
   .thanks-status { top: 18px; right: 18px; }
   .thanks-note { left: 18px; right: 18px; bottom: 18px; }
   .thanks-footer { min-height: 82px; align-items: center; flex-direction: column; justify-content: center; text-align: center; }
+  .thanks-footer .legal-identity { justify-content: center; }
 }
 
 @media (min-width: 821px) {
@@ -978,6 +982,7 @@ legend { margin-bottom: 10px; }
   .contact-page-mascot { width: 125px; right: -28px; bottom: 44px; opacity: .42; }
   .contact-page-form-wrap { margin: 14px; padding: 30px 20px; border: 1px solid rgba(15,41,64,.1); border-radius: 28px; }
   .contact-page-footer { min-height: 86px; align-items: center; flex-direction: column; justify-content: center; text-align: center; }
+  .contact-page-footer .legal-identity { justify-content: center; }
 }
 
 /* Løsningseksemplene er en faktisk karusell: kun valgt løsning vises. */
@@ -1280,4 +1285,5 @@ legend { margin-bottom: 10px; }
   .privacy-table__row + .privacy-table__row { border-top: 1px solid rgba(15,41,64,.12); }
   .privacy-table__row > span + span { border-top: 1px solid rgba(15,41,64,.08); border-left: 0; }
   .privacy-footer { min-height: 120px; flex-direction: column; justify-content: center; text-align: center; }
+  .privacy-footer .legal-identity { justify-content: center; }
 }
