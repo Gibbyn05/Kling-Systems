@@ -4,6 +4,9 @@ const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
 const contactHtml = readFileSync(new URL("../kontakt.html", import.meta.url), "utf8");
 const thanksHtml = readFileSync(new URL("../takk.html", import.meta.url), "utf8");
 const privacyHtml = readFileSync(new URL("../personvern.html", import.meta.url), "utf8");
+const webServiceHtml = readFileSync(new URL("../nettsider.html", import.meta.url), "utf8");
+const automationServiceHtml = readFileSync(new URL("../automatisering.html", import.meta.url), "utf8");
+const systemsServiceHtml = readFileSync(new URL("../systemer.html", import.meta.url), "utf8");
 const css = readFileSync(new URL("../styles.css", import.meta.url), "utf8");
 const js = readFileSync(new URL("../script.js", import.meta.url), "utf8");
 const contactJs = readFileSync(new URL("../kontakt.js", import.meta.url), "utf8");
@@ -11,18 +14,21 @@ const contactApi = readFileSync(new URL("../api/contact.js", import.meta.url), "
 const analyticsConsent = readFileSync(new URL("../analytics-consent.js", import.meta.url), "utf8");
 const robots = readFileSync(new URL("../public/robots.txt", import.meta.url), "utf8");
 const sitemap = readFileSync(new URL("../public/sitemap.xml", import.meta.url), "utf8");
-const allPages = [html, contactHtml, thanksHtml, privacyHtml];
+const servicePages = [webServiceHtml, automationServiceHtml, systemsServiceHtml];
+const allPages = [html, contactHtml, thanksHtml, privacyHtml, ...servicePages];
 const checks = [
   [html.includes('lang="no"'), "HTML-språk er norsk"],
   [(html.match(/<h1\b/g) || []).length === 1, "Siden har nøyaktig én H1"],
   [html.includes('name="description"'), "Metabeskrivelse finnes"],
   [allPages.every((page) => page.includes('rel="canonical"')), "Alle sider har canonical-lenke"],
+  [allPages.every((page) => page.includes('sizes="48x48"') && page.includes('sizes="192x192"') && page.includes('sizes="512x512"') && page.includes('rel="apple-touch-icon"')), "Alle sider bruker den kvadratiske favicon-pakken"],
   [html.includes('type="application/ld+json"') && html.includes('"@type": "Organization"'), "Forsiden har strukturdata for virksomheten"],
   [allPages.every((page) => page.includes("NERLANDSREM SYSTEMS") && page.includes("938 135 371")), "Juridisk navn og organisasjonsnummer vises på alle sider"],
   [html.includes('"legalName": "NERLANDSREM SYSTEMS"') && html.includes('"value": "938135371"') && html.includes('"streetAddress": "Julsundet 237C"'), "Strukturdata inneholder verifisert juridisk identitet"],
   [html.includes("Molde") && html.includes("resten av Norge"), "Geografisk dekning er tydelig på forsiden"],
   [robots.includes("Sitemap: https://www.klingsystems.no/sitemap.xml"), "Robots-filen peker til sitemap"],
   [sitemap.includes("https://www.klingsystems.no/") && sitemap.includes("https://www.klingsystems.no/kontakt.html") && sitemap.includes("https://www.klingsystems.no/personvern.html"), "Sitemap inneholder offentlige sider"],
+  [["nettsider", "automatisering", "systemer"].every((service) => sitemap.includes(`https://www.klingsystems.no/${service}`)), "Sitemap inneholder alle tjenestesidene"],
   [!sitemap.includes("takk.html"), "Sitemap utelater noindex-siden"],
   [
     ["web-enquiry", "automation-flow", "systems-workspace"].every((name) => html.includes(`kling-illustration-${name}.webp`)),
@@ -34,8 +40,13 @@ const checks = [
   [analyticsConsent.includes('const measurementId = "G-EPXJSXY17W"') && analyticsConsent.includes("document.createElement(\"script\")"), "Analyse lastes dynamisk etter samtykke"],
   [analyticsConsent.includes("consentLifetime") && analyticsConsent.includes("removeAnalyticsCookies"), "Samtykke utløper og analysekapsler kan fjernes"],
   [analyticsConsent.includes('"Tillat analyse"') && analyticsConsent.includes('"Kun nødvendige"'), "Analysevalget er tydelig og norsk"],
+  [analyticsConsent.includes('event.target.closest("[data-open-consent]")'), "Personvernvalg bruker robust klikkhåndtering"],
   [html.includes('aria-label="Åpne meny"'), "Mobilmenyen har tilgjengelig navn"],
   [html.includes('href="./kontakt.html"'), "Hoved-CTA peker til kontaktsiden"],
+  [html.includes('href="mailto:hei@klingsystems.no"'), "E-postadressen vises i bunnteksten på forsiden"],
+  [servicePages.every((page) => page.includes('type="application/ld+json"') && page.includes('"@type":"Service"')), "Tjenestesidene har strukturdata"],
+  [servicePages.every((page) => (page.match(/<h1\b/g) || []).length === 1), "Hver tjenesteside har nøyaktig én H1"],
+  [servicePages.every((page) => page.includes("NERLANDSREM SYSTEMS") && page.includes("938 135 371")), "Tjenestesidene viser foretaksinformasjon"],
   [css.includes("prefers-reduced-motion"), "Redusert bevegelse støttes"],
   [css.includes(":focus-visible"), "Synlig tastaturfokus finnes"],
   [contactHtml.includes('lang="no"'), "Kontaktsiden er på norsk"],

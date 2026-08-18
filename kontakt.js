@@ -5,6 +5,12 @@ const form = document.querySelector(".contact-form");
 const submitButton = form?.querySelector(".button--submit");
 const formStatus = form?.querySelector(".form-status");
 
+const requestedService = new URLSearchParams(window.location.search).get("service");
+if (["Nettsider", "Automatisering", "Systemer"].includes(requestedService)) {
+  const serviceChoice = form?.querySelector(`input[name="service"][value="${requestedService}"]`);
+  if (serviceChoice) serviceChoice.checked = true;
+}
+
 const messages = {
   name: "Skriv inn navnet ditt.",
   company: "Skriv inn bedriftens navn.",

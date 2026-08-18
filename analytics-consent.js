@@ -184,11 +184,28 @@ const initializePrivacyControls = () => {
   const consent = readConsent();
   if (consent === "granted") loadAnalytics();
   if (!consent) createConsentBanner();
-
-  document.querySelectorAll("[data-open-consent]").forEach((button) => {
-    button.addEventListener("click", () => createConsentBanner({ returnFocusTo: button }));
-  });
 };
+
+document.addEventListener("click", (event) => {
+  const control = event.target.closest("[data-open-consent]");
+  if (!control) return;
+
+  event.preventDefault();
+  if (activeBanner && !document.body.contains(activeBanner)) activeBanner = null;
+
+  if (activeBanner) {
+    activeBanner.querySelector("button")?.focus({ preventScroll: true });
+    return;
+  }
+
+  createConsentBanner({ returnFocusTo: control });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && activeBanner && readConsent()) {
+    closeConsentBanner(document.querySelector("[data-open-consent]"));
+  }
+});
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initializePrivacyControls, { once: true });

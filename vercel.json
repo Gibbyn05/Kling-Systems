@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/nettsider", "destination": "/nettsider.html" },
+    { "source": "/automatisering", "destination": "/automatisering.html" },
+    { "source": "/systemer", "destination": "/systemer.html" }
+  ]
+}
