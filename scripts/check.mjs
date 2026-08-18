@@ -7,10 +7,14 @@ const css = readFileSync(new URL("../styles.css", import.meta.url), "utf8");
 const js = readFileSync(new URL("../script.js", import.meta.url), "utf8");
 const contactJs = readFileSync(new URL("../kontakt.js", import.meta.url), "utf8");
 const contactApi = readFileSync(new URL("../api/contact.js", import.meta.url), "utf8");
+const analyticsConsent = readFileSync(new URL("../analytics-consent.js", import.meta.url), "utf8");
 const checks = [
   [html.includes('lang="no"'), "HTML-språk er norsk"],
   [(html.match(/<h1\b/g) || []).length === 1, "Siden har nøyaktig én H1"],
   [html.includes('name="description"'), "Metabeskrivelse finnes"],
+  [[html, contactHtml, thanksHtml].every((page) => page.includes("G-EPXJSXY17W")), "Google-taggen finnes på alle sider"],
+  [[html, contactHtml, thanksHtml].every((page) => page.includes('analytics_storage: klingAnalyticsConsent')), "Samtykkemodus lastes før analyse"],
+  [analyticsConsent.includes('"Tillat analyse"') && analyticsConsent.includes('"Kun nødvendige"'), "Analysevalget er tydelig og norsk"],
   [html.includes('aria-label="Åpne meny"'), "Mobilmenyen har tilgjengelig navn"],
   [html.includes('href="./kontakt.html"'), "Hoved-CTA peker til kontaktsiden"],
   [css.includes("prefers-reduced-motion"), "Redusert bevegelse støttes"],

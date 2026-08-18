@@ -1053,3 +1053,118 @@ legend { margin-bottom: 10px; }
   .solution-slide-mascot { width: min(100%, 240px); max-height: 220px; }
   .solution-wide.is-featured .document-flow { margin-top: 8px; }
 }
+
+/* Google Analytics consent */
+.analytics-consent {
+  position: fixed;
+  z-index: 10000;
+  right: clamp(16px, 3vw, 40px);
+  bottom: clamp(16px, 3vw, 40px);
+  left: clamp(16px, 3vw, 40px);
+  animation: consent-enter 240ms ease-out both;
+}
+
+.analytics-consent.is-closing {
+  animation: consent-leave 180ms ease-in both;
+  pointer-events: none;
+}
+
+.analytics-consent__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  width: min(100%, 900px);
+  margin-left: auto;
+  padding: 20px 22px;
+  color: var(--cream);
+  background: var(--navy);
+  border: 1px solid rgba(191, 221, 240, .25);
+  border-radius: 20px;
+  box-shadow: 0 20px 55px rgba(15, 41, 64, .26);
+}
+
+.analytics-consent__copy h2 {
+  margin: 0 0 5px;
+  color: var(--cream);
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.analytics-consent__copy p {
+  max-width: 58ch;
+  margin: 0;
+  color: rgba(255, 249, 210, .72);
+  font-size: .88rem;
+  line-height: 1.5;
+}
+
+.analytics-consent__actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 10px;
+}
+
+.analytics-consent__button {
+  min-height: 44px;
+  padding: 0 17px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font: inherit;
+  font-size: .85rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+.analytics-consent__button:hover {
+  transform: translateY(-1px);
+}
+
+.analytics-consent__button--primary {
+  color: var(--navy);
+  background: var(--gold);
+}
+
+.analytics-consent__button--secondary {
+  color: var(--cream);
+  background: transparent;
+  border-color: rgba(255, 249, 210, .35);
+}
+
+.analytics-consent__button--secondary:hover {
+  border-color: rgba(255, 249, 210, .7);
+  background: rgba(255, 255, 255, .06);
+}
+
+@keyframes consent-enter {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes consent-leave {
+  to { opacity: 0; transform: translateY(10px); }
+}
+
+@media (max-width: 700px) {
+  .analytics-consent__content {
+    display: grid;
+    gap: 16px;
+    padding: 18px;
+  }
+
+  .analytics-consent__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .analytics-consent__actions { grid-template-columns: 1fr; }
+  .analytics-consent__button--primary { grid-row: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .analytics-consent,
+  .analytics-consent.is-closing { animation: none; }
+}
