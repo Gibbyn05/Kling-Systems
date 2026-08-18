@@ -7,6 +7,7 @@ const privacyHtml = readFileSync(new URL("../personvern.html", import.meta.url),
 const webServiceHtml = readFileSync(new URL("../nettsider.html", import.meta.url), "utf8");
 const automationServiceHtml = readFileSync(new URL("../automatisering.html", import.meta.url), "utf8");
 const systemsServiceHtml = readFileSync(new URL("../systemer.html", import.meta.url), "utf8");
+const aboutHtml = readFileSync(new URL("../om-oss.html", import.meta.url), "utf8");
 const css = readFileSync(new URL("../styles.css", import.meta.url), "utf8");
 const js = readFileSync(new URL("../script.js", import.meta.url), "utf8");
 const contactJs = readFileSync(new URL("../kontakt.js", import.meta.url), "utf8");
@@ -15,7 +16,7 @@ const analyticsConsent = readFileSync(new URL("../analytics-consent.js", import.
 const robots = readFileSync(new URL("../public/robots.txt", import.meta.url), "utf8");
 const sitemap = readFileSync(new URL("../public/sitemap.xml", import.meta.url), "utf8");
 const servicePages = [webServiceHtml, automationServiceHtml, systemsServiceHtml];
-const allPages = [html, contactHtml, thanksHtml, privacyHtml, ...servicePages];
+const allPages = [html, contactHtml, thanksHtml, privacyHtml, aboutHtml, ...servicePages];
 const checks = [
   [html.includes('lang="no"'), "HTML-språk er norsk"],
   [(html.match(/<h1\b/g) || []).length === 1, "Siden har nøyaktig én H1"],
@@ -29,6 +30,7 @@ const checks = [
   [robots.includes("Sitemap: https://www.klingsystems.no/sitemap.xml"), "Robots-filen peker til sitemap"],
   [sitemap.includes("https://www.klingsystems.no/") && sitemap.includes("https://www.klingsystems.no/kontakt.html") && sitemap.includes("https://www.klingsystems.no/personvern.html"), "Sitemap inneholder offentlige sider"],
   [["nettsider", "automatisering", "systemer"].every((service) => sitemap.includes(`https://www.klingsystems.no/${service}`)), "Sitemap inneholder alle tjenestesidene"],
+  [sitemap.includes("https://www.klingsystems.no/om-oss"), "Sitemap inneholder Om Kling-siden"],
   [!sitemap.includes("takk.html"), "Sitemap utelater noindex-siden"],
   [
     ["web-enquiry", "automation-flow", "systems-workspace"].every((name) => html.includes(`kling-illustration-${name}.webp`)),
@@ -44,6 +46,11 @@ const checks = [
   [html.includes('aria-label="Åpne meny"'), "Mobilmenyen har tilgjengelig navn"],
   [html.includes('href="./kontakt.html"'), "Hoved-CTA peker til kontaktsiden"],
   [html.includes('href="mailto:hei@klingsystems.no"'), "E-postadressen vises i bunnteksten på forsiden"],
+  [allPages.every((page) => page.includes("+4797961426")), "Klikkbart telefonnummer finnes på alle sider"],
+  [html.includes('"telephone": "+4797961426"'), "Strukturdata inneholder telefonnummer"],
+  [(aboutHtml.match(/<h1\b/g) || []).length === 1 && aboutHtml.includes("to 21-åringer") && aboutHtml.includes("Molde i 2026"), "Om Kling-siden forteller den faktiske historien"],
+  [aboutHtml.includes("https://www.altiild.no/") && aboutHtml.includes("alt-i-ild-project.jpg"), "Om Kling-siden viser det publiserte Alt i Ild-prosjektet"],
+  [aboutHtml.includes("Løsningsløftet") && aboutHtml.includes("ikke et bestemt forretningsresultat"), "Løsningsløftet er tydelig avgrenset"],
   [servicePages.every((page) => page.includes('type="application/ld+json"') && page.includes('"@type":"Service"')), "Tjenestesidene har strukturdata"],
   [servicePages.every((page) => (page.match(/<h1\b/g) || []).length === 1), "Hver tjenesteside har nøyaktig én H1"],
   [servicePages.every((page) => page.includes("NERLANDSREM SYSTEMS") && page.includes("938 135 371")), "Tjenestesidene viser foretaksinformasjon"],

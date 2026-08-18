@@ -15,6 +15,7 @@ export default defineConfig({
         nettsider: resolve(rootDirectory, "nettsider.html"),
         automatisering: resolve(rootDirectory, "automatisering.html"),
         systemer: resolve(rootDirectory, "systemer.html"),
+        omOss: resolve(rootDirectory, "om-oss.html"),
       },
     },
   },

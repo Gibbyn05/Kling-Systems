@@ -2,6 +2,7 @@
   "rewrites": [
     { "source": "/nettsider", "destination": "/nettsider.html" },
     { "source": "/automatisering", "destination": "/automatisering.html" },
-    { "source": "/systemer", "destination": "/systemer.html" }
+    { "source": "/systemer", "destination": "/systemer.html" },
+    { "source": "/om-oss", "destination": "/om-oss.html" }
   ]
 }
