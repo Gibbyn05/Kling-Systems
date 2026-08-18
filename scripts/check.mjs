@@ -8,10 +8,22 @@ const js = readFileSync(new URL("../script.js", import.meta.url), "utf8");
 const contactJs = readFileSync(new URL("../kontakt.js", import.meta.url), "utf8");
 const contactApi = readFileSync(new URL("../api/contact.js", import.meta.url), "utf8");
 const analyticsConsent = readFileSync(new URL("../analytics-consent.js", import.meta.url), "utf8");
+const robots = readFileSync(new URL("../public/robots.txt", import.meta.url), "utf8");
+const sitemap = readFileSync(new URL("../public/sitemap.xml", import.meta.url), "utf8");
 const checks = [
   [html.includes('lang="no"'), "HTML-språk er norsk"],
   [(html.match(/<h1\b/g) || []).length === 1, "Siden har nøyaktig én H1"],
   [html.includes('name="description"'), "Metabeskrivelse finnes"],
+  [[html, contactHtml, thanksHtml].every((page) => page.includes('rel="canonical"')), "Alle sider har canonical-lenke"],
+  [html.includes('type="application/ld+json"') && html.includes('"@type": "Organization"'), "Forsiden har strukturdata for virksomheten"],
+  [html.includes("Molde") && html.includes("resten av Norge"), "Geografisk dekning er tydelig på forsiden"],
+  [robots.includes("Sitemap: https://www.klingsystems.no/sitemap.xml"), "Robots-filen peker til sitemap"],
+  [sitemap.includes("https://www.klingsystems.no/") && sitemap.includes("https://www.klingsystems.no/kontakt.html"), "Sitemap inneholder offentlige sider"],
+  [!sitemap.includes("takk.html"), "Sitemap utelater noindex-siden"],
+  [
+    ["web-enquiry", "automation-flow", "systems-workspace"].every((name) => html.includes(`kling-illustration-${name}.webp`)),
+    "Tjenesteillustrasjonene bruker komprimert WebP",
+  ],
   [[html, contactHtml, thanksHtml].every((page) => page.includes("G-EPXJSXY17W")), "Google-taggen finnes på alle sider"],
   [[html, contactHtml, thanksHtml].every((page) => page.includes('analytics_storage: klingAnalyticsConsent')), "Samtykkemodus lastes før analyse"],
   [analyticsConsent.includes('"Tillat analyse"') && analyticsConsent.includes('"Kun nødvendige"'), "Analysevalget er tydelig og norsk"],
