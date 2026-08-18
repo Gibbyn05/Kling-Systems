@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Takk for henvendelsen | Kling Systems</title>
+    <meta
+      name="description"
+      content="Takk for henvendelsen. Kling har mottatt meldingen din og tar kontakt så snart som mulig."
+    />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#0F2940" />
+    <link rel="icon" type="image/png" href="./assets/kling-symbol-transparent.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./takk.js" type="module"></script>
+  </head>
+  <body class="thanks-page">
+    <a class="skip-link" href="#innhold">Hopp til innholdet</a>
+
+    <div class="thanks-shell">
+      <header class="thanks-header container">
+        <a class="thanks-brand" href="./" aria-label="Kling Systems, gå til forsiden">
+          <img src="./assets/kling-logo-navy-transparent.png" width="469" height="222" alt="Kling" />
+        </a>
+        <a class="thanks-home-link" href="./">
+          <i class="ph ph-arrow-left" aria-hidden="true"></i>
+          Til forsiden
+        </a>
+      </header>
+
+      <main class="thanks-main container" id="innhold">
+        <article class="thanks-card" aria-labelledby="thanks-title">
+          <div class="thanks-copy">
+            <p class="thanks-kicker"><i class="ph ph-check-circle" aria-hidden="true"></i> Henvendelsen er mottatt</p>
+            <h1 id="thanks-title">Takk for henvendelsen.</h1>
+            <p class="thanks-lede">Vi har mottatt meldingen din. Nå setter vi oss inn i det du har sendt.</p>
+
+            <ol class="thanks-steps" aria-label="Dette skjer videre">
+              <li><span>1</span><div><strong>Vi leser gjennom</strong><small>Vi ser på situasjonen og hva dere ønsker å løse.</small></div></li>
+              <li><span>2</span><div><strong>Vi vurderer mulighetene</strong><small>Vi ser etter et nyttig og realistisk neste steg.</small></div></li>
+              <li><span>3</span><div><strong>Vi tar kontakt</strong><small>Du hører fra oss så snart som mulig.</small></div></li>
+            </ol>
+
+            <div class="thanks-actions">
+              <a class="button button--gold" href="./">
+                Tilbake til forsiden
+                <i class="ph ph-arrow-right" aria-hidden="true"></i>
+              </a>
+              <p>Du trenger ikke gjøre noe mer nå.</p>
+            </div>
+          </div>
+
+          <div class="thanks-visual" aria-hidden="true">
+            <span class="thanks-status"><i class="ph ph-check" aria-hidden="true"></i> Mottatt</span>
+            <span class="thanks-orbit thanks-orbit--one"></span>
+            <span class="thanks-orbit thanks-orbit--two"></span>
+            <img src="./assets/mascot/kling-bee-email.png" width="302" height="302" alt="" />
+            <div class="thanks-note">
+              <i class="ph ph-envelope-simple-open" aria-hidden="true"></i>
+              <span><strong>Trygt levert</strong><small>Neste steg er vårt</small></span>
+            </div>
+          </div>
+        </article>
+      </main>
+
+      <footer class="thanks-footer container">
+        <p>© <span data-year></span> Kling Systems</p>
+        <p>Smartere systemer. Enklere arbeid.</p>
+      </footer>
+    </div>
+  </body>
+</html>

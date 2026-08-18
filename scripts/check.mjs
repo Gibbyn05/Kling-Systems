@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 
 const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
+const thanksHtml = readFileSync(new URL("../takk.html", import.meta.url), "utf8");
 const css = readFileSync(new URL("../styles.css", import.meta.url), "utf8");
 const js = readFileSync(new URL("../script.js", import.meta.url), "utf8");
 const checks = [
@@ -12,6 +13,9 @@ const checks = [
   [css.includes("prefers-reduced-motion"), "Redusert bevegelse støttes"],
   [css.includes(":focus-visible"), "Synlig tastaturfokus finnes"],
   [js.includes("setCustomValidity"), "Skjemaet har norsk validering"],
+  [thanksHtml.includes('lang="no"'), "Bekreftelsessiden er på norsk"],
+  [(thanksHtml.match(/<h1\b/g) || []).length === 1, "Bekreftelsessiden har nøyaktig én H1"],
+  [thanksHtml.includes('name="robots" content="noindex, follow"'), "Bekreftelsessiden er skjult fra søkeresultater"],
 ];
 
 let failed = false;
