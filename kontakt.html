@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontakt Kling Systems | Start en kartlegging</title>
+    <meta
+      name="description"
+      content="Fortell Kling Systems hva som tar unødvendig mye tid. Vi vurderer mulighetene for nettsider, automatisering og digitale systemer."
+    />
+    <meta name="theme-color" content="#0F2940" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nb_NO" />
+    <meta property="og:title" content="Kontakt Kling Systems | Start en kartlegging" />
+    <meta property="og:description" content="Fortell kort om arbeidshverdagen. Vi ser etter muligheter for mindre manuelt arbeid og bedre flyt." />
+    <link rel="icon" type="image/png" href="./assets/kling-symbol-transparent.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./kontakt.js" type="module"></script>
+  </head>
+  <body class="contact-page">
+    <a class="skip-link" href="#innhold">Hopp til skjemaet</a>
+
+    <div class="contact-page-shell">
+      <header class="contact-page-header container">
+        <a class="contact-page-brand" href="./" aria-label="Kling Systems, gå til forsiden">
+          <img src="./assets/kling-logo-navy-transparent.png" width="469" height="222" alt="Kling" />
+        </a>
+        <a class="contact-page-home" href="./">
+          <i class="ph ph-arrow-left" aria-hidden="true"></i>
+          Til forsiden
+        </a>
+      </header>
+
+      <main class="contact-page-main container" id="innhold">
+        <section class="contact-page-grid" aria-labelledby="contact-title">
+          <div class="contact-page-intro">
+            <p class="contact-page-kicker"><i class="ph ph-chats-circle" aria-hidden="true"></i> Uforpliktende kartlegging</p>
+            <h1 id="contact-title">Fortell oss hvor arbeidet stopper opp.</h1>
+            <p class="contact-page-lede">Beskriv situasjonen kort. Vi vurderer hvor Kling kan fjerne manuelle steg, samle informasjon eller skape bedre flyt.</p>
+
+            <ol class="contact-page-steps" aria-label="Dette skjer etter innsending">
+              <li><span>1</span><div><strong>Dere beskriver situasjonen</strong><small>Kort og uforpliktende.</small></div></li>
+              <li><span>2</span><div><strong>Vi vurderer mulighetene</strong><small>Med utgangspunkt i hvordan dere jobber.</small></div></li>
+              <li><span>3</span><div><strong>Vi tar kontakt</strong><small>Hvis vi ser et nyttig neste steg.</small></div></li>
+            </ol>
+
+            <a class="contact-page-email" href="mailto:hei@klingsystems.no">
+              <i class="ph ph-envelope-simple" aria-hidden="true"></i>
+              <span><small>Vil du heller sende e-post?</small><strong>hei@klingsystems.no</strong></span>
+            </a>
+
+            <img class="contact-page-mascot" src="./assets/mascot/kling-bee-email.png" width="302" height="302" alt="Kling-maskoten med en konvolutt" />
+          </div>
+
+          <div class="contact-form-wrap contact-page-form-wrap">
+            <form class="contact-form" novalidate>
+              <label class="form-honeypot" aria-hidden="true">
+                <span>Ikke fyll ut dette feltet</span>
+                <input type="text" name="website" tabindex="-1" autocomplete="off" />
+              </label>
+
+              <div class="form-heading">
+                <div><span class="kling-dot kling-dot--small" aria-hidden="true"><img src="./assets/kling-symbol-transparent.png" alt="" /></span><h2>Start kartleggingen</h2></div>
+                <p>Feltene merket med * må fylles ut.</p>
+              </div>
+
+              <div class="form-grid">
+                <label>
+                  <span>Navn *</span>
+                  <input type="text" name="name" autocomplete="name" required placeholder="Ditt navn" aria-describedby="name-error" />
+                  <small class="field-error" id="name-error"></small>
+                </label>
+                <label>
+                  <span>Bedrift *</span>
+                  <input type="text" name="company" autocomplete="organization" required placeholder="Bedriftens navn" aria-describedby="company-error" />
+                  <small class="field-error" id="company-error"></small>
+                </label>
+              </div>
+
+              <label>
+                <span>E-post *</span>
+                <input type="email" name="email" autocomplete="email" required placeholder="navn@bedrift.no" aria-describedby="email-error" />
+                <small class="field-error" id="email-error"></small>
+              </label>
+
+              <fieldset>
+                <legend>Hva trenger dere hjelp med?</legend>
+                <div class="choice-row">
+                  <label><input type="radio" name="service" value="Nettsider" /><span>Nettsider</span></label>
+                  <label><input type="radio" name="service" value="Automatisering" /><span>Automatisering</span></label>
+                  <label><input type="radio" name="service" value="Systemer" /><span>Systemer</span></label>
+                  <label><input type="radio" name="service" value="Usikker" checked /><span>Usikker</span></label>
+                </div>
+              </fieldset>
+
+              <label>
+                <span>Hva tar unødvendig mye tid i dag? *</span>
+                <textarea name="message" rows="6" required minlength="20" placeholder="For eksempel manuell oppfølging av henvendelser, rapportering eller informasjon som må kopieres mellom systemer." aria-describedby="message-error"></textarea>
+                <small class="field-error" id="message-error"></small>
+              </label>
+
+              <button class="button button--gold button--submit" type="submit" aria-label="Send inn kartleggingen" aria-busy="false">
+                <span class="button-label">Send inn kartleggingen</span>
+                <span class="button-loader" aria-hidden="true"></span>
+                <i class="ph ph-arrow-right" aria-hidden="true"></i>
+              </button>
+              <p class="form-note">Opplysningene brukes bare for å følge opp henvendelsen.</p>
+              <div class="form-status" role="status" aria-live="polite" tabindex="-1"></div>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="contact-page-footer container">
+        <p>© <span data-year></span> Kling Systems</p>
+        <p>Smartere systemer. Enklere arbeid.</p>
+      </footer>
+    </div>
+  </body>
+</html>

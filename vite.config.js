@@ -9,6 +9,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(rootDirectory, "index.html"),
+        kontakt: resolve(rootDirectory, "kontakt.html"),
         takk: resolve(rootDirectory, "takk.html"),
       },
     },
