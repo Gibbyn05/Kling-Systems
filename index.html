@@ -498,6 +498,10 @@
 
           <div class="contact-form-wrap reveal" data-delay="1">
             <form class="contact-form" novalidate>
+              <label class="form-honeypot" aria-hidden="true">
+                <span>Ikke fyll ut dette feltet</span>
+                <input type="text" name="website" tabindex="-1" autocomplete="off" />
+              </label>
               <div class="form-heading">
                 <div><span class="kling-dot kling-dot--small" aria-hidden="true"><img src="./assets/kling-symbol-transparent.png" alt="" /></span><h3>Start kartleggingen</h3></div>
                 <p>Feltene merket med * må fylles ut.</p>
@@ -543,8 +547,8 @@
                 <span class="button-loader" aria-hidden="true"></span>
                 <i class="ph ph-arrow-right" aria-hidden="true"></i>
               </button>
-              <p class="form-note">Skjemaet er en lokal demonstrasjon og sender ikke informasjon videre ennå.</p>
-              <div class="form-status" role="status" aria-live="polite"></div>
+              <p class="form-note">Opplysningene brukes bare for å følge opp henvendelsen.</p>
+              <div class="form-status" role="status" aria-live="polite" tabindex="-1"></div>
             </form>
           </div>
         </div>

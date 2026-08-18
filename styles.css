@@ -434,6 +434,7 @@ p { text-wrap: pretty; }
 .form-heading p { margin: 0; font-size: .65rem; opacity: .6; }
 .kling-dot--small { position: static; transform: none; width: 36px; height: 36px; font-size: 1.35rem; }
 .contact-form { display: grid; gap: 22px; }
+.form-honeypot { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .contact-form label { display: grid; gap: 7px; }
 .contact-form label > span, .contact-form legend { font-size: .8rem; font-weight: 800; }
@@ -460,6 +461,7 @@ legend { margin-bottom: 10px; }
 .form-note { text-align: center; margin: -10px 0 0; font-size: .72rem; opacity: .68; }
 .form-status { display: none; border-radius: 14px; padding: 13px 15px; background: rgba(37,107,79,.1); color: var(--success); font-size: .78rem; font-weight: 800; }
 .form-status.is-visible { display: block; }
+.form-status.is-error { background: rgba(168,51,45,.1); color: var(--danger); }
 
 /* Thank-you page */
 .thanks-page { background: var(--cream); }

@@ -275,7 +275,8 @@ form?.addEventListener("submit", async (event) => {
   const requiredFields = [...form.querySelectorAll("input[required], textarea[required]")];
   const valid = requiredFields.map(validateField).every(Boolean);
 
-  formStatus?.classList.remove("is-visible");
+  formStatus?.classList.remove("is-visible", "is-error");
+  formStatus?.setAttribute("role", "status");
   if (!valid) {
     requiredFields.find((field) => !field.validity.valid)?.focus();
     return;
@@ -285,22 +286,30 @@ form?.addEventListener("submit", async (event) => {
   submitButton?.setAttribute("disabled", "");
   submitButton?.setAttribute("aria-busy", "true");
   submitButton?.setAttribute("aria-label", "Sender kartleggingen");
-  await new Promise((resolve) => window.setTimeout(resolve, 850));
 
-  submitButton?.classList.remove("is-loading");
-  submitButton?.removeAttribute("disabled");
-  submitButton?.setAttribute("aria-busy", "false");
-  submitButton?.setAttribute("aria-label", "Send inn kartleggingen");
-  if (formStatus) {
-    formStatus.textContent = "Takk! Demonstrasjonen er fullført. I en publisert versjon ville henvendelsen blitt sendt til Kling nå.";
-    formStatus.classList.add("is-visible");
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(Object.fromEntries(new FormData(form))),
+    });
+    const result = await response.json().catch(() => ({}));
+
+    if (!response.ok) throw new Error(result.error || "Henvendelsen kunne ikke sendes.");
+    window.location.assign("./takk.html");
+  } catch (error) {
+    if (formStatus) {
+      formStatus.textContent = error.message || "Vi fikk ikke sendt henvendelsen. Prøv igjen.";
+      formStatus.classList.add("is-visible", "is-error");
+      formStatus.setAttribute("role", "alert");
+      formStatus.focus({ preventScroll: false });
+    }
+  } finally {
+    submitButton?.classList.remove("is-loading");
+    submitButton?.removeAttribute("disabled");
+    submitButton?.setAttribute("aria-busy", "false");
+    submitButton?.setAttribute("aria-label", "Send inn kartleggingen");
   }
-  form.reset();
-  requiredFields.forEach((field) => {
-    field.removeAttribute("aria-invalid");
-    const error = field.parentElement?.querySelector(".field-error");
-    if (error) error.textContent = "";
-  });
 });
 
 const year = document.querySelector("[data-year]");
