@@ -33,6 +33,9 @@ const sendEmail = async (apiKey, payload) => {
 };
 
 export default async function handler(request, response) {
+  response.setHeader("Cache-Control", "no-store, max-age=0");
+  response.setHeader("X-Content-Type-Options", "nosniff");
+
   if (request.method !== "POST") {
     response.setHeader("Allow", "POST");
     return sendJson(response, 405, { error: "Denne forespørselen er ikke tillatt." });
@@ -142,6 +145,7 @@ export default async function handler(request, response) {
     `Tema: ${service}`,
     "",
     "Du trenger ikke gjøre noe mer nå. Hvis du vil legge til noe, kan du svare på denne e-posten.",
+    "Personvern: https://www.klingsystems.no/personvern.html",
     "",
     "Hilsen",
     "Kling Systems",
@@ -168,7 +172,8 @@ export default async function handler(request, response) {
             <tr><td style="padding:8px 12px 8px 0;color:#667987">Bedrift</td><td style="padding:8px 0;font-weight:700">${escapeHtml(company)}</td></tr>
             <tr><td style="padding:8px 12px 8px 0;color:#667987">Tema</td><td style="padding:8px 0;font-weight:700">${escapeHtml(service)}</td></tr>
           </table>
-          <p style="margin:0 0 28px;color:#526678">Du trenger ikke gjøre noe mer nå. Hvis du vil legge til noe, kan du svare direkte på denne e-posten.</p>
+          <p style="margin:0 0 12px;color:#526678">Du trenger ikke gjøre noe mer nå. Hvis du vil legge til noe, kan du svare direkte på denne e-posten.</p>
+          <p style="margin:0 0 28px"><a href="https://www.klingsystems.no/personvern.html" style="color:#0f2940">Slik behandler vi personopplysninger</a></p>
           <p style="margin:0;font-weight:700">Hilsen Kling Systems</p>
           <p style="margin:2px 0 0"><a href="mailto:${escapeHtml(recipient)}" style="color:#0f2940">${escapeHtml(recipient)}</a></p>
         </div>

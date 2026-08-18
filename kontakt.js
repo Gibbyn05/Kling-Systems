@@ -1,3 +1,4 @@
+import "@fontsource-variable/geist";
 import "@phosphor-icons/web/regular";
 
 const form = document.querySelector(".contact-form");

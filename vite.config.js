@@ -10,6 +10,7 @@ export default defineConfig({
       input: {
         main: resolve(rootDirectory, "index.html"),
         kontakt: resolve(rootDirectory, "kontakt.html"),
+        personvern: resolve(rootDirectory, "personvern.html"),
         takk: resolve(rootDirectory, "takk.html"),
       },
     },

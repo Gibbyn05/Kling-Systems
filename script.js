@@ -1,3 +1,4 @@
+import "@fontsource-variable/geist";
 import "@phosphor-icons/web/regular";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

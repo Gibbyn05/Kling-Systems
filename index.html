@@ -1,27 +1,6 @@
 <!doctype html>
 <html lang="no">
   <head>
-    <!-- Google tag (gtag.js) med samtykkemodus -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      let klingAnalyticsConsent = "denied";
-      try {
-        if (localStorage.getItem("kling-analytics-consent") === "granted") klingAnalyticsConsent = "granted";
-      } catch {}
-      gtag("consent", "default", {
-        analytics_storage: klingAnalyticsConsent,
-        ad_storage: "denied",
-        ad_user_data: "denied",
-        ad_personalization: "denied",
-        wait_for_update: 500
-      });
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EPXJSXY17W"></script>
-    <script>
-      gtag("js", new Date());
-      gtag("config", "G-EPXJSXY17W");
-    </script>
     <!--
       THESIS: Kling gjør skjult arbeidsfriksjon synlig og viser hvordan den blir til flyt. Siden avviser et generisk teknologibyrå med løsrevne funksjonskort.
       OWN-WORLD: Krem, marine, himmelblå og bie-gul. Myke noder, forbindelseslinjer, kraftige runde overskrifter og presise arbeidsflyter.
@@ -49,9 +28,6 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://www.klingsystems.no/" />
     <link rel="icon" type="image/png" href="./assets/kling-symbol-transparent.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
     <script type="application/ld+json">
       {
@@ -577,7 +553,13 @@
         <div class="footer-links">
           <div><h2>Tjenester</h2><a href="#tjenester">Nettsider</a><a href="#tjenester">Automatisering</a><a href="#tjenester">Systemer</a></div>
           <div><h2>Kling</h2><a href="#slik-jobber-vi">Slik jobber vi</a><a href="#eksempler">Løsninger</a><a href="#om">Om Kling</a></div>
-          <div><h2>Kontakt</h2><a href="./kontakt.html">Start en kartlegging</a><a href="#topp">Tilbake til toppen</a></div>
+          <div>
+            <h2>Kontakt</h2>
+            <a href="./kontakt.html">Start en kartlegging</a>
+            <a href="./personvern.html">Personvern</a>
+            <button class="footer-privacy-button" type="button" data-open-consent>Personvernvalg</button>
+            <a href="#topp">Tilbake til toppen</a>
+          </div>
         </div>
       </div>
       <div class="container footer-bottom">
