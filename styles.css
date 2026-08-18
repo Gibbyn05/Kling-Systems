@@ -146,6 +146,7 @@ p { text-wrap: pretty; }
 .workflow-steps { --step-icon-left: 12px; --step-icon-half: 21px; position: relative; list-style: none; margin: 0; padding: 28px 25px; display: grid; align-content: center; gap: 10px; }
 .workflow-steps::before { content: ""; position: absolute; left: calc(var(--step-icon-left) + var(--step-icon-half)); top: 65px; bottom: 65px; width: 2px; background: repeating-linear-gradient(to bottom, rgba(15,41,64,.18) 0 5px, transparent 5px 10px); }
 .workflow-steps li { position: relative; z-index: 1; min-height: 76px; padding: 11px 40px 11px 64px; display: flex; align-items: center; background: rgba(255,255,255,.72); border: 1px solid rgba(15,41,64,.1); border-radius: 16px; box-shadow: 0 8px 20px rgba(15,41,64,.06); }
+.workflow-steps li { transition: transform 260ms var(--ease), background-color 260ms ease, box-shadow 260ms var(--ease); }
 .workflow-steps li > div { display: grid; }
 .workflow-steps li small { font-size: .5rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; opacity: .48; }
 .workflow-steps li strong { margin-top: 2px; font-size: .73rem; }
@@ -286,10 +287,12 @@ p { text-wrap: pretty; }
 .process-steps li { display: grid; grid-template-columns: 76px 1fr; gap: 28px; min-height: 190px; }
 .process-marker { display: flex; flex-direction: column; align-items: center; gap: 13px; }
 .process-marker span { width: 56px; height: 56px; background: rgba(140,192,235,.12); border: 1px solid rgba(140,192,235,.32); border-radius: 50%; display: grid; place-items: center; font-size: .77rem; font-weight: 800; color: var(--mist); }
+.process-marker span { transition: transform 280ms var(--ease), background-color 280ms ease, border-color 280ms ease; }
 .process-marker i { flex: 1; width: 2px; background: linear-gradient(to bottom, var(--sky) 45%, transparent 45%); background-size: 2px 13px; }
 .process-marker--done span { background: var(--gold); color: var(--navy); border-color: var(--gold); font-size: 1.25rem; }
 .process-steps h3 { font-size: clamp(1.7rem, 3vw, 2.5rem); margin: 8px 0 13px; }
 .process-steps p { color: rgba(255,249,210,.68); max-width: 52ch; }
+.process-steps li > div:last-child { transition: transform 280ms var(--ease); }
 
 .comparison { background: var(--paper); }
 .comparison-switch { display: none; width: max-content; margin: -30px auto 32px; background: var(--peach); border-radius: 999px; padding: 4px; }
@@ -382,7 +385,7 @@ p { text-wrap: pretty; }
 .outcome-ledger { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-flow: dense; border-top: 1px solid rgba(15,41,64,.14); border-left: 1px solid rgba(15,41,64,.14); }
 .outcome-ledger > div { min-height: 210px; padding: clamp(25px, 3vw, 36px); border-right: 1px solid rgba(15,41,64,.14); border-bottom: 1px solid rgba(15,41,64,.14); display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; transition: background-color 220ms ease; }
 .outcome-ledger > div:hover { background: rgba(191,221,240,.13); }
-.outcome-icon { width: 44px; height: 44px; margin-bottom: auto; display: grid; place-items: center; border-radius: 11px; background: rgba(191,221,240,.5); color: var(--navy); }
+.outcome-icon { width: 44px; height: 44px; margin-bottom: auto; display: grid; place-items: center; border-radius: 11px; background: rgba(191,221,240,.5); color: var(--navy); transition: transform 280ms var(--ease); }
 .outcome-icon .ph { font-size: 1.35rem; }
 .outcome-ledger strong { margin-top: 30px; font-family: var(--display); font-size: 1.08rem; }
 .outcome-ledger p { margin: 8px 0 0; max-width: 31ch; font-size: .8rem; opacity: .66; }
@@ -847,6 +850,23 @@ legend { margin-bottom: 10px; }
 
 .scrub-copy .scrub-word { display: inline-block; will-change: opacity; }
 .gsap-media { transform-origin: center; will-change: transform, opacity; }
+
+@media (hover: hover) and (pointer: fine) {
+  .workflow-steps li:hover {
+    transform: translateX(6px);
+    background: rgba(255,255,255,.9);
+    box-shadow: 0 14px 28px rgba(15,41,64,.1);
+  }
+  .process-steps li:hover .process-marker span {
+    transform: scale(1.08);
+    background: rgba(140,192,235,.22);
+    border-color: rgba(140,192,235,.7);
+  }
+  .process-steps li:hover > div:last-child { transform: translateX(6px); }
+  .outcome-ledger > div:hover .outcome-icon { transform: translateY(-5px) rotate(-3deg); }
+  .solution-mini a .ph { transition: transform 240ms var(--ease); }
+  .solution-mini a:hover .ph { transform: translateX(5px); }
+}
 
 @media (min-width: 821px) {
   .hero { min-height: 0; padding-top: clamp(128px, 14vh, 168px); }

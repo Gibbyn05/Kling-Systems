@@ -124,25 +124,73 @@ const animationScope = gsap.context(() => {
 
     gsap.from(heroReveals, {
       autoAlpha: 0,
-      y: 12,
-      duration: 0.45,
-      stagger: 0.08,
-      ease: "power2.out",
+      y: 20,
+      duration: 0.72,
+      stagger: 0.12,
+      ease: "power3.out",
       clearProps: "opacity,visibility,transform",
     });
 
-    gsap.set(pageReveals, { autoAlpha: 0, y: 14 });
+    gsap.set(pageReveals, { autoAlpha: 0, y: 24, scale: 0.985 });
     ScrollTrigger.batch(pageReveals, {
-      start: "top 90%",
+      start: "top 88%",
       once: true,
       onEnter: (elements) => gsap.to(elements, {
         autoAlpha: 1,
         y: 0,
-        duration: 0.4,
-        stagger: 0.06,
-        ease: "power1.out",
+        scale: 1,
+        duration: 0.68,
+        stagger: 0.1,
+        ease: "power3.out",
         clearProps: "opacity,visibility,transform",
       }),
+    });
+
+    gsap.from(".workflow-steps li", {
+      autoAlpha: 0,
+      x: 24,
+      duration: 0.55,
+      stagger: 0.1,
+      delay: 0.35,
+      ease: "power3.out",
+      clearProps: "opacity,visibility,transform",
+    });
+
+    gsap.utils.toArray(".friction-list, .outcome-ledger, .trust-list").forEach((list) => {
+      const items = list.children;
+      if (!items.length) return;
+      gsap.from(items, {
+        autoAlpha: 0,
+        y: 18,
+        duration: 0.58,
+        stagger: 0.1,
+        ease: "power2.out",
+        clearProps: "opacity,visibility,transform",
+        scrollTrigger: { trigger: list, start: "top 84%", once: true },
+      });
+    });
+
+    gsap.utils.toArray(".process-marker i").forEach((line) => {
+      gsap.from(line, {
+        scaleY: 0,
+        transformOrigin: "top center",
+        duration: 0.8,
+        ease: "power2.out",
+        clearProps: "transform",
+        scrollTrigger: { trigger: line, start: "top 78%", once: true },
+      });
+    });
+
+    gsap.to(".hero-glow--one", {
+      yPercent: 18,
+      ease: "none",
+      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1 },
+    });
+
+    gsap.to(".hero-glow--two", {
+      yPercent: -12,
+      ease: "none",
+      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1.2 },
     });
 
     const scrubCopy = document.querySelector(".scrub-copy");
