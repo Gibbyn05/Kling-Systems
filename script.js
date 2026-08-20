@@ -33,7 +33,21 @@ const playSiteIntro = () => {
   timeline
     .from(".site-intro__logo", { autoAlpha: 0, scale: .88, y: 18, duration: .7 })
     .from(".site-intro__inner p", { autoAlpha: 0, y: 10, duration: .38 }, "-=.3")
-    .to(".site-intro__inner", { autoAlpha: 0, y: -12, duration: .28, ease: "power2.in" }, "+=.2")
+    .fromTo(".site-intro__bee", {
+      x: () => -window.innerWidth * .68,
+      y: 28,
+      rotation: -7,
+      autoAlpha: 0,
+    }, {
+      x: () => window.innerWidth * .68,
+      y: -24,
+      rotation: 5,
+      autoAlpha: 1,
+      duration: 1.05,
+      ease: "power1.inOut",
+    }, "-=.28")
+    .to(".site-intro__bee", { autoAlpha: 0, duration: .16 }, "-=.16")
+    .to(".site-intro__inner", { autoAlpha: 0, y: -12, duration: .25, ease: "power2.in" }, "-=.18")
     .to(".site-intro__curtain", { yPercent: -100, duration: .72, ease: "power4.inOut" }, "-=.06")
     .set(siteIntro, { autoAlpha: 0 });
 };

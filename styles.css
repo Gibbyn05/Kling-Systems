@@ -126,6 +126,7 @@ p { text-wrap: pretty; }
 .site-intro__inner { position: relative; z-index: 2; display: grid; justify-items: center; text-align: center; }
 .site-intro__logo { width: min(72vw, 520px); height: auto; object-fit: contain; }
 .site-intro__inner p { margin: 24px 0 0; color: rgba(255,249,210,.62); font-size: clamp(.65rem, 1.1vw, .82rem); font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
+.site-intro__bee { position: absolute; z-index: 2; left: 50%; top: 50%; width: clamp(112px, 13vw, 190px); height: auto; opacity: 0; filter: drop-shadow(0 18px 22px rgba(3,20,34,.28)); will-change: transform, opacity; }
 .site-intro__curtain { position: absolute; inset: 0; z-index: 3; background: var(--cream); transform: translateY(100%); }
 
 .hero {
@@ -1551,4 +1552,57 @@ legend { margin-bottom: 10px; }
   .solution-promise-shell { grid-template-columns: 1fr; }
   .solution-promise-mark { width: 90px; font-size: 2.3rem; }
   .project-case-media { border-width: 6px; border-radius: 24px; }
+}
+
+/* Kompakt forside: samme innhold, mindre presentasjonsfølelse og kortere vei til kontakt. */
+.home-page { --section-space: clamp(54px, 5.4vw, 78px); }
+.home-page .hero { padding-top: clamp(110px, 11vh, 138px); padding-bottom: clamp(48px, 5vw, 66px); }
+.home-page .hero h1 { margin-bottom: 20px; }
+.home-page .hero-lede { margin-bottom: 26px; }
+.home-page .hero-note { margin-top: 24px; }
+.home-page .workflow-canvas { min-height: 360px; }
+.home-page .workflow-intro { padding-block: 27px; }
+.home-page .workflow-intro h3 { margin-block: 18px 22px; }
+.home-page .workflow-steps { padding-block: 20px; }
+.home-page .workflow-steps li { min-height: 65px; }
+.home-page .hero-proofline { margin-top: 32px; padding-top: 19px; }
+.home-page .section-heading { margin-bottom: clamp(34px, 4vw, 48px); }
+.home-page .service-card { min-height: 475px; padding: 22px; }
+.home-page .service-illustration-stage { min-height: 150px; }
+.home-page .service-card h3 { margin-top: 18px; }
+.home-page .service-card ul { margin-top: 14px; padding-top: 14px; gap: 7px; }
+.home-page .process-layout { gap: clamp(48px, 7vw, 92px); }
+.home-page .process-steps li { min-height: 138px; }
+.home-page .process-steps h3 { margin-top: 4px; font-size: clamp(1.55rem, 2.4vw, 2.1rem); }
+.home-page .solution-grid,
+.home-page .solution-grid > article.is-featured { min-height: 480px; }
+.home-page .solution-feature.is-featured,
+.home-page .solution-mini.is-featured,
+.home-page .solution-wide.is-featured { padding: clamp(30px, 4vw, 48px); }
+.home-page .solution-demo { min-height: 180px; }
+.home-page .contact-bridge-shell { gap: clamp(48px, 7vw, 88px); }
+.home-page .contact-bridge-aside { min-height: 390px; }
+.home-page .contact-bridge-aside > img { width: 178px; top: -48px; }
+.home-page .contact-bridge-aside ol { padding: 66px 30px 24px; }
+.home-page .contact-bridge-aside li { min-height: 78px; }
+.home-page .site-footer { padding-top: 48px; }
+
+@media (min-width: 821px) {
+  .home-page .solution-grid,
+  .home-page .solution-grid > article.is-featured { height: 480px; min-height: 480px; }
+}
+
+@media (max-width: 820px) {
+  .home-page { --section-space: 62px; }
+  .home-page .hero { padding-top: 104px; }
+  .home-page .workflow-canvas { min-height: 0; }
+  .home-page .service-card { min-height: 0; }
+  .home-page .process-steps li { min-height: 126px; }
+  .home-page .solution-grid,
+  .home-page .solution-grid > article.is-featured { min-height: 0; }
+  .home-page .contact-bridge-aside { min-height: 350px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-intro__bee { display: none; }
 }
