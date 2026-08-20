@@ -126,8 +126,9 @@ p { text-wrap: pretty; }
 .site-intro__inner { position: relative; z-index: 2; display: grid; justify-items: center; text-align: center; }
 .site-intro__logo { width: min(72vw, 520px); height: auto; object-fit: contain; }
 .site-intro__inner p { margin: 24px 0 0; color: rgba(255,249,210,.62); font-size: clamp(.65rem, 1.1vw, .82rem); font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
-.site-intro__bee { position: absolute; z-index: 2; left: 50%; top: 50%; width: clamp(112px, 13vw, 190px); height: auto; opacity: 0; filter: drop-shadow(0 18px 22px rgba(3,20,34,.28)); will-change: transform, opacity; }
 .site-intro__curtain { position: absolute; inset: 0; z-index: 3; background: var(--cream); transform: translateY(100%); }
+.scroll-bee { position: fixed; z-index: 40; left: 0; top: 0; width: clamp(100px, 11vw, 168px); opacity: 0; visibility: hidden; pointer-events: none; will-change: transform, opacity; }
+.scroll-bee img { width: 100%; height: auto; object-fit: contain; filter: drop-shadow(0 14px 18px rgba(3,20,34,.2)); }
 
 .hero {
   min-height: auto;
@@ -514,7 +515,7 @@ legend { margin-bottom: 10px; }
 .contact-bridge h2 { max-width: 12ch; }
 .contact-bridge-copy > p:not(.contact-bridge-kicker) { max-width: 51ch; margin-bottom: 34px; color: rgba(255,249,210,.68); }
 .contact-bridge-aside { position: relative; min-height: 480px; display: grid; align-items: center; }
-.contact-bridge-aside > img { position: absolute; z-index: 2; width: 210px; right: -16px; top: -68px; filter: drop-shadow(0 20px 24px rgba(3,20,34,.28)); }
+.contact-bridge-aside > img { position: absolute; z-index: 2; width: 210px; height: auto; right: -16px; top: -68px; filter: drop-shadow(0 20px 24px rgba(3,20,34,.28)); }
 .contact-bridge-aside ol { position: relative; z-index: 1; list-style: none; margin: 0; padding: 92px 36px 36px; display: grid; gap: 0; border: 1px solid rgba(255,249,210,.16); background: rgba(255,249,210,.055); }
 .contact-bridge-aside li { min-height: 92px; display: grid; grid-template-columns: 38px 1fr; gap: 15px; align-items: center; border-bottom: 1px solid rgba(255,249,210,.12); }
 .contact-bridge-aside li:last-child { border-bottom: 0; }
@@ -1604,5 +1605,5 @@ legend { margin-bottom: 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .site-intro__bee { display: none; }
+  .scroll-bee { display: none; }
 }
