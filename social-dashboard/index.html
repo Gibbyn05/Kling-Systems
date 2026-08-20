@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#0f2940" />
+    <title>Kling innholdsoversikt</title>
+    <meta
+      name="description"
+      content="Et lokalt arbeidsverktøy for innhold, tekster og publiseringsplan for Kling Systems."
+    />
+    <link rel="stylesheet" href="./dashboard.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Hopp til innhold</a>
+
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Hovedmeny">
+        <a class="brand" href="#oversikt" aria-label="Kling innholdsoversikt">
+          <img id="dashboard-logo" alt="Kling" />
+          <span>Innhold</span>
+        </a>
+
+        <nav class="sidebar__nav">
+          <button class="nav-item is-active" type="button" data-view="oversikt" aria-current="page">
+            <i class="ph ph-gauge" aria-hidden="true"></i>
+            <span>Oversikt</span>
+          </button>
+          <button class="nav-item" type="button" data-view="innhold">
+            <i class="ph ph-layout" aria-hidden="true"></i>
+            <span>Innhold</span>
+          </button>
+          <button class="nav-item" type="button" data-view="kalender">
+            <i class="ph ph-calendar-dots" aria-hidden="true"></i>
+            <span>Kalender</span>
+          </button>
+          <button class="nav-item" type="button" data-view="tekster">
+            <i class="ph ph-file-text" aria-hidden="true"></i>
+            <span>Tekster</span>
+          </button>
+          <button class="nav-item" type="button" data-view="tilkoblinger">
+            <i class="ph ph-plugs-connected" aria-hidden="true"></i>
+            <span>Tilkoblinger</span>
+          </button>
+        </nav>
+
+        <div class="sidebar__status">
+          <span class="status-dot" aria-hidden="true"></span>
+          <div>
+            <strong>Kun lokalt</strong>
+            <span>Ingen automatisk publisering</span>
+          </div>
+        </div>
+      </aside>
+
+      <main id="main-content" class="main-content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Kling Systems</p>
+            <h1 id="view-title">Innholdsoversikt</h1>
+          </div>
+          <div class="topbar__actions">
+            <span class="today" id="today-label"></span>
+            <button class="button button--secondary" id="export-button" type="button">
+              <i class="ph ph-file-text" aria-hidden="true"></i>
+              Last ned plan
+            </button>
+            <button class="button button--primary" id="new-post-button" type="button">
+              <i class="ph ph-calendar-dots" aria-hidden="true"></i>
+              Nytt innlegg
+            </button>
+          </div>
+        </header>
+
+        <section class="notice" aria-label="Status for publisering">
+          <i class="ph ph-warning-circle" aria-hidden="true"></i>
+          <p><strong>Planleggingen er klar.</strong> Direkte publisering aktiveres først når Meta Graph API er koblet til.</p>
+          <button type="button" data-view-link="tilkoblinger">Se hva som mangler</button>
+        </section>
+
+        <section class="view is-visible" data-view-panel="oversikt" aria-labelledby="view-title">
+          <div class="metric-grid" id="metric-grid"></div>
+
+          <div class="overview-grid">
+            <section class="panel queue-panel">
+              <div class="panel__header">
+                <div>
+                  <p class="eyebrow">Plan</p>
+                  <h2>Publiseringskø</h2>
+                </div>
+                <button class="text-button" type="button" data-view-link="kalender">Åpne kalender</button>
+              </div>
+              <div id="queue-list" class="queue-list"></div>
+            </section>
+
+            <aside class="panel setup-panel">
+              <div class="panel__header">
+                <div>
+                  <p class="eyebrow">Oppsett</p>
+                  <h2>Kanalstatus</h2>
+                </div>
+              </div>
+              <div id="connection-summary" class="connection-summary"></div>
+              <button class="button button--secondary button--full" type="button" data-view-link="tilkoblinger">
+                Gå til oppsett
+              </button>
+            </aside>
+          </div>
+
+          <section class="panel library-preview">
+            <div class="panel__header">
+              <div>
+                <p class="eyebrow">Bilder</p>
+                <h2>Innholdsbibliotek</h2>
+              </div>
+              <button class="text-button" type="button" data-view-link="innhold">Se alle bilder</button>
+            </div>
+            <div class="asset-grid asset-grid--preview" id="asset-preview"></div>
+          </section>
+        </section>
+
+        <section class="view" data-view-panel="innhold" aria-labelledby="view-title">
+          <div class="section-toolbar">
+            <label class="search-field">
+              <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+              <span class="sr-only">Søk i bilder</span>
+              <input id="asset-search" type="search" placeholder="Søk i bilder" />
+            </label>
+            <button class="button button--primary" id="upload-button" type="button">
+              <i class="ph ph-layout" aria-hidden="true"></i>
+              Legg til bilder
+            </button>
+            <input id="asset-upload" type="file" accept="image/png,image/jpeg,image/webp" multiple hidden />
+          </div>
+          <div class="asset-grid" id="asset-grid"></div>
+        </section>
+
+        <section class="view" data-view-panel="kalender" aria-labelledby="view-title">
+          <div class="calendar-layout">
+            <section class="panel calendar-panel">
+              <div class="panel__header">
+                <div>
+                  <p class="eyebrow">Planlagte innlegg</p>
+                  <h2>Kommende publiseringer</h2>
+                </div>
+              </div>
+              <div id="calendar-list" class="calendar-list"></div>
+            </section>
+            <aside class="panel cadence-panel">
+              <p class="eyebrow">Fast rytme</p>
+              <h2>Klokken 10:00</h2>
+              <p>Standardtid for nye innlegg. Du kan endre dato og klokkeslett for hvert utkast.</p>
+              <div class="cadence-days" aria-label="Foreslåtte publiseringsdager">
+                <span>Man</span><span>Tir</span><span>Ons</span><span>Tor</span><span>Fre</span>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view" data-view-panel="tekster" aria-labelledby="view-title">
+          <div class="caption-grid" id="caption-grid"></div>
+        </section>
+
+        <section class="view" data-view-panel="tilkoblinger" aria-labelledby="view-title">
+          <div class="connections-intro">
+            <div>
+              <p class="eyebrow">Meta-oppsett</p>
+              <h2>Bekreft det som faktisk er koblet til</h2>
+              <p>Disse valgene er en lokal sjekkliste. De tester ikke Meta-kontoene og gir ikke appen publiseringstilgang.</p>
+            </div>
+            <div class="local-badge"><span class="status-dot"></span> Lagres bare på denne maskinen</div>
+          </div>
+          <div class="connection-grid" id="connection-grid"></div>
+          <section class="panel api-panel">
+            <div>
+              <p class="eyebrow">Direkte publisering</p>
+              <h2>Det som må på plass</h2>
+            </div>
+            <ol>
+              <li>En Meta-app med Facebook Login for Business.</li>
+              <li>Kling Systems-siden og Instagram-bedriftskontoen koblet i Meta Business Suite.</li>
+              <li>En gyldig tilgangsnøkkel med nødvendige publiseringstillatelser.</li>
+              <li>En liten serverfunksjon som oppbevarer nøkkelen sikkert. Den skal aldri ligge i nettleseren.</li>
+            </ol>
+            <button class="button button--disabled" type="button" disabled>Publisering er ikke koblet til</button>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="post-dialog" id="post-dialog">
+      <form id="post-form" method="dialog">
+        <div class="dialog__header">
+          <div>
+            <p class="eyebrow">Publiseringsplan</p>
+            <h2 id="dialog-title">Nytt innlegg</h2>
+          </div>
+          <button class="icon-button" id="close-dialog" type="button" aria-label="Lukk">
+            <i class="ph ph-x" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <input type="hidden" id="post-id" />
+        <input type="hidden" id="post-asset-id" />
+
+        <div class="post-editor">
+          <div class="post-preview" id="post-preview">
+            <div class="post-preview__empty">
+              <i class="ph ph-layout" aria-hidden="true"></i>
+              <span>Velg et bilde fra biblioteket</span>
+            </div>
+          </div>
+
+          <div class="post-fields">
+            <fieldset>
+              <legend>Kanaler</legend>
+              <label class="check-chip"><input id="channel-facebook" type="checkbox" value="facebook" /> Facebook</label>
+              <label class="check-chip"><input id="channel-instagram" type="checkbox" value="instagram" /> Instagram</label>
+            </fieldset>
+
+            <label class="field">
+              <span>Tekst</span>
+              <textarea id="post-caption" rows="7" maxlength="2200" placeholder="Skriv teksten som skal følge innlegget"></textarea>
+              <small><span id="caption-count">0</span> av 2200 tegn</small>
+            </label>
+
+            <div class="field-row">
+              <label class="field">
+                <span>Dato</span>
+                <input id="post-date" type="date" required />
+              </label>
+              <label class="field">
+                <span>Klokkeslett</span>
+                <input id="post-time" type="time" value="10:00" required />
+              </label>
+            </div>
+
+            <label class="field">
+              <span>Status</span>
+              <select id="post-status">
+                <option value="draft">Utkast</option>
+                <option value="ready">Klar til publisering</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <p class="form-error" id="post-error" role="alert"></p>
+        <div class="dialog__actions">
+          <button class="button button--secondary" id="cancel-dialog" type="button">Avbryt</button>
+          <button class="button button--primary" type="submit">Lagre i planen</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./dashboard.js"></script>
+  </body>
+</html>

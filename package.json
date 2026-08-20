@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "vite --host 127.0.0.1",
+    "dashboard": "vite --config social-dashboard/vite.config.js --host 127.0.0.1 --port 5180",
+    "dashboard:build": "vite build --config social-dashboard/vite.config.js",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
     "check": "node scripts/check.mjs"
