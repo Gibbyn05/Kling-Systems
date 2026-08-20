@@ -98,8 +98,16 @@
       <div class="site-intro__curtain"></div>
     </div>
 
-    <div class="scroll-bee" data-scroll-bee aria-hidden="true">
-      <img src="./assets/kling-mascot-flying.png" alt="" />
+    <div class="scroll-flight" data-scroll-flight aria-hidden="true">
+      <svg class="scroll-flight__route" viewBox="0 0 1200 800" preserveAspectRatio="none">
+        <defs>
+          <clipPath id="scroll-flight-reveal" clipPathUnits="userSpaceOnUse">
+            <rect class="scroll-flight__clip" x="0" y="0" width="1200" height="800" />
+          </clipPath>
+        </defs>
+        <path class="scroll-flight__path" d="M -90 650 C 180 770, 360 180, 610 390 S 980 500, 1290 105" clip-path="url(#scroll-flight-reveal)" />
+      </svg>
+      <img class="scroll-flight__bee" src="./assets/mascot/kling-bee-search-flight.png" alt="" />
     </div>
 
     <header class="site-header" data-header>

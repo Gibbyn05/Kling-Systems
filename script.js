@@ -221,8 +221,12 @@ const animationScope = gsap.context(() => {
       scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1.2 },
     });
 
-    const scrollBee = document.querySelector("[data-scroll-bee]");
-    if (scrollBee) {
+    const scrollFlight = document.querySelector("[data-scroll-flight]");
+    const scrollBee = scrollFlight?.querySelector(".scroll-flight__bee");
+    const scrollPath = scrollFlight?.querySelector(".scroll-flight__path");
+    const scrollClip = scrollFlight?.querySelector(".scroll-flight__clip");
+    if (scrollFlight && scrollBee && scrollPath && scrollClip) {
+      gsap.set(scrollClip, { scaleX: 0, svgOrigin: "0 400" });
       gsap.timeline({
         scrollTrigger: {
           trigger: "#tjenester",
@@ -233,20 +237,19 @@ const animationScope = gsap.context(() => {
           invalidateOnRefresh: true,
         },
       })
-        .fromTo(scrollBee, {
-          x: () => -window.innerWidth * .2,
-          y: () => window.innerHeight * .7,
-          rotation: 5,
-          autoAlpha: 0,
-        }, { autoAlpha: 1, duration: .08, ease: "none" })
+        .to(scrollFlight, { autoAlpha: 1, duration: .04, ease: "none" })
+        .to(scrollClip, { scaleX: 1, duration: .92, ease: "none" }, .04)
         .to(scrollBee, {
-          x: () => window.innerWidth * 1.08,
-          y: () => window.innerHeight * .18,
-          rotation: -7,
-          duration: .84,
+          motionPath: {
+            path: scrollPath,
+            align: scrollPath,
+            alignOrigin: [.5, .5],
+            autoRotate: true,
+          },
+          duration: .92,
           ease: "none",
-        })
-        .to(scrollBee, { autoAlpha: 0, duration: .08, ease: "none" });
+        }, .04)
+        .to(scrollFlight, { autoAlpha: 0, duration: .04, ease: "none" });
     }
 
     const scrubCopy = document.querySelector(".scrub-copy");

@@ -127,8 +127,11 @@ p { text-wrap: pretty; }
 .site-intro__logo { width: min(72vw, 520px); height: auto; object-fit: contain; }
 .site-intro__inner p { margin: 24px 0 0; color: rgba(255,249,210,.62); font-size: clamp(.65rem, 1.1vw, .82rem); font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
 .site-intro__curtain { position: absolute; inset: 0; z-index: 3; background: var(--cream); transform: translateY(100%); }
-.scroll-bee { position: fixed; z-index: 40; left: 0; top: 0; width: clamp(100px, 11vw, 168px); opacity: 0; visibility: hidden; pointer-events: none; will-change: transform, opacity; }
-.scroll-bee img { width: 100%; height: auto; object-fit: contain; filter: drop-shadow(0 14px 18px rgba(3,20,34,.2)); }
+.scroll-flight { position: fixed; z-index: 40; inset: 0; opacity: 0; visibility: hidden; overflow: hidden; pointer-events: none; will-change: opacity; }
+.scroll-flight__route { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.scroll-flight__path { fill: none; stroke: rgba(15,41,64,.55); stroke-width: 2.2; stroke-linecap: round; stroke-dasharray: 3 11; vector-effect: non-scaling-stroke; }
+.scroll-flight__clip { fill: #fff; stroke: none; transform: scaleX(0); transform-box: fill-box; transform-origin: left center; }
+.scroll-flight__bee { position: absolute; left: 0; top: 0; width: clamp(86px, 8vw, 124px); height: auto; object-fit: contain; filter: drop-shadow(0 12px 16px rgba(3,20,34,.22)); will-change: transform; }
 
 .hero {
   min-height: auto;
@@ -1605,5 +1608,5 @@ legend { margin-bottom: 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .scroll-bee { display: none; }
+  .scroll-flight { display: none; }
 }
