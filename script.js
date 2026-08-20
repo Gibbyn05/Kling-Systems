@@ -31,11 +31,10 @@ const playSiteIntro = () => {
   });
 
   timeline
-    .from(".site-intro__mark", { autoAlpha: 0, scale: .6, rotate: -12, duration: .55 })
-    .from(".site-intro__word span", { yPercent: 115, duration: .72, stagger: .08 }, "-=.2")
-    .from(".site-intro__inner p", { autoAlpha: 0, y: 10, duration: .42 }, "-=.28")
-    .to(".site-intro__inner", { autoAlpha: 0, y: -18, duration: .32, ease: "power2.in" }, "+=.32")
-    .to(".site-intro__curtain", { yPercent: -100, duration: .82, ease: "power4.inOut" }, "-=.08")
+    .from(".site-intro__logo", { autoAlpha: 0, scale: .88, y: 18, duration: .7 })
+    .from(".site-intro__inner p", { autoAlpha: 0, y: 10, duration: .38 }, "-=.3")
+    .to(".site-intro__inner", { autoAlpha: 0, y: -12, duration: .28, ease: "power2.in" }, "+=.2")
+    .to(".site-intro__curtain", { yPercent: -100, duration: .72, ease: "power4.inOut" }, "-=.06")
     .set(siteIntro, { autoAlpha: 0 });
 };
 
@@ -304,26 +303,6 @@ const animationScope = gsap.context(() => {
           if (link.hash === `#${section.id}`) link.setAttribute("aria-current", "true");
           else link.removeAttribute("aria-current");
         });
-      },
-    });
-  });
-
-  const rail = document.querySelector("[data-page-rail]");
-  const railLinks = gsap.utils.toArray(".page-rail a");
-  railLinks.forEach((link) => {
-    const section = document.querySelector(link.hash);
-    if (!section) return;
-    ScrollTrigger.create({
-      trigger: section,
-      start: "top 52%",
-      end: "bottom 52%",
-      onToggle: ({ isActive }) => {
-        if (!isActive) return;
-        railLinks.forEach((item) => item.toggleAttribute("aria-current", item === link));
-        const background = getComputedStyle(section).backgroundColor;
-        const channels = background.match(/\d+/g)?.slice(0, 3).map(Number) ?? [255, 255, 255];
-        const luminance = channels[0] * .299 + channels[1] * .587 + channels[2] * .114;
-        rail?.classList.toggle("is-light", luminance < 125);
       },
     });
   });
