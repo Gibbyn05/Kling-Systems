@@ -26,7 +26,7 @@ const checks = [
   [html.includes('type="application/ld+json"') && html.includes('"@type": "Organization"'), "Forsiden har strukturdata for virksomheten"],
   [allPages.every((page) => page.includes("NERLANDSREM SYSTEMS") && page.includes("938 135 371")), "Juridisk navn og organisasjonsnummer vises på alle sider"],
   [html.includes('"legalName": "NERLANDSREM SYSTEMS"') && html.includes('"value": "938135371"') && html.includes('"streetAddress": "Julsundet 237C"'), "Strukturdata inneholder verifisert juridisk identitet"],
-  [html.includes("Molde") && html.includes("resten av Norge"), "Geografisk dekning er tydelig på forsiden"],
+  [html.includes("Vi hjelper deg med nettsider, automatisering og digitale systemer"), "Forsiden har en direkte og personlig verdibeskrivelse"],
   [robots.includes("Sitemap: https://www.klingsystems.no/sitemap.xml"), "Robots-filen peker til sitemap"],
   [sitemap.includes("https://www.klingsystems.no/") && sitemap.includes("https://www.klingsystems.no/kontakt.html") && sitemap.includes("https://www.klingsystems.no/personvern.html"), "Sitemap inneholder offentlige sider"],
   [["nettsider", "automatisering", "systemer"].every((service) => sitemap.includes(`https://www.klingsystems.no/${service}`)), "Sitemap inneholder alle tjenestesidene"],
