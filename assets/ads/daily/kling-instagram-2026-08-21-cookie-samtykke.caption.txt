@@ -1,0 +1,12 @@
+Et samtykkebanner er ikke nok i seg selv. Brukeren skal få et reelt valg.
+
+Tre ting dere kan sjekke på egen nettside:
+• Kan man avvise uten ekstra klikk?
+• Er ingen samtykkevalg forhåndsvalgt?
+• Unngår løsningen å tolke passivitet som aksept?
+
+Punktene er hentet fra Datatilsynets veiledning publisert 3. april 2025. Den fullstendige veiledningen må vurderes for deres løsning.
+
+Skal nettsiden gi tydelige valg fra start? Se klingsystems.no/nettsider.
+
+#nettsider #personvern #webutvikling

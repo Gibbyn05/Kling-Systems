@@ -12,6 +12,8 @@ const css = readFileSync(new URL("../styles.css", import.meta.url), "utf8");
 const js = readFileSync(new URL("../script.js", import.meta.url), "utf8");
 const contactJs = readFileSync(new URL("../kontakt.js", import.meta.url), "utf8");
 const contactApi = readFileSync(new URL("../api/contact.js", import.meta.url), "utf8");
+const instagramMediaApi = readFileSync(new URL("../api/instagram-media.js", import.meta.url), "utf8");
+const vercelConfig = readFileSync(new URL("../vercel.json", import.meta.url), "utf8");
 const analyticsConsent = readFileSync(new URL("../analytics-consent.js", import.meta.url), "utf8");
 const robots = readFileSync(new URL("../public/robots.txt", import.meta.url), "utf8");
 const sitemap = readFileSync(new URL("../public/sitemap.xml", import.meta.url), "utf8");
@@ -71,6 +73,8 @@ const checks = [
   [contactApi.includes('reply_to: recipient'), "Kunden kan svare direkte til Kling"],
   [contactApi.includes("Vi har mottatt henvendelsen din"), "E-postbekreftelsen har norsk innhold"],
   [contactApi.includes('"Cache-Control", "no-store, max-age=0"'), "Kontaktfunksjonen forhindrer mellomlagring"],
+  [instagramMediaApi.includes("dailyMediaIdPattern") && instagramMediaApi.includes("isValidDate"), "Daglige Instagram-bilder bruker streng ID- og datovalidering"],
+  [vercelConfig.includes("ads/daily/*.png"), "Daglige Instagram-bilder inkluderes i mediefunksjonen"],
   [privacyHtml.includes('lang="no"'), "Personvernsiden er på norsk"],
   [(privacyHtml.match(/<h1\b/g) || []).length === 1, "Personvernsiden har nøyaktig én H1"],
   [privacyHtml.includes('id="kontaktskjema"') && privacyHtml.includes('id="informasjonskapsler"') && privacyHtml.includes('id="rettigheter"'), "Personvernsiden dekker skjema, informasjonskapsler og rettigheter"],

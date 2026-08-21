@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/instagram-media.js": {
-      "includeFiles": "assets/{ads/kling-google-ad-{square-1200x1200,horizontal-1200x628}.png,mascot/kling-bee-{analytics,message,calendar,laptop}.png}"
+      "includeFiles": "assets/{ads/kling-google-ad-square-1200x1200.png,ads/kling-google-ad-horizontal-1200x628.png,mascot/kling-bee-analytics.png,mascot/kling-bee-message.png,mascot/kling-bee-calendar.png,mascot/kling-bee-laptop.png,ads/daily/*.png}"
     }
   },
   "rewrites": [

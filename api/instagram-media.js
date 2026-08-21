@@ -10,13 +10,36 @@ const mediaFiles = new Map([
   ["mascot-laptop", "assets/mascot/kling-bee-laptop.png"],
 ]);
 
+const dailyMediaIdPattern = /^daily-(20\d{2})-(\d{2})-(\d{2})-([a-z0-9]+(?:-[a-z0-9]+){0,7})$/;
+
+const isValidDate = (year, month, day) => {
+  const date = new Date(Date.UTC(Number(year), Number(month) - 1, Number(day)));
+  return date.getUTCFullYear() === Number(year)
+    && date.getUTCMonth() === Number(month) - 1
+    && date.getUTCDate() === Number(day);
+};
+
+const resolveMediaFile = (rawId) => {
+  const mediaId = String(rawId || "");
+  const staticFile = mediaFiles.get(mediaId);
+  if (staticFile) return staticFile;
+  if (mediaId.length > 80) return null;
+
+  const dailyMatch = mediaId.match(dailyMediaIdPattern);
+  if (!dailyMatch) return null;
+
+  const [, year, month, day, slug] = dailyMatch;
+  if (!isValidDate(year, month, day)) return null;
+  return `assets/ads/daily/kling-instagram-${year}-${month}-${day}-${slug}.png`;
+};
+
 export default async function handler(request, response) {
   if (request.method !== "GET" && request.method !== "HEAD") {
     response.setHeader("Allow", "GET, HEAD");
     return response.status(405).end();
   }
 
-  const relativePath = mediaFiles.get(String(request.query.id || ""));
+  const relativePath = resolveMediaFile(request.query.id);
   if (!relativePath) return response.status(404).end();
 
   try {
