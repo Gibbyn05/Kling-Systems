@@ -1,4 +1,16 @@
 {
+  "functions": {
+    "api/instagram-media.js": {
+      "includeFiles": [
+        "assets/ads/kling-google-ad-square-1200x1200.png",
+        "assets/ads/kling-google-ad-horizontal-1200x628.png",
+        "assets/mascot/kling-bee-analytics.png",
+        "assets/mascot/kling-bee-message.png",
+        "assets/mascot/kling-bee-calendar.png",
+        "assets/mascot/kling-bee-laptop.png"
+      ]
+    }
+  },
   "rewrites": [
     { "source": "/nettsider", "destination": "/nettsider.html" },
     { "source": "/automatisering", "destination": "/automatisering.html" },

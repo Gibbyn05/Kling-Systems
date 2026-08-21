@@ -16,6 +16,7 @@ const viewTitles = {
 const defaultAssets = [
   {
     id: "google-square",
+    mediaId: "google-square",
     name: "Google-annonse, kvadrat",
     format: "1200 × 1200",
     source: "Kling",
@@ -23,6 +24,7 @@ const defaultAssets = [
   },
   {
     id: "google-horizontal",
+    mediaId: "google-horizontal",
     name: "Google-annonse, liggende",
     format: "1200 × 628",
     source: "Kling",
@@ -30,6 +32,7 @@ const defaultAssets = [
   },
   {
     id: "mascot-analytics",
+    mediaId: "mascot-analytics",
     name: "Bie med driftsoversikt",
     format: "Illustrasjon",
     source: "Kling",
@@ -37,6 +40,7 @@ const defaultAssets = [
   },
   {
     id: "mascot-message",
+    mediaId: "mascot-message",
     name: "Bie med melding",
     format: "Illustrasjon",
     source: "Kling",
@@ -44,6 +48,7 @@ const defaultAssets = [
   },
   {
     id: "mascot-calendar",
+    mediaId: "mascot-calendar",
     name: "Bie med kalender",
     format: "Illustrasjon",
     source: "Kling",
@@ -51,6 +56,7 @@ const defaultAssets = [
   },
   {
     id: "mascot-laptop",
+    mediaId: "mascot-laptop",
     name: "Bie ved datamaskin",
     format: "Illustrasjon",
     source: "Kling",
@@ -80,10 +86,8 @@ const captionTemplates = [
 ];
 
 const defaultConnections = [
-  { id: "facebook", title: "Facebook-side", detail: "Kling Systems", icon: "ph-facebook-logo", done: false },
-  { id: "instagram", title: "Instagram-bedriftskonto", detail: "Kling Systems", icon: "ph-instagram-logo", done: false },
-  { id: "business", title: "Meta Business Suite", detail: "Begge kanaler i samme portefølje", icon: "ph-briefcase", done: false },
-  { id: "api", title: "Meta Graph API", detail: "Kreves for direkte publisering", icon: "ph-plugs-connected", done: false },
+  { id: "instagram", title: "Instagram-bedriftskonto", detail: "Kontrolleres mot Instagram API", icon: "ph-instagram-logo", done: false },
+  { id: "api", title: "Instagram API", detail: "Token og bruker-ID lagres bare på serveren", icon: "ph-plugs-connected", done: false },
 ];
 
 const defaultState = {
@@ -125,13 +129,16 @@ const elements = {
   postDate: document.querySelector("#post-date"),
   postTime: document.querySelector("#post-time"),
   postStatus: document.querySelector("#post-status"),
-  channelFacebook: document.querySelector("#channel-facebook"),
   channelInstagram: document.querySelector("#channel-instagram"),
   postError: document.querySelector("#post-error"),
   dialogTitle: document.querySelector("#dialog-title"),
   closeDialog: document.querySelector("#close-dialog"),
   cancelDialog: document.querySelector("#cancel-dialog"),
   toast: document.querySelector("#toast"),
+  checkInstagramButton: document.querySelector("#check-instagram-button"),
+  instagramStatus: document.querySelector("#instagram-status"),
+  publishInstagramButton: document.querySelector("#publish-instagram-button"),
+  publishingNotice: document.querySelector("#publishing-notice"),
 };
 
 function loadState() {
@@ -215,12 +222,12 @@ function renderMetrics() {
   const ready = state.queue.filter((item) => item.status === "ready").length;
   const draft = state.queue.filter((item) => item.status === "draft").length;
   const future = state.queue.filter((item) => new Date(item.scheduledAt) >= new Date()).length;
-  const channelsReady = state.connections.filter((item) => ["facebook", "instagram"].includes(item.id) && item.done).length;
+  const channelsReady = state.connections.filter((item) => item.id === "instagram" && item.done).length;
   const metrics = [
     ["Klar", ready, "Klar til publisering", "ph-check-circle"],
     ["Planlagt", future, "Kommende innlegg", "ph-calendar-dots"],
     ["Utkast", draft, "Trenger gjennomgang", "ph-file-text"],
-    ["Kanaler", `${channelsReady}/2`, "Bekreftet lokalt", "ph-plugs-connected"],
+    ["Kanaler", `${channelsReady}/1`, "Bekreftet mot Instagram", "ph-plugs-connected"],
   ];
   elements.metricGrid.innerHTML = metrics.map(([label, value, detail, icon]) => `
     <article class="metric-card">
@@ -351,23 +358,35 @@ function renderConnections() {
     <article class="connection-card">
       <span class="connection-card__icon"><i class="ph ${connection.icon}" aria-hidden="true"></i></span>
       <div><strong>${connection.title}</strong><p>${connection.detail}</p></div>
-      <label class="toggle">
-        <span class="sr-only">Marker ${connection.title} som lokalt bekreftet</span>
-        <input type="checkbox" data-connection="${connection.id}" ${connection.done ? "checked" : ""} />
-        <span aria-hidden="true"></span>
-      </label>
+      <span class="connection-state ${connection.done ? "is-done" : ""}">${connection.done ? "Tilkoblet" : "Ikke bekreftet"}</span>
     </article>`).join("");
+}
 
-  elements.connectionGrid.querySelectorAll("[data-connection]").forEach((input) => {
-    input.addEventListener("change", () => {
-      const connection = state.connections.find((item) => item.id === input.dataset.connection);
-      connection.done = input.checked;
-      saveState();
-      renderMetrics();
-      renderConnections();
-      showToast(input.checked ? "Markert som lokalt bekreftet" : "Bekreftelsen er fjernet");
-    });
-  });
+async function checkInstagramConnection(showResult = false) {
+  elements.checkInstagramButton.disabled = true;
+  elements.instagramStatus.textContent = "Kontrollerer tilkoblingen …";
+  try {
+    const response = await fetch("/api/instagram/status", { headers: { Accept: "application/json" } });
+    const result = await response.json();
+    const connected = response.ok && result.connected;
+    state.connections.forEach((connection) => { connection.done = connected; });
+    elements.instagramStatus.textContent = connected
+      ? `Tilkoblet @${result.account.username}`
+      : result.error || "Instagram er ikke tilkoblet.";
+    elements.publishingNotice.classList.toggle("is-connected", connected);
+    elements.publishingNotice.querySelector("p").innerHTML = connected
+      ? `<strong>Instagram er tilkoblet.</strong> Du kan nå publisere godkjente bilder direkte fra innholdsplanen.`
+      : `<strong>Publisering er ikke klar.</strong> Kontroller Instagram-token og bruker-ID i den lokale miljøfilen.`;
+    if (showResult) showToast(connected ? "Instagram-tilkoblingen virker" : "Instagram kunne ikke bekreftes");
+  } catch {
+    state.connections.forEach((connection) => { connection.done = false; });
+    elements.instagramStatus.textContent = "Den lokale Instagram-serveren svarer ikke.";
+    if (showResult) showToast("Tilkoblingen kunne ikke kontrolleres");
+  } finally {
+    elements.checkInstagramButton.disabled = false;
+    renderMetrics();
+    renderConnections();
+  }
 }
 
 function renderCaptions() {
@@ -405,7 +424,6 @@ function openPostDialog(assetId = null, postId = null) {
   elements.postCaption.value = post?.caption || "";
   elements.captionCount.textContent = elements.postCaption.value.length;
   elements.postStatus.value = post?.status || "draft";
-  elements.channelFacebook.checked = post ? post.channels.includes("facebook") : true;
   elements.channelInstagram.checked = post ? post.channels.includes("instagram") : true;
   const scheduledAt = post ? new Date(post.scheduledAt) : new Date(`${nextAvailableDate()}T10:00:00`);
   elements.postDate.value = scheduledAt.toISOString().slice(0, 10);
@@ -423,10 +441,7 @@ function closePostDialog() {
 
 function savePost(event) {
   event.preventDefault();
-  const channels = [
-    elements.channelFacebook.checked ? "facebook" : null,
-    elements.channelInstagram.checked ? "instagram" : null,
-  ].filter(Boolean);
+  const channels = [elements.channelInstagram.checked ? "instagram" : null].filter(Boolean);
   if (!elements.postAssetId.value) {
     elements.postError.textContent = "Velg et bilde før du lagrer innlegget.";
     return;
@@ -457,6 +472,45 @@ function savePost(event) {
   closePostDialog();
   renderAll();
   showToast(existingIndex >= 0 ? "Innlegget er oppdatert" : "Innlegget er lagt i planen");
+}
+
+async function publishOnInstagram() {
+  const asset = findAsset(elements.postAssetId.value);
+  const caption = elements.postCaption.value.trim();
+  if (!asset?.mediaId) {
+    elements.postError.textContent = "Lokalt opplastede bilder må først legges på en offentlig bildelagring.";
+    return;
+  }
+  if (!caption) {
+    elements.postError.textContent = "Skriv en kort tekst til innlegget.";
+    return;
+  }
+  if (!window.confirm("Vil du publisere dette innlegget på Instagram-kontoen til Kling Systems nå?")) return;
+
+  elements.publishInstagramButton.disabled = true;
+  elements.publishInstagramButton.textContent = "Publiserer …";
+  elements.postError.textContent = "";
+  try {
+    const response = await fetch("/api/instagram/publish", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ mediaId: asset.mediaId, caption }),
+    });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || "Instagram avviste publiseringen.");
+    if (elements.postId.value) {
+      state.queue = state.queue.filter((item) => item.id !== elements.postId.value);
+      saveState();
+    }
+    closePostDialog();
+    renderAll();
+    showToast("Innlegget er publisert på Instagram");
+  } catch (error) {
+    elements.postError.textContent = error.message;
+  } finally {
+    elements.publishInstagramButton.disabled = false;
+    elements.publishInstagramButton.textContent = "Publiser nå";
+  }
 }
 
 function deletePost(postId) {
@@ -582,6 +636,8 @@ function bindEvents() {
   elements.closeDialog.addEventListener("click", closePostDialog);
   elements.cancelDialog.addEventListener("click", closePostDialog);
   elements.postForm.addEventListener("submit", savePost);
+  elements.publishInstagramButton.addEventListener("click", publishOnInstagram);
+  elements.checkInstagramButton.addEventListener("click", () => checkInstagramConnection(true));
   elements.postCaption.addEventListener("input", () => {
     elements.captionCount.textContent = elements.postCaption.value.length;
     elements.postError.textContent = "";
@@ -596,6 +652,7 @@ async function init() {
   bindEvents();
   await loadUploadedAssets();
   renderAll();
+  await checkInstagramConnection();
   const initialView = location.hash.slice(1);
   if (viewTitles[initialView]) switchView(initialView);
 }

@@ -48,8 +48,8 @@
         <div class="sidebar__status">
           <span class="status-dot" aria-hidden="true"></span>
           <div>
-            <strong>Kun lokalt</strong>
-            <span>Ingen automatisk publisering</span>
+            <strong>Lokalt dashboard</strong>
+            <span>Instagram-nøkkelen ligger på serveren</span>
           </div>
         </div>
       </aside>
@@ -73,9 +73,9 @@
           </div>
         </header>
 
-        <section class="notice" aria-label="Status for publisering">
+        <section class="notice" id="publishing-notice" aria-label="Status for publisering">
           <i class="ph ph-warning-circle" aria-hidden="true"></i>
-          <p><strong>Planleggingen er klar.</strong> Direkte publisering aktiveres først når Meta Graph API er koblet til.</p>
+          <p><strong>Kontrollerer Instagram.</strong> Vi bekrefter at den lokale serveren har gyldig tilgang.</p>
           <button type="button" data-view-link="tilkoblinger">Se hva som mangler</button>
         </section>
 
@@ -167,7 +167,7 @@
             <div>
               <p class="eyebrow">Meta-oppsett</p>
               <h2>Bekreft det som faktisk er koblet til</h2>
-              <p>Disse valgene er en lokal sjekkliste. De tester ikke Meta-kontoene og gir ikke appen publiseringstilgang.</p>
+              <p>Statusen kontrolleres direkte mot Instagram API. Tilgangsnøkkelen sendes aldri til nettleseren.</p>
             </div>
             <div class="local-badge"><span class="status-dot"></span> Lagres bare på denne maskinen</div>
           </div>
@@ -175,15 +175,16 @@
           <section class="panel api-panel">
             <div>
               <p class="eyebrow">Direkte publisering</p>
-              <h2>Det som må på plass</h2>
+              <h2>Direkte publisering til Instagram</h2>
             </div>
             <ol>
-              <li>En Meta-app med Facebook Login for Business.</li>
-              <li>Kling Systems-siden og Instagram-bedriftskontoen koblet i Meta Business Suite.</li>
-              <li>En gyldig tilgangsnøkkel med nødvendige publiseringstillatelser.</li>
-              <li>En liten serverfunksjon som oppbevarer nøkkelen sikkert. Den skal aldri ligge i nettleseren.</li>
+              <li>Instagram-kontoen må være en profesjonell konto.</li>
+              <li>Tokenet må ha <code>instagram_business_basic</code> og <code>instagram_business_content_publish</code>.</li>
+              <li>Bilder må være tilgjengelige fra en offentlig nettadresse når de publiseres.</li>
+              <li>Lokalt opplastede bilder kan planlegges, men ikke publiseres før de er lastet opp offentlig.</li>
             </ol>
-            <button class="button button--disabled" type="button" disabled>Publisering er ikke koblet til</button>
+            <p id="instagram-status" role="status">Tilkoblingen er ikke kontrollert.</p>
+            <button class="button button--secondary" id="check-instagram-button" type="button">Kontroller tilkoblingen</button>
           </section>
         </section>
       </main>
@@ -214,8 +215,7 @@
 
           <div class="post-fields">
             <fieldset>
-              <legend>Kanaler</legend>
-              <label class="check-chip"><input id="channel-facebook" type="checkbox" value="facebook" /> Facebook</label>
+              <legend>Kanal</legend>
               <label class="check-chip"><input id="channel-instagram" type="checkbox" value="instagram" /> Instagram</label>
             </fieldset>
 
@@ -249,6 +249,7 @@
         <p class="form-error" id="post-error" role="alert"></p>
         <div class="dialog__actions">
           <button class="button button--secondary" id="cancel-dialog" type="button">Avbryt</button>
+          <button class="button button--secondary" id="publish-instagram-button" type="button">Publiser nå</button>
           <button class="button button--primary" type="submit">Lagre i planen</button>
         </div>
       </form>
