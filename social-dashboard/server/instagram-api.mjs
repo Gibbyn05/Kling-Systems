@@ -1,4 +1,6 @@
 const GRAPH_HOST = "https://graph.instagram.com";
+const MEDIA_PROCESSING_ATTEMPTS = 12;
+const MEDIA_PROCESSING_DELAY_MS = 1_000;
 
 const sendJson = (response, status, body) => {
   response.statusCode = status;
@@ -34,6 +36,35 @@ const parseMetaResponse = async (metaResponse) => {
     throw error;
   }
   return result;
+};
+
+const wait = (duration) => new Promise((resolve) => setTimeout(resolve, duration));
+
+const waitForMediaProcessing = async (containerId, config) => {
+  let lastError;
+
+  for (let attempt = 0; attempt < MEDIA_PROCESSING_ATTEMPTS; attempt += 1) {
+    if (attempt > 0) await wait(MEDIA_PROCESSING_DELAY_MS);
+
+    const statusUrl = new URL(
+      `${GRAPH_HOST}/${config.version}/${encodeURIComponent(containerId)}`,
+    );
+    statusUrl.searchParams.set("fields", "status_code,status");
+    statusUrl.searchParams.set("access_token", config.accessToken);
+
+    try {
+      const result = await parseMetaResponse(await fetch(statusUrl));
+      if (result.status_code === "FINISHED") return;
+      if (result.status_code === "ERROR" || result.status_code === "EXPIRED") {
+        throw new Error(result.status || "Instagram kunne ikke behandle bildet.");
+      }
+    } catch (error) {
+      lastError = error;
+      if (error.status && error.status !== 400) throw error;
+    }
+  }
+
+  throw lastError || new Error("Instagram brukte for lang tid på å behandle bildet. Prøv igjen.");
 };
 
 const requiredConfig = (env) => {
@@ -106,6 +137,8 @@ const publishHandler = async (request, response, env) => {
       `${GRAPH_HOST}/${config.version}/${encodeURIComponent(config.userId)}/media`,
       { method: "POST", body: containerBody },
     ));
+
+    await waitForMediaProcessing(container.id, config);
 
     const publishBody = new URLSearchParams({
       creation_id: container.id,
