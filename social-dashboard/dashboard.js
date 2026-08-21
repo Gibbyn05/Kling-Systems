@@ -20,6 +20,8 @@ const defaultAssets = [
     name: "Google-annonse, kvadrat",
     format: "1200 × 1200",
     source: "Kling",
+    captionTitle: "Mindre manuelt arbeid",
+    caption: "Små, manuelle oppgaver stjeler mer tid enn man tror.\n\nKling bygger nettsider, automatiseringer og systemer som flytter informasjonen videre, følger opp og gir bedre flyt i arbeidshverdagen.\n\nHar dere en oppgave som gjentas hver uke? Fortell oss om den på klingsystems.no.\n\n#automatisering #digitalisering #bedrift",
     src: new URL("../assets/ads/kling-google-ad-square-1200x1200.png", import.meta.url).href,
   },
   {
@@ -28,6 +30,8 @@ const defaultAssets = [
     name: "Google-annonse, liggende",
     format: "1200 × 628",
     source: "Kling",
+    captionTitle: "Bedre flyt",
+    caption: "Mindre tid på gjentakelser. Mer tid til arbeidet som faktisk trenger dere.\n\nVi ser på hvordan nettsider, automatisering og digitale systemer kan gi en enklere arbeidsflyt, tilpasset måten bedriften allerede jobber på.\n\nSe hva vi bygger på klingsystems.no.\n\n#arbeidsflyt #automatisering #digitalesystemer",
     src: new URL("../assets/ads/kling-google-ad-horizontal-1200x628.png", import.meta.url).href,
   },
   {
@@ -36,6 +40,8 @@ const defaultAssets = [
     name: "Bie med driftsoversikt",
     format: "Illustrasjon",
     source: "Kling",
+    captionTitle: "Oversikt som kan brukes",
+    caption: "God oversikt handler ikke om flere rapporter. Det handler om å samle riktig informasjon på ett sted, slik at det blir enklere å se hva som skjer og hva som bør gjøres videre.\n\nKling bygger systemer som gir bedriften bedre struktur i arbeidshverdagen.\n\nLes mer på klingsystems.no/systemer.\n\n#systemutvikling #driftsoversikt #digitalisering",
     src: new URL("../assets/mascot/kling-bee-analytics.png", import.meta.url).href,
   },
   {
@@ -44,6 +50,8 @@ const defaultAssets = [
     name: "Bie med melding",
     format: "Illustrasjon",
     source: "Kling",
+    captionTitle: "Henvendelser som blir fulgt opp",
+    caption: "En ny henvendelse bør ikke bli liggende i en innboks.\n\nMed en gjennomtenkt arbeidsflyt kan informasjonen registreres, riktig person varsles og oppfølgingen planlegges uten unødvendig kopiering mellom verktøy.\n\nHar dere en flyt som ofte stopper opp? Ta kontakt på klingsystems.no/kontakt.\n\n#kundereise #automatisering #arbeidsflyt",
     src: new URL("../assets/mascot/kling-bee-message.png", import.meta.url).href,
   },
   {
@@ -52,6 +60,8 @@ const defaultAssets = [
     name: "Bie med kalender",
     format: "Illustrasjon",
     source: "Kling",
+    captionTitle: "Oppfølging til riktig tid",
+    caption: "Oppfølging fungerer best når den blir gjort til riktig tid, ikke når noen tilfeldigvis husker den.\n\nVi bygger automatiseringer som kan planlegge neste steg, varsle ansvarlig og redusere behovet for manuelle påminnelser.\n\nSe mulighetene på klingsystems.no/automatisering.\n\n#oppfølging #automatisering #bedriftsutvikling",
     src: new URL("../assets/mascot/kling-bee-calendar.png", import.meta.url).href,
   },
   {
@@ -60,30 +70,18 @@ const defaultAssets = [
     name: "Bie ved datamaskin",
     format: "Illustrasjon",
     source: "Kling",
+    captionTitle: "Nettsiden som arbeidsverktøy",
+    caption: "Nettsiden er ofte kundens første møte med bedriften. Den bør forklare tilbudet tydelig, gjøre det enkelt å ta kontakt og støtte resten av arbeidsflyten.\n\nKling bygger raske og oversiktlige nettsider tilpasset bedriftens behov.\n\nLes mer på klingsystems.no/nettsider.\n\n#nettsider #webdesign #bedrift",
     src: new URL("../assets/mascot/kling-bee-laptop.png", import.meta.url).href,
   },
 ];
 
-const captionTemplates = [
-  {
-    id: "intro",
-    title: "Første innlegg",
-    channel: "Facebook og Instagram",
-    text: "Hei, vi er Kling.\n\nVi bygger nettsider, automatiseringer og systemer som gjør arbeidshverdagen enklere. Målet er mindre manuelt arbeid, bedre flyt og løsninger som faktisk passer måten bedriften jobber på.\n\nLes mer på klingsystems.no",
-  },
-  {
-    id: "workflow",
-    title: "Bedre flyt",
-    channel: "Facebook og Instagram",
-    text: "Én henvendelse trenger ikke å bli fire manuelle oppgaver.\n\nMed riktig arbeidsflyt kan CRM oppdateres, svar sendes, ansvarlig varsles og oppfølging planlegges automatisk.\n\nVil dere bruke mindre tid på gjentakelser? Ta kontakt på klingsystems.no.",
-  },
-  {
-    id: "website",
-    title: "Nettsider",
-    channel: "Facebook og Instagram",
-    text: "En nettside skal gjøre mer enn å se ryddig ut. Den skal forklare tilbudet, gjøre det enkelt å ta kontakt og støtte resten av arbeidsflyten.\n\nVi bygger nettsider som er enkle å forstå og enkle å bruke.",
-  },
-];
+const captionTemplates = defaultAssets.map((asset) => ({
+  id: asset.id,
+  title: asset.captionTitle,
+  channel: "Instagram",
+  text: asset.caption,
+}));
 
 const defaultConnections = [
   { id: "instagram", title: "Instagram-bedriftskonto", detail: "Kontrolleres mot Instagram API", icon: "ph-instagram-logo", done: false },
@@ -421,7 +419,7 @@ function openPostDialog(assetId = null, postId = null) {
   elements.dialogTitle.textContent = post ? "Rediger innlegg" : "Nytt innlegg";
   elements.postId.value = post?.id || "";
   elements.postAssetId.value = selectedAssetId;
-  elements.postCaption.value = post?.caption || "";
+  elements.postCaption.value = post?.caption || asset?.caption || "";
   elements.captionCount.textContent = elements.postCaption.value.length;
   elements.postStatus.value = post?.status || "draft";
   elements.channelInstagram.checked = post ? post.channels.includes("instagram") : true;
