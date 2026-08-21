@@ -31,7 +31,7 @@ const playSiteIntro = () => {
   });
 
   timeline
-    .from(".site-intro__logo", { autoAlpha: 0, scale: .88, y: 18, duration: .7 })
+    .from(".site-intro__logo", { autoAlpha: 0, y: 18, duration: .7 })
     .from(".site-intro__inner p", { autoAlpha: 0, y: 10, duration: .38 }, "-=.3")
     .to(".site-intro__inner", { autoAlpha: 0, y: -12, duration: .28, ease: "power2.in" }, "+=.2")
     .to(".site-intro__curtain", { yPercent: -100, duration: .72, ease: "power4.inOut" }, "-=.06")

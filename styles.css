@@ -124,7 +124,7 @@ p { text-wrap: pretty; }
   background: radial-gradient(circle, rgba(140,192,235,.26), transparent 67%);
 }
 .site-intro__inner { position: relative; z-index: 2; display: grid; justify-items: center; text-align: center; }
-.site-intro__logo { width: min(72vw, 520px); height: auto; object-fit: contain; }
+.site-intro__logo { width: min(58vw, 300px); height: auto; object-fit: contain; image-rendering: auto; }
 .site-intro__inner p { margin: 24px 0 0; color: rgba(255,249,210,.62); font-size: clamp(.65rem, 1.1vw, .82rem); font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
 .site-intro__curtain { position: absolute; inset: 0; z-index: 3; background: var(--cream); transform: translateY(100%); }
 .scroll-flight { position: fixed; z-index: 2; inset: 0; opacity: 0; visibility: hidden; overflow: hidden; pointer-events: none; will-change: opacity; }
