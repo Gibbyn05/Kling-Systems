@@ -35,7 +35,7 @@ Konseptet er sammenlignet med de publiserte og forberedte pakkene i `assets/ads/
 ## Teknisk QA før publisering
 
 - `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto 24. august 2026.
-- Lokal fil og offentlig medie-URL skal ha identisk SHA-256 etter deploy.
+- Lokal fil og offentlig medie-URL ble kontrollert som identiske etter deploy, SHA-256 `b565202b659ae714fa3801bfc50936104960e8cf70fa4905fc5d63b3bce6450f`.
 - Publiseringsjobben skal gjøre ny duplikatkontroll rett før Instagram-kallet.
 
-Status etter lokal QA: KLAR FOR DEPLOY OG OFFENTLIG MEDIEKONTROLL.
+Status etter deploy-QA: KLAR FOR PUBLISERINGSJOBB 25. AUGUST 2026.
