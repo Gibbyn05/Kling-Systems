@@ -1,6 +1,3 @@
-import { publishPreparedPost } from "../scripts/publish-instagram.mjs";
-import { verifyGithubActionsToken } from "../scripts/github-oidc.mjs";
-
 const sendJson = (response, status, body) => {
   response.setHeader("Cache-Control", "no-store, max-age=0");
   response.setHeader("X-Content-Type-Options", "nosniff");
@@ -23,6 +20,7 @@ export default async function handler(request, response) {
 
   let claims;
   try {
+    const { verifyGithubActionsToken } = await import("../scripts/github-oidc.mjs");
     claims = await verifyGithubActionsToken(token);
   } catch (error) {
     console.error("GitHub OIDC-kontrollen feilet", { name: error?.name });
@@ -37,6 +35,7 @@ export default async function handler(request, response) {
     : undefined;
 
   try {
+    const { publishPreparedPost } = await import("../scripts/publish-instagram.mjs");
     const result = await publishPreparedPost({ mode, targetDate });
     return sendJson(response, 200, {
       ok: true,
