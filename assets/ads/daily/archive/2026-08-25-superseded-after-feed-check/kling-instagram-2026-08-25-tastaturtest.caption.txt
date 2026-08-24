@@ -1,0 +1,9 @@
+Kan dere bruke meny, skjema og knapper uten mus?
+
+Prøv selv: Legg bort musen og bruk Tab, Shift + Tab, Enter og mellomrom. Sjekk at dere når alle handlinger, ser tydelig hvor fokuset er, og beveger dere gjennom siden i en logisk rekkefølge.
+
+En enkel tastaturtest erstatter ikke en full tilgjengelighetskontroll, men den kan avdekke konkrete barrierer tidlig.
+
+Vil dere ha en nettside som er enklere å finne frem på og bruke? Ta en prat med oss på klingsystems.no/nettsider.
+
+#nettsider #universellutforming #brukervennlighet
