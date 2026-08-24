@@ -1,0 +1,70 @@
+name: Publiser Kling-innlegg på Instagram
+
+on:
+  schedule:
+    - cron: "3 10 * * *"
+      timezone: "Europe/Oslo"
+    - cron: "33 10 * * *"
+      timezone: "Europe/Oslo"
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: "Valgfri dato på formatet YYYY-MM-DD"
+        required: false
+        type: string
+      publish:
+        description: "Publiser når alle kontroller består"
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: kling-instagram-daily-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Kontroller og publiser
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Kall sikret publiseringsfunksjon
+        uses: actions/github-script@v8
+        env:
+          PUBLISH_ENDPOINT: https://www.klingsystems.no/api/instagram-publish
+          TARGET_DATE: ${{ inputs.target_date }}
+          PUBLISH_MODE: ${{ github.event_name == 'schedule' && 'publish' || (inputs.publish == true && 'publish' || 'dry-run') }}
+        with:
+          script: |
+            const endpoint = process.env.PUBLISH_ENDPOINT;
+            const token = await core.getIDToken(endpoint);
+            core.setSecret(token);
+
+            const response = await fetch(endpoint, {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                mode: process.env.PUBLISH_MODE,
+                targetDate: process.env.TARGET_DATE || undefined,
+              }),
+            });
+            const result = await response.json().catch(() => ({}));
+
+            await core.summary
+              .addHeading("Kling Instagram-publisering")
+              .addRaw(`Status: ${result.status || "feilet"}\n`)
+              .addRaw(`Fil: ${result.file || "ingen"}\n`)
+              .addRaw(`Media-ID: ${result.mediaId || "ingen"}\n`)
+              .addLink("Åpne Instagram-innlegget", result.permalink || "https://www.instagram.com/klingsystems/")
+              .write();
+
+            if (!response.ok) {
+              core.setFailed(result.error || `Publiseringsfunksjonen svarte HTTP ${response.status}`);
+            }

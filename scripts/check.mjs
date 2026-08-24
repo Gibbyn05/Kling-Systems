@@ -13,6 +13,9 @@ const js = readFileSync(new URL("../script.js", import.meta.url), "utf8");
 const contactJs = readFileSync(new URL("../kontakt.js", import.meta.url), "utf8");
 const contactApi = readFileSync(new URL("../api/contact.js", import.meta.url), "utf8");
 const instagramMediaApi = readFileSync(new URL("../api/instagram-media.js", import.meta.url), "utf8");
+const instagramPublishApi = readFileSync(new URL("../api/instagram-publish.js", import.meta.url), "utf8");
+const instagramPublishScript = readFileSync(new URL("./publish-instagram.mjs", import.meta.url), "utf8");
+const instagramWorkflow = readFileSync(new URL("../.github/workflows/publish-instagram.yml", import.meta.url), "utf8");
 const vercelConfig = readFileSync(new URL("../vercel.json", import.meta.url), "utf8");
 const analyticsConsent = readFileSync(new URL("../analytics-consent.js", import.meta.url), "utf8");
 const robots = readFileSync(new URL("../public/robots.txt", import.meta.url), "utf8");
@@ -75,6 +78,11 @@ const checks = [
   [contactApi.includes('"Cache-Control", "no-store, max-age=0"'), "Kontaktfunksjonen forhindrer mellomlagring"],
   [instagramMediaApi.includes("dailyMediaIdPattern") && instagramMediaApi.includes("isValidDate"), "Daglige Instagram-bilder bruker streng ID- og datovalidering"],
   [vercelConfig.includes("ads/daily/*.png"), "Daglige Instagram-bilder inkluderes i mediefunksjonen"],
+  [instagramWorkflow.includes('timezone: "Europe/Oslo"') && instagramWorkflow.includes("kling-instagram-daily-publish"), "Instagram-jobben kjører i Oslo-tid med concurrency-lås"],
+  [instagramWorkflow.includes("id-token: write") && !instagramWorkflow.includes("secrets.INSTAGRAM_ACCESS_TOKEN"), "GitHub bruker kortlivet OIDC uten Instagram-hemmeligheter"],
+  [instagramPublishApi.includes("verifyGithubActionsToken") && instagramPublishApi.includes("publishPreparedPost"), "Vercel-funksjonen krever bekreftet GitHub-identitet"],
+  [instagramPublishScript.includes("duplicate-before-publish") && instagramPublishScript.includes("media_publish"), "Instagram-publisering har ny duplikatkontroll før publish"],
+  [instagramPublishScript.includes("POLL_TIMEOUT_MS") && instagramPublishScript.includes('status_code === "FINISHED"'), "Instagram-container polles til den er ferdig"],
   [privacyHtml.includes('lang="no"'), "Personvernsiden er på norsk"],
   [(privacyHtml.match(/<h1\b/g) || []).length === 1, "Personvernsiden har nøyaktig én H1"],
   [privacyHtml.includes('id="kontaktskjema"') && privacyHtml.includes('id="informasjonskapsler"') && privacyHtml.includes('id="rettigheter"'), "Personvernsiden dekker skjema, informasjonskapsler og rettigheter"],
