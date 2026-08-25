@@ -1,5 +1,5 @@
 import "@fontsource-variable/geist";
-import "@phosphor-icons/web/regular";
+import "./phosphor-icons.css";
 
 const menuButton = document.querySelector(".service-menu-button");
 const mobileNav = document.querySelector(".service-mobile-nav");

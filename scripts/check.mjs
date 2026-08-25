@@ -19,6 +19,7 @@ const instagramWorkflow = readFileSync(new URL("../.github/workflows/publish-ins
 const vercelConfig = readFileSync(new URL("../vercel.json", import.meta.url), "utf8");
 const parsedVercelConfig = JSON.parse(vercelConfig);
 const analyticsConsent = readFileSync(new URL("../analytics-consent.js", import.meta.url), "utf8");
+const phosphorCss = readFileSync(new URL("../phosphor-icons.css", import.meta.url), "utf8");
 const robots = readFileSync(new URL("../public/robots.txt", import.meta.url), "utf8");
 const sitemap = readFileSync(new URL("../public/sitemap.xml", import.meta.url), "utf8");
 const servicePages = [webServiceHtml, automationServiceHtml, systemsServiceHtml];
@@ -42,6 +43,12 @@ const checks = [
     ["web-enquiry", "automation-flow", "systems-workspace"].every((name) => html.includes(`kling-illustration-${name}.webp`)),
     "Tjenesteillustrasjonene bruker komprimert WebP",
   ],
+  [
+    html.includes("kling-symbol-transparent-128.webp") && html.includes("kling-bee-fast-300.webp") && html.includes("kling-logo-navy-transparent-300.webp"),
+    "Forsiden bruker skalerte merkevarebilder",
+  ],
+  [!html.includes("<h3>Én henvendelse") && html.includes('class="workflow-title"'), "Arbeidsflyten hopper ikke over overskriftsnivåer"],
+  [phosphorCss.includes("font-display: swap") && !js.includes("@phosphor-icons/web/regular"), "Ikonfonten blokkerer ikke tekstvisning"],
   [allPages.every((page) => !page.includes("googletagmanager.com/gtag/js")), "Ingen side laster analyse før samtykke"],
   [allPages.every((page) => page.includes("./analytics-consent.js")), "Personvernvalg finnes på alle sider"],
   [allPages.every((page) => !page.includes("fonts.googleapis.com") && !page.includes("fonts.gstatic.com")), "Ingen side laster skrifter fra tredjepart"],
@@ -81,6 +88,7 @@ const checks = [
   [vercelConfig.includes("ads/daily/*.png"), "Daglige Instagram-bilder inkluderes i mediefunksjonen"],
   [parsedVercelConfig.rewrites.some((rewrite) => rewrite.source === "/OS" && rewrite.destination === "https://kling-intelligence-os.vercel.app/OS"), "Intelligence OS ligger på en separat /OS-rute"],
   [parsedVercelConfig.rewrites.some((rewrite) => rewrite.source === "/OS/:path*" && rewrite.destination === "https://kling-intelligence-os.vercel.app/OS/:path*"), "Intelligence OS-ressurser og API-ruter holdes under /OS"],
+  [parsedVercelConfig.headers?.some((entry) => entry.headers?.some((header) => header.key === "Content-Security-Policy")), "Produksjonen sender Content Security Policy"],
   [instagramWorkflow.includes('timezone: "Europe/Oslo"') && instagramWorkflow.includes("kling-instagram-daily-publish"), "Instagram-jobben kjører i Oslo-tid med concurrency-lås"],
   [instagramWorkflow.includes("id-token: write") && !instagramWorkflow.includes("secrets.INSTAGRAM_ACCESS_TOKEN"), "GitHub bruker kortlivet OIDC uten Instagram-hemmeligheter"],
   [instagramPublishApi.includes("verifyGithubActionsToken") && instagramPublishApi.includes("publishPreparedPost"), "Vercel-funksjonen krever bekreftet GitHub-identitet"],

@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "Phosphor";
+  src: url("./assets/fonts/phosphor-regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.ph {
+  font-family: "Phosphor" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  letter-spacing: 0;
+  font-feature-settings: "liga";
+  font-variant-ligatures: discretionary-ligatures;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ph-arrow-down::before { content: "\e03e"; }
+.ph-arrow-left::before { content: "\e058"; }
+.ph-arrow-right::before { content: "\e06c"; }
+.ph-arrow-up-right::before { content: "\e092"; }
+.ph-arrows-clockwise::before { content: "\e094"; }
+.ph-arrows-left-right::before { content: "\e0a0"; }
+.ph-bell::before { content: "\e0ce"; }
+.ph-bell-ringing::before { content: "\e5e8"; }
+.ph-calendar-dots::before { content: "\e7b4"; }
+.ph-caret-down::before { content: "\e136"; }
+.ph-chart-line-up::before { content: "\e156"; }
+.ph-chats-circle::before { content: "\e17e"; }
+.ph-check::before { content: "\e182"; }
+.ph-check-circle::before { content: "\e184"; }
+.ph-device-mobile::before { content: "\e1e0"; }
+.ph-envelope-simple::before { content: "\e218"; }
+.ph-envelope-simple-open::before { content: "\e21a"; }
+.ph-eye::before { content: "\e220"; }
+.ph-file-text::before { content: "\e23a"; }
+.ph-gauge::before { content: "\e628"; }
+.ph-handshake::before { content: "\e582"; }
+.ph-identification-card::before { content: "\e2c8"; }
+.ph-layout::before { content: "\e6d6"; }
+.ph-list::before { content: "\e2f0"; }
+.ph-magnifying-glass::before { content: "\e30c"; }
+.ph-phone::before { content: "\e3b8"; }
+.ph-plugs-connected::before { content: "\eb5a"; }
+.ph-shield-check::before { content: "\e40c"; }
+.ph-sliders-horizontal::before { content: "\e434"; }
+.ph-strategy::before { content: "\ea3a"; }
+.ph-timer::before { content: "\e492"; }
+.ph-user-plus::before { content: "\e4d0"; }
+.ph-users-three::before { content: "\e68e"; }
+.ph-warning-circle::before { content: "\e4e2"; }
+.ph-x::before { content: "\e4f6"; }

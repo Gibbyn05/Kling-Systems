@@ -1,5 +1,5 @@
 import "@fontsource-variable/geist";
-import "@phosphor-icons/web/regular";
+import "./phosphor-icons.css";
 
 const form = document.querySelector(".contact-form");
 const submitButton = form?.querySelector(".button--submit");
