@@ -1,0 +1,12 @@
+Et kontaktskjema er ikke ferdig når Send-knappen virker.
+
+Etter innsending bør kunden få vite:
+• at henvendelsen er mottatt
+• hva som skjer videre
+• når eller hvordan dere følger opp
+
+En tydelig bekreftelse fjerner unødvendig usikkerhet og gjør kundereisen enklere å forstå.
+
+Vil dere forbedre veien fra besøk til henvendelse? Se klingsystems.no/nettsider.
+
+#nettsider #brukeropplevelse #webutvikling
