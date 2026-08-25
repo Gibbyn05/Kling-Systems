@@ -1,1 +1,0 @@
-export default function Loading(){return <div className="page" aria-label="Laster side"><div className="grid-12">{[0,1,2,3].map((item)=><div className="kpi animate-pulse span-3" key={item}/>)}</div></div>;}

@@ -1,4 +1,0 @@
-import { NextResponse } from "next/server";
-import { demoClients, demoOverdueInvoices } from "@/server/repositories/demo-data";
-export async function GET(_request: Request, context: { params: Promise<{ id: string }> }) { const { id } = await context.params; const client = demoClients.find((item) => item.id === id); return client ? NextResponse.json({ mode: "demo", row: { ...client, invoices: demoOverdueInvoices.filter((invoice) => invoice.clientName === client.name), communication: [], tasks: [], attributionOrigin: "youtube / automation-guide" } }) : NextResponse.json({ error: { code: "NOT_FOUND", message: "Kunden finnes ikke." } }, { status: 404 }); }
-export async function PATCH(request: Request, context: { params: Promise<{ id: string }> }) { const { id } = await context.params; return NextResponse.json({ mode: "demo", row: { id, ...(await request.json() as Record<string, unknown>) }, audit: { action: "client.updated" } }); }

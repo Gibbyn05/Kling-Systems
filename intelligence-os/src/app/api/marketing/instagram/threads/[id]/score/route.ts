@@ -1,6 +1,0 @@
-import { NextResponse } from "next/server";
-import { z } from "zod";
-import { demoInstagramThreads } from "@/server/repositories/demo-data";
-export async function POST(_request:Request,context:{params:Promise<{id:string}>}){const {id}=await context.params;const thread=demoInstagramThreads.find((item)=>item.id===id);return thread?NextResponse.json({mode:"demo",score:thread.qualityScore,label:thread.qualityLabel,buyingSignals:thread.buyingSignals,objections:thread.objections,missingInformation:[],recommendedNextAction:"Avklar behov og neste beslutning.",confidence:.84,evidenceMessageIds:thread.evidenceMessageIds}):NextResponse.json({error:{code:"NOT_FOUND",message:"Samtalen finnes ikke."}},{status:404});}
-const override=z.object({score:z.number().int().min(0).max(100),label:z.enum(["high","medium","low"]),reason:z.string().min(3)});
-export async function PATCH(request:Request,context:{params:Promise<{id:string}>}){const {id}=await context.params;const parsed=override.safeParse(await request.json());return parsed.success?NextResponse.json({mode:"demo",row:{id,...parsed.data},audit:{action:"instagram_score.overridden"}}):NextResponse.json({error:{code:"INVALID_REQUEST",message:"Manuell vurdering krever score, etikett og begrunnelse."}},{status:400});}
