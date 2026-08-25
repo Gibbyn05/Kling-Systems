@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@font-face { font-family: "Kling Geist"; src: url("/fonts/geist-regular.woff2") format("woff2"); font-style: normal; font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Kling Geist"; src: url("/OS/fonts/geist-regular.woff2") format("woff2"); font-style: normal; font-weight: 100 900; font-display: swap; }
 :root { --navy:#0f2940; --blue:#8cc0eb; --blue-soft:#bfddf0; --warm:#ffebcc; --canvas:#fff9d2; --paper:#fff; --ink-muted:#526575; --line:#dbe3e7; --success:#147a54; --warning:#a86100; --danger:#b42318; --shadow:0 16px 44px rgba(15,41,64,.08); }
 * { box-sizing:border-box; }
 html { background:var(--canvas); }

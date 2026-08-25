@@ -126,7 +126,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       <a className="skip-link" href="#main-content">Hopp til innhold</a>
       <aside ref={menuRef} className="sidebar" data-open={menuOpen} aria-label="Navigasjonsskuff">
         <div className="brand">
-          <Image src="/brand/kling-logo.png" width={32} height={32} alt="Kling Systems" priority />
+          <Image src="/OS/brand/kling-logo.png" width={32} height={32} alt="Kling Systems" priority />
           <div><strong>Intelligence OS</strong><span>Kling Systems</span></div>
           {menuOpen ? <button ref={menuCloseRef} className="drawer-close" style={{ marginLeft: "auto" }} type="button" onClick={() => setMenuOpen(false)} aria-label="Lukk navigasjon"><X /></button> : null}
         </div>

@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Åpne `http://localhost:3000`. Uten Supabase-variabler starter appen i tydelig merket demo-modus med deterministiske data. Kopier `.env.example` til `.env.local` for å aktivere autentisering og Supabase-klienten.
+Åpne `http://localhost:3000/OS`. Appen bruker fast Next.js-basebane `/OS` slik at Kling Systems-forsiden forblir separat. Uten Supabase-variabler starter appen i tydelig merket demo-modus med deterministiske data. Kopier `.env.example` til `.env.local` for å aktivere autentisering og Supabase-klienten.
 
 ## Kvalitetssikring
 

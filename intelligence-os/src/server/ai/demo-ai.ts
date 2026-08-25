@@ -7,9 +7,9 @@ export function generateDemoAiCeoResponse(question: string): AiCeoResponse {
     answer: `Det største dokumenterte likviditetstapet akkurat nå er NOK 25 000 i tre forfalte fakturaer. Den eldste er 92 dager over fristen. Før du endrer kanalbudsjettet bør attribusjonsdekningen på 62 % rettes, fordi kanalbaserte slutninger ellers er usikre. Spørsmålet var: «${question}»`,
     confidence: 0.88,
     findings: [
-      { title: "NOK 25 000 er forfalt", explanation: "Tre uavklarte fakturaer binder kontantstrøm. Start med den eldste.", severity: "critical", evidence: [{ entityType: "invoice", entityId: "invoice-overdue-92", label: "KS-2026-041", href: "/income", metric: "Dager forfalt", value: 92 }] },
-      { title: "Attribusjonen er ikke beslutningsklar", explanation: "38 prosent av leadene mangler nødvendig kildeinformasjon.", severity: "high", evidence: [{ entityType: "data_quality", entityId: "attribution-coverage", label: "Attribusjonsdekning", href: "/marketing/attribution", metric: "Dekning", value: "62 %" }] },
-      { title: "Conor er aldri fulgt opp", explanation: "En aktiv kunde mangler dokumentert innsjekk.", severity: "medium", evidence: [{ entityType: "client", entityId: "client-conor", label: "Conor Walsh", href: "/followups" }] },
+      { title: "NOK 25 000 er forfalt", explanation: "Tre uavklarte fakturaer binder kontantstrøm. Start med den eldste.", severity: "critical", evidence: [{ entityType: "invoice", entityId: "invoice-overdue-92", label: "KS-2026-041", href: "/OS/income", metric: "Dager forfalt", value: 92 }] },
+      { title: "Attribusjonen er ikke beslutningsklar", explanation: "38 prosent av leadene mangler nødvendig kildeinformasjon.", severity: "high", evidence: [{ entityType: "data_quality", entityId: "attribution-coverage", label: "Attribusjonsdekning", href: "/OS/marketing/attribution", metric: "Dekning", value: "62 %" }] },
+      { title: "Conor er aldri fulgt opp", explanation: "En aktiv kunde mangler dokumentert innsjekk.", severity: "medium", evidence: [{ entityType: "client", entityId: "client-conor", label: "Conor Walsh", href: "/OS/followups" }] },
     ],
     dataQualityWarnings: [{ area: "Attribusjon", message: "Dekningen er under terskelen på 80 %.", impact: "Nøyaktig kanalrangering og close-rate er usikker." }],
     recommendedActions: [

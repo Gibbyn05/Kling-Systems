@@ -9,6 +9,8 @@
     }
   },
   "rewrites": [
+    { "source": "/OS", "destination": "https://kling-intelligence-os.vercel.app/OS" },
+    { "source": "/OS/:path*", "destination": "https://kling-intelligence-os.vercel.app/OS/:path*" },
     { "source": "/nettsider", "destination": "/nettsider.html" },
     { "source": "/automatisering", "destination": "/automatisering.html" },
     { "source": "/systemer", "destination": "/systemer.html" },
