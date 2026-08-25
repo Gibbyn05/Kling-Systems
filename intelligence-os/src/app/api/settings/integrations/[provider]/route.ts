@@ -1,0 +1,5 @@
+import { NextResponse } from "next/server";
+import { z } from "zod";
+const schema=z.object({displayName:z.string().min(2),secret:z.string().min(8).optional(),publicConfig:z.record(z.string(),z.unknown()).default({})});
+export async function PUT(request:Request,context:{params:Promise<{provider:string}>}){const {provider}=await context.params;const parsed=schema.safeParse(await request.json());if(!parsed.success)return NextResponse.json({error:{code:"INVALID_REQUEST",message:"Integrasjonen er ugyldig."}},{status:400});return NextResponse.json({mode:"demo",providerKey:provider,configured:Boolean(parsed.data.secret),secretLastFour:parsed.data.secret?.slice(-4)??null,updatedAt:new Date().toISOString(),displayName:parsed.data.displayName,publicConfig:parsed.data.publicConfig});}
+export async function DELETE(_request:Request,context:{params:Promise<{provider:string}>}){const {provider}=await context.params;return NextResponse.json({mode:"demo",providerKey:provider,status:"disconnected",secretLastFour:null,audit:{action:"integration.disconnected"}});}

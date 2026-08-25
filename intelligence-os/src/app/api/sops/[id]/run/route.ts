@@ -1,0 +1,2 @@
+import { NextResponse } from "next/server";
+export async function POST(request: Request, context: { params: Promise<{ id: string }> }) { const { id } = await context.params; const input = await request.json() as Record<string, unknown>; return NextResponse.json({ mode: "demo", runId: `run-${id}`, status: "completed", evidence: [{ source: "Valgt demokontekst", path: "demo/forretning.md", chunk: "1", importedAt: "2026-08-25T10:00:00Z" }], output: "SOP-kjøringen fant ett dokumentert forbedringspunkt og foreslår en avgrenset oppgave.", input }); }

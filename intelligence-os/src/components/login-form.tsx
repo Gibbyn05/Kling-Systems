@@ -1,0 +1,7 @@
+"use client";
+
+import { createBrowserClient } from "@supabase/ssr";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
+export function LoginForm(){const router=useRouter();const [error,setError]=useState<string|null>(null);const [loading,setLoading]=useState(false);return <form className="stack" onSubmit={async(event)=>{event.preventDefault();setLoading(true);const data=new FormData(event.currentTarget);const url=process.env.NEXT_PUBLIC_SUPABASE_URL;const key=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;if(!url||!key){setError("Supabase er ikke konfigurert. Start appen uten nøkler for demo-modus.");setLoading(false);return;}const supabase=createBrowserClient(url,key);const result=await supabase.auth.signInWithPassword({email:String(data.get("email")),password:String(data.get("password"))});if(result.error){setError("Innloggingen ble avvist.");setLoading(false);return;}router.push("/overview");router.refresh();}}><label className="form-field">E-post<input className="field" type="email" name="email" autoComplete="email" required/></label><label className="form-field">Passord<input className="field" type="password" name="password" autoComplete="current-password" required/></label>{error?<div className="notice" role="alert">{error}</div>:null}<button className="button button--primary" type="submit" disabled={loading}>{loading?"Logger inn…":"Logg inn"}</button></form>;}

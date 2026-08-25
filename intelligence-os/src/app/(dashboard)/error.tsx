@@ -1,0 +1,2 @@
+"use client";
+export default function ErrorPage({reset}:{error:Error&{digest?:string};reset:()=>void}){return <div className="page"><section className="card card-pad"><h1>Siden kunne ikke lastes</h1><p className="analysis-copy">En intern feil stoppet denne visningen. Ingen ekstern handling ble utført.</p><button className="button button--primary" type="button" onClick={reset}>Prøv igjen</button></section></div>;}

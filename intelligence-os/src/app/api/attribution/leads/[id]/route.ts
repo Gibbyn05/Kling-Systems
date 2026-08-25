@@ -1,0 +1,3 @@
+import { NextResponse } from "next/server";
+import { demoLeads } from "@/server/repositories/demo-data";
+export async function GET(_request:Request,context:{params:Promise<{id:string}>}){const {id}=await context.params;const lead=demoLeads.find((item)=>item.id===id);return lead?NextResponse.json({mode:"demo",row:lead,activeModel:"first_touch",touchpoints:[{id:"touch-1",timestamp:lead.createdAt,channel:lead.source,source:lead.source,medium:"organic",campaign:lead.utmCampaign,content:"demo-content",url:"https://klingsystems.no/kontakt",eventType:"lead"}]}):NextResponse.json({error:{code:"NOT_FOUND",message:"Leadet finnes ikke."}},{status:404});}

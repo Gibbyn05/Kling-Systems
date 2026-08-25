@@ -1,0 +1,3 @@
+import { NextResponse, type NextRequest } from "next/server";
+import { getYouTubeAnalysis } from "@/server/analytics/demo-analytics";
+export async function GET(request: NextRequest) { const filter = request.nextUrl.searchParams.get("filter") ?? "all"; const analysis = getYouTubeAnalysis(); const videos = analysis.videos.filter((video) => filter === "all" || (filter === "above" && video.aboveAverage) || (filter === "below" && !video.aboveAverage) || (filter === "new" && video.newAudienceMagnet) || (filter === "warm" && video.audienceWarmer) || (filter === "hook" && video.hookWinner) || (filter === "sales" && video.bestSalesVideo)); return NextResponse.json({ ...analysis, filter, videos }); }
