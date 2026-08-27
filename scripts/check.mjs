@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 
 const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
 const contactHtml = readFileSync(new URL("../kontakt.html", import.meta.url), "utf8");
@@ -24,12 +24,14 @@ const robots = readFileSync(new URL("../public/robots.txt", import.meta.url), "u
 const sitemap = readFileSync(new URL("../public/sitemap.xml", import.meta.url), "utf8");
 const servicePages = [webServiceHtml, automationServiceHtml, systemsServiceHtml];
 const allPages = [html, contactHtml, thanksHtml, privacyHtml, aboutHtml, ...servicePages];
+const publicFavicons = ["favicon.ico", "favicon-48.png", "favicon-192.png", "favicon-512.png", "apple-touch-icon.png"];
 const checks = [
   [html.includes('lang="no"'), "HTML-språk er norsk"],
   [(html.match(/<h1\b/g) || []).length === 1, "Siden har nøyaktig én H1"],
   [html.includes('name="description"'), "Metabeskrivelse finnes"],
   [allPages.every((page) => page.includes('rel="canonical"')), "Alle sider har canonical-lenke"],
-  [allPages.every((page) => page.includes('sizes="48x48"') && page.includes('sizes="192x192"') && page.includes('sizes="512x512"') && page.includes('rel="apple-touch-icon"')), "Alle sider bruker den kvadratiske favicon-pakken"],
+  [allPages.every((page) => page.includes('href="/favicon.ico"') && page.includes('href="/favicon-48.png"') && page.includes('href="/favicon-192.png"') && page.includes('href="/favicon-512.png"') && page.includes('href="/apple-touch-icon.png"')), "Alle sider bruker favicon fra stabile rotadresser"],
+  [publicFavicons.every((filename) => existsSync(new URL(`../public/${filename}`, import.meta.url))), "Alle favicon-filer publiseres fra public-mappen"],
   [html.includes('type="application/ld+json"') && html.includes('"@type": "Organization"'), "Forsiden har strukturdata for virksomheten"],
   [allPages.every((page) => page.includes("NERLANDSREM SYSTEMS") && page.includes("938 135 371")), "Juridisk navn og organisasjonsnummer vises på alle sider"],
   [html.includes('"legalName": "NERLANDSREM SYSTEMS"') && html.includes('"value": "938135371"') && html.includes('"streetAddress": "Julsundet 237C"'), "Strukturdata inneholder verifisert juridisk identitet"],
