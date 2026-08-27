@@ -129,8 +129,6 @@ p { text-wrap: pretty; }
   height: auto;
   object-fit: contain;
   image-rendering: auto;
-  -webkit-mask-image: radial-gradient(ellipse 3.55% 7.35% at 84.9% 56.2%, transparent 88%, #000 100%);
-  mask-image: radial-gradient(ellipse 3.55% 7.35% at 84.9% 56.2%, transparent 88%, #000 100%);
 }
 .site-intro__inner p { margin: 24px 0 0; color: rgba(255,249,210,.62); font-size: clamp(.65rem, 1.1vw, .82rem); font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
 .site-intro__curtain { position: absolute; inset: 0; z-index: 3; background: var(--cream); transform: translateY(100%); }
