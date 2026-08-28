@@ -1,0 +1,7 @@
+En mobilvennlig nettside handler om mer enn at layouten får plass på en mindre skjerm.
+
+Budskapet må fortsatt være tydelig, innholdet må flyte, og knapper og lenker må være enkle å finne og treffe. Test den viktigste veien på mobilen: Kan kunden forstå tilbudet og ta neste steg uten å zoome, lete eller bomme?
+
+Vil dere gjøre nettsiden enklere å bruke på mobil? Se klingsystems.no/nettsider.
+
+#nettsider #brukeropplevelse #webutvikling
