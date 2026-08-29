@@ -1,0 +1,7 @@
+Når samme kunde finnes med ulike opplysninger, kan feilen følge videre til e-post, ordre og oppfølging.
+
+En felles kundepost handler ikke om å skjule avvik. Først må kildene sammenlignes, så må virksomheten avklare hva som er riktig, og deretter kan oppdateringen føres videre til systemene som trenger den.
+
+Har dere kundedata som må vedlikeholdes flere steder? Kartlegg flyten med oss på klingsystems.no/systemer.
+
+#systemer #integrasjoner #kundedata
