@@ -57,4 +57,8 @@ Kildene er brukt til å bekrefte arbeidsmønsteret, ikke til å markedsføre bes
 
 - Pakkevalideringen fant nøyaktig én PNG, én caption og én researchfil for 2026-09-06. Captionen er 650 tegn.
 - `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto.
-- Commit, push, offentlig bildeverifisering og avsluttende dry-run dokumenteres etter at de er utført.
+- De tre leveransefilene ble committet som `c768744` og pushet til `main`. Uvedkommende endringer i arbeidsområdet ble ikke staged eller committet.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-06-ordregrunnlag`.
+- URL-en svarte først 404 mens produksjonsdeployen rullet ut, deretter HTTP 200 uten innlogging med `content-type: image/png` og 146 579 byte.
+- Offentlig SHA-256 samsvarer med lokalfilen: `99c651aac907a40711ec262836709e639a80a09f38ada9706c9f7419fc33e5d0`.
+- Avsluttende kontroll med `TARGET_DATE=2026-09-06` og `PUBLISH_MODE=dry-run` besto. Riktig pakke, offentlig bilde, BUSINESS-kontoen `@klingsystems` og duplikatstatus ble kontrollert. Ingen container ble opprettet og ingenting ble publisert.
