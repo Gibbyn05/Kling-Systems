@@ -45,13 +45,12 @@ Conta er en kommersiell produktside. Påstander om deres produkt, priser, automa
 - SHA-256 for sluttfilen: `985b6b6142acd440d7ce040ad231ac091c3d80a97d36f52ac42c69c69f04f6bb`.
 - Bildeproduksjonen er en deterministisk HTML/CSS-render med lokal Chromium og eksisterende prosjektressurser. Dette ble valgt fordi motivet er en enkel systemillustrasjon der tekstnøyaktighet og merkevarekontroll er viktigere enn rastergenerering.
 
-## Verifisering som skal fullføres før publiseringsklar status
+## Sluttverifisering
 
-- Pakkevalidering for nøyaktig én PNG, caption og research for måldatoen.
-- `npm run check`
-- `npm run build`
-- `npm run test:instagram-publish`
-- `git diff --check`
-- Commit og push av kun de tre leveransefilene til `main`.
-- Offentlig bilde-URL skal svare uten innlogging med `image/png`, og offentlig SHA-256 skal samsvare med lokalfilen.
-- Avsluttende Instagram-kontroll skal kjøres i `PUBLISH_MODE=dry-run`. Ingen container eller publisering skal opprettes.
+- Pakkevalideringen fant nøyaktig én PNG, én caption og én researchfil for 2026-09-05.
+- `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto.
+- De tre leveransefilene ble committet som `7267d46` og pushet til `main`. Uvedkommende endringer i arbeidsområdet ble ikke staged eller committet.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-05-timegrunnlag`.
+- URL-en svarte først 404 mens produksjonsdeployen rullet ut, deretter HTTP 200 uten innlogging med `content-type: image/png` og 129 758 byte.
+- Offentlig SHA-256 samsvarer med lokalfilen: `985b6b6142acd440d7ce040ad231ac091c3d80a97d36f52ac42c69c69f04f6bb`.
+- Avsluttende kontroll med `TARGET_DATE=2026-09-05` og `PUBLISH_MODE=dry-run` besto. Riktig pakke, offentlig bilde, konto og duplikatstatus ble kontrollert. Ingen container ble opprettet og ingenting ble publisert.
