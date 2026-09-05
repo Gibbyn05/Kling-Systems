@@ -1,0 +1,9 @@
+En betalt ordre er ikke nødvendigvis klar for lageret.
+
+Når ordredata skal videre til plukk, pakking og forsendelse, bør samme grunnlag følge hele veien. Produkt, antall, leveringsvalg og status må være tydelig uten at informasjonen må tolkes på nytt i hvert steg.
+
+En sammenhengende flyt kan gjøre det enklere å se hva som er betalt, hva som skal plukkes og når ordren er klar til utsending. Mennesket beholder kontrollen, mens systemene holder informasjonen samlet.
+
+Flyttes ordregrunnlaget fortsatt manuelt mellom nettbutikk, lager og frakt? Kartlegg flyten med oss på klingsystems.no/automatisering.
+
+#automatisering #ordreflyt #systemintegrasjon
