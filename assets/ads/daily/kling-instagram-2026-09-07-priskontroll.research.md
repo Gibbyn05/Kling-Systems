@@ -67,4 +67,8 @@ Klings innlegg kopierer ingen produkttekst, skjermbilder, layout, produktnavn el
 
 - Pakkevalideringen fant nøyaktig én PNG, én caption og én researchfil for 2026-09-07. Captionen er 590 tegn.
 - `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto før levering.
-- Produksjonsutrulling, offentlig hashkontroll og avsluttende `PUBLISH_MODE=dry-run` dokumenteres etter at leveransecommitten er pushet til `main`.
+- De tre leveransefilene ble committet som `8e21937` og pushet til `main`. Uvedkommende endringer i arbeidsområdet ble ikke staged eller committet.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-07-priskontroll`.
+- URL-en svarte først 404 mens produksjonsutrullingen pågikk, deretter HTTP 200 uten innlogging som en 1080 × 1350 RGB PNG uten alfa på 145 317 byte.
+- Offentlig SHA-256 samsvarer med lokalfilen: `d442d0d036d91a86e6bb08b0ce1b0b596c14bcce90f225dafc7e65ebbaffda0e`.
+- Avsluttende kontroll med `TARGET_DATE=2026-09-07` og `PUBLISH_MODE=dry-run` besto. Riktig pakke, offentlig bilde, BUSINESS-kontoen `@klingsystems` og duplikatstatus ble kontrollert. Ingen container ble opprettet og ingenting ble publisert.
