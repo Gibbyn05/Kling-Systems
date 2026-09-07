@@ -67,4 +67,10 @@ Klings innlegg kopierer ingen produkttekst, skjermbilder, layout, produktnavn el
 
 ## Sluttverifisering
 
-- Pakkevalidering, prosjektkontroll, build, publiseringstester, `git diff --check`, offentlig bildeverifisering og avsluttende `PUBLISH_MODE=dry-run` dokumenteres etter gjennomføring.
+- Pakkevalideringen fant nøyaktig én PNG, én caption og én researchfil for 2026-09-08. Captionen er 422 tegn.
+- `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto før levering.
+- De tre leveransefilene ble committet som `3c2c818` og pushet til `main`. Uvedkommende endringer i arbeidsområdet ble ikke staged eller committet.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-08-lagergrense`.
+- URL-en svarte HTTP 200 uten innlogging som `image/png`, 1080 × 1350 piksler, RGB uten alfa og 120 002 byte.
+- Offentlig SHA-256 samsvarer med lokalfilen: `7e16faac76e556219053a46d19469009902aff5ebc5a6cc6fbc4a16a1e5c7ff4`.
+- Avsluttende kontroll med `TARGET_DATE=2026-09-08` og `PUBLISH_MODE=dry-run` besto. Riktig pakke, offentlig bilde, BUSINESS-kontoen `@klingsystems` og duplikatstatus ble kontrollert. Ingen container ble opprettet og ingenting ble publisert.
