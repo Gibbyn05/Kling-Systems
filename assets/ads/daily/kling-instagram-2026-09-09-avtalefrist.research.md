@@ -68,5 +68,8 @@ Anskaffelser.no ble brukt som fagkilde, ikke som konkurrent. Kling-innlegget kop
 
 - Pakkevalideringen fant nøyaktig én PNG, én caption og én researchfil for 2026-09-09. Captionen er 493 byte.
 - `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto før levering.
+- De tre leveransefilene ble committet som `9725d82` og pushet til `main`. Uvedkommende endringer i arbeidsområdet ble ikke staged eller committet.
 - Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-09-avtalefrist`.
-- Avsluttende Instagram-kontroll skal kjøres med `TARGET_DATE=2026-09-09` og `PUBLISH_MODE=dry-run`. Ingen container skal opprettes, og ingenting skal publiseres.
+- URL-en svarte HTTP 200 uten innlogging som `image/png`, 1080 × 1350 piksler, RGB uten alfa og 126 308 byte.
+- Offentlig SHA-256 samsvarer med lokalfilen: `78db502f57ef0ec2e951a38c966d54452ab12ca40020e66f7dc464fcc3dec2b6`.
+- Avsluttende kontroll med `TARGET_DATE=2026-09-09` og `PUBLISH_MODE=dry-run` besto. Riktig pakke, offentlig bilde, BUSINESS-kontoen `@klingsystems` og duplikatstatus ble kontrollert. Ingen container ble opprettet og ingenting ble publisert.
