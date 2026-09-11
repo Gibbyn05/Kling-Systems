@@ -68,4 +68,8 @@ Skatteetaten ble brukt som myndighetskilde, ikke som konkurrent. Kling-innlegget
 
 - Pakkevalideringen fant nøyaktig én PNG, én caption og én researchfil for 2026-09-11. Captionen er 501 tegn.
 - `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto før levering.
-- Commit, push, offentlig bildeverifisering og avsluttende dry-run dokumenteres etter at de er gjennomført.
+- De tre leveransefilene ble committet som `c108199` og pushet til `main`. Uvedkommende endringer i arbeidsområdet ble ikke staged eller committet.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-11-kvitteringskobling`.
+- URL-en svarte HTTP 200 uten innlogging som `image/png`, 1080 × 1350 piksler, RGB uten alfa og 135 669 byte.
+- Offentlig SHA-256 samsvarer med lokalfilen: `db6d1677d582546e659d09044fc223423aa4584a9162f50fb8dfa5e561264910`.
+- Avsluttende kontroll med `TARGET_DATE=2026-09-11` og `PUBLISH_MODE=dry-run` besto. Riktig pakke, offentlig bilde, BUSINESS-kontoen `@klingsystems` og duplikatstatus ble kontrollert. Ingen container ble opprettet og ingenting ble publisert.
