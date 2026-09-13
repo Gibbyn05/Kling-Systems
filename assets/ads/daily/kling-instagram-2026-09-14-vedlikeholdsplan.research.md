@@ -59,4 +59,8 @@ Microsoft Dynamics 365 Field Service og Odoo ble kontrollert som to relevante ko
 
 - Pakkevalideringen fant nøyaktig én PNG, én caption og én researchfil for 2026-09-14. Captionen er 499 tegn.
 - `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto før levering.
-- Commit, push og offentlig bildeverifisering dokumenteres etter gjennomført levering.
+- De tre leveransefilene ble committet som `4611ca9` og pushet til `main`. Den første push-kommandoen returnerte en referanselåsfeil fordi fjernreferansen allerede var oppdatert til samme commit; en etterfølgende skrivebeskyttet kontroll bekreftet at lokal `HEAD` og `origin/main` var identiske. Uvedkommende endringer i arbeidsområdet ble ikke staged eller committet.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-14-vedlikeholdsplan`.
+- URL-en svarte HTTP 200 uten innlogging som `image/png`, 1080 × 1350 piksler, RGB uten alfa og 133 003 byte.
+- Offentlig SHA-256 samsvarer med lokalfilen: `5f14ec30a4437b4b27072846b2574a74279323b643f094cf49ea4c1f9fbc3525`.
+- Avsluttende kontroll med `TARGET_DATE=2026-09-14` og `PUBLISH_MODE=dry-run` besto. Riktig pakke, offentlig bilde, BUSINESS-kontoen `@klingsystems` og duplikatstatus ble kontrollert. Ingen container ble opprettet og ingenting ble publisert.
