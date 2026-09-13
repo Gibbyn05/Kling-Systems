@@ -1,0 +1,9 @@
+Et stort bilde kan se riktig ut og likevel være større enn skjermen trenger.
+
+Responsive bilder lar nettleseren velge en passende fil til flaten og enheten. Det reduserer unødvendig lasting uten å bytte ut selve motivet.
+
+Kling kan gå gjennom bildene på nettsiden, rydde opp i størrelser og formater og bygge en løsning som passer sidens faktiske bruk.
+
+Sender nettsiden samme store bildefil til alle? Se hva som kan forbedres på klingsystems.no/nettsider.
+
+#nettsider #webutvikling #ytelse
