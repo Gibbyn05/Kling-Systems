@@ -62,4 +62,6 @@ De samme tre kildene ble brukt som konkurrenteksempler. Shopify samler returbeha
 - Offentlig bilde-ID: `daily-2026-09-15-returflyt`.
 - Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-15-returflyt`.
 - Pakkevalidering, `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto før levering.
-- Commit, push og offentlig SHA-256-kontroll føres inn etter at utrullingen er bekreftet.
+- Leveransecommit `3cbf773` ble pushet til `main`.
+- Den offentlige bilde-URL-en svarte HTTP 200 med `image/png` og 140 913 byte etter utrulling. Offentlig SHA-256 var `f8ec3074b89b126605d0017b0246cd17661ad9fab80886d864b961248fd42391` og samsvarte med lokalfilen.
+- Avsluttende kontroll med `TARGET_DATE=2026-09-15` og `PUBLISH_MODE=dry-run` besto for BUSINESS-kontoen `@klingsystems`. Riktig pakke, caption, offentlig bilde og duplikatstatus ble kontrollert. Ingen container ble opprettet, og ingenting ble publisert.
