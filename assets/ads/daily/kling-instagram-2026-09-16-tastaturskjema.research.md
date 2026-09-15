@@ -63,5 +63,8 @@ Ingen konkurrenteksempler ble brukt. Offentlige norske veiledninger og W3C-stand
 - Endelig pakke består av nøyaktig én PNG, én `.caption.txt` og én `.research.md` med felles datert slug `kling-instagram-2026-09-16-tastaturskjema`.
 - Offentlig bilde-ID: `daily-2026-09-16-tastaturskjema`.
 - Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-16-tastaturskjema`.
-- Pakkevalidering, prosjektkontroll, build, Instagram-publiseringstester og `git diff --check` skal fullføres før levering.
-- Den offentlige bilde-URL-en og avsluttende `PUBLISH_MODE=dry-run` skal kontrolleres etter push. Dry-run kan bare lese konto, pakke, offentlig bilde og duplikatstatus. Den skal ikke opprette en container eller publisere innlegget.
+- Pakkevalidering, `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto før levering.
+- Leveransecommit `41fbbce` ble pushet til `main`. Uvedkommende endringer i arbeidsområdet ble ikke staged eller committet.
+- Den offentlige bilde-URL-en svarte HTTP 200 uten innlogging som `image/png`, 1080 × 1350 piksler, RGB uten alfa og 109 479 byte.
+- Offentlig SHA-256 var `d9ad501a2d6a50464a3f25f5d291ea81533c220d6f897a9632f2ceefb7b16db5` og samsvarte med lokalfilen.
+- Avsluttende kontroll med `TARGET_DATE=2026-09-16` og `PUBLISH_MODE=dry-run` besto for BUSINESS-kontoen `@klingsystems`. Riktig pakke, caption, offentlig bilde og duplikatstatus ble kontrollert. Ingen container ble opprettet, og ingenting ble publisert.
