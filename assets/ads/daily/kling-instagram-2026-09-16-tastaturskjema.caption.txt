@@ -1,0 +1,7 @@
+Et kontaktskjema kan se ryddig ut med mus og likevel bli vanskelig å bruke med tastatur.
+
+En konkret gjennomgang bør følge Tab-rekkefølgen fra første felt til sendeknappen, kontrollere at fokus er synlig og sjekke at feil blir forklart med tekst.
+
+Vil dere vite hva som bør forbedres på nettsiden? Se klingsystems.no/nettsider
+
+#nettside #universellutforming #kling
