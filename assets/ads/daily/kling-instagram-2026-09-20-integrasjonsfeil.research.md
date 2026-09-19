@@ -63,5 +63,7 @@ Microsoft Power Automate og Zapier ble samtidig kontrollert som to relevante kon
 - Offentlig bilde-ID: `daily-2026-09-20-integrasjonsfeil`.
 - Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-20-integrasjonsfeil`.
 - Pakkevalidering, `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto før levering.
-- Offentlig bilde og SHA-256 kontrolleres etter push og produksjonsutrulling.
-- Ingen Instagram-container skal opprettes, og ingenting skal publiseres i denne produksjonskjøringen.
+- Leveransecommit `73cd447` ble pushet til `main`. Uvedkommende endringer i arbeidsområdet ble ikke staged eller committet.
+- Den offentlige bilde-URL-en svarte HTTP 200 uten innlogging som `image/png`, 1080 × 1350 piksler, RGB uten alfa og 124 277 byte.
+- Offentlig SHA-256 var `dc6675e353c29b0c65cac2a2d6a3e67b30c48f2db58c00327e8e5bf697bd0af0` og samsvarte med lokalfilen.
+- Avsluttende kontroll med `TARGET_DATE=2026-09-20` og `PUBLISH_MODE=dry-run` besto for BUSINESS-kontoen `@klingsystems`. Riktig pakke, caption, offentlig bilde og duplikatstatus ble kontrollert. Ingen container ble opprettet, og ingenting ble publisert.
