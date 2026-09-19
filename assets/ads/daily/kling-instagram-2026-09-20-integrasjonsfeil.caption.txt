@@ -1,0 +1,9 @@
+En automatisering kan stoppe selv om den har fungert før. Endrede felter, utløpte forbindelser eller midlertidige tjenestefeil kan gi en mislykket kjøring.
+
+For viktige flyter bør feilen bli synlig, få en ansvarlig og kontrolleres før en kjøring sendes inn på nytt. Det gir et tydelig neste steg uten å anta at alle feil trygt kan løses med automatisk ny kjøring.
+
+Kling kan kartlegge hvordan avvik skal varsles, håndteres og dokumenteres i systemene dere bruker.
+
+Kan en stoppet flyt bli liggende uten at noen ser den? Kartlegg automatiseringen med oss på klingsystems.no/automatisering.
+
+#automatisering #integrasjon #arbeidsflyt
