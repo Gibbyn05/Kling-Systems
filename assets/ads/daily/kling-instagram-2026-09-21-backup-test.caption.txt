@@ -1,0 +1,7 @@
+En fullført sikkerhetskopi viser at en kopi er laget. Den viser ikke alene at data faktisk kan gjenopprettes.
+
+En planlagt test i et avgrenset miljø kan kontrollere at kopien kan åpnes, at utvalgte data er med, og at fremgangsmåten fungerer før en hendelse.
+
+Vil dere kartlegge kontrollpunktene rundt kritiske systemer? Se klingsystems.no/systemer
+
+#systemer #automatisering #beredskap
