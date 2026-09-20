@@ -54,4 +54,12 @@ Kildene støtter det generelle kontrollpunktet i innlegget. Microsofts veilednin
 - Logoen starter 140 piksler fra toppen. Alt viktig innhold holder minst 120 piksler fra topp og bunn i originalformatet.
 - En sentrert 1080 × 1080-beskjæring ble generert og kontrollert visuelt. Logo, hovedbudskap, systemillustrasjon, verdilinje og mening beholdes.
 - Pakken inneholder én PNG, én caption-fil og denne research- og QA-loggen for 2026-09-21.
-- Offentlig bilde skal leveres gjennom `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-21-backup-test` etter push og deploy.
+
+## Bygg, deploy og offentlig kontroll
+
+- Pakkevalideringen i `scripts/publish-instagram.mjs`, `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto.
+- De tre leveransefilene ble committet som `6d9408c` og pushet til `main`. Eksisterende, uvedkommende arbeidsfiler ble ikke lagt til eller endret av leveransen.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-21-backup-test`.
+- Den offentlige URL-en svarte HTTP 200 som `image/png`, 122 941 byte, uten innlogging.
+- Lokal og offentlig SHA-256 er identisk: `80f88b326b77a085d07aff6cd661d01fc576f0b5ddd4d8f42c19c8027d9ef21d`.
+- Avsluttende `PUBLISH_MODE=dry-run` besto for BUSINESS-kontoen `@klingsystems`, korrekt pakke og måldato. Ingen container ble opprettet, og ingenting ble publisert på Instagram.
