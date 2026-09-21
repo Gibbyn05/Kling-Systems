@@ -56,6 +56,11 @@ Kling kan kartlegge arbeidsflyten og bygge eller koble sammen en hensiktsmessig 
 
 ## Leveringskontroller
 
-- Pakkevalidering, prosjektkontroll, build, publiseringstest, diffkontroll, push og offentlig mediekontroll logges etter at de er kjørt.
+- Pakkevalideringen fant nøyaktig én komplett pakke for 2026-09-22 med 509 tegn i captionen.
+- `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto.
+- Leveransecommit `ed3e04b` ble pushet til `main`. Uvedkommende arbeidsfiler ble ikke staged eller endret.
 - Offentlig medie-ID: `daily-2026-09-22-kundesak`.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-22-kundesak`.
+- Den offentlige URL-en svarte HTTP 200 som `image/png`, 150 018 byte. Offentlig SHA-256 samsvarer med lokalfilen.
+- Avsluttende `PUBLISH_MODE=dry-run` besto for riktig konto, måldato, pakke, offentlig bilde og duplikatvern. Ingen container ble opprettet.
 - Instagram-publisering er ikke autorisert og skal ikke utføres i denne kjøringen.
