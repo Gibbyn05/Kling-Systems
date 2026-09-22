@@ -55,5 +55,11 @@ Virksomheten må selv avklare hvilke felt som skal logges, hvem som skal ha tilg
 
 ## Leveringskontroller
 
-- Pakkevalidering, prosjektkontroll, build, publiseringstest, git-kontroll, commit, push og offentlig bildeverifisering registreres etter at de er gjennomført.
+- Pakkevalideringen fant nøyaktig én komplett pakke for 2026-09-23 med 537 tegn i captionen.
+- `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto.
+- Leveransecommit `a9ffa18` ble pushet til `main`. Eksisterende, uvedkommende arbeidsfiler ble ikke staged eller endret.
+- Offentlig medie-ID: `daily-2026-09-23-endringshistorikk`.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-23-endringshistorikk`.
+- Den offentlige URL-en svarte HTTP 200 som `image/png`, 133 544 byte, uten innlogging. Offentlig SHA-256 samsvarer med lokalfilen.
+- Avsluttende `PUBLISH_MODE=dry-run` besto for riktig konto, måldato, pakke, offentlig bilde og duplikatvern. Ingen container ble opprettet.
 - Instagram-publisering er ikke autorisert og skal ikke utføres i denne kjøringen.
