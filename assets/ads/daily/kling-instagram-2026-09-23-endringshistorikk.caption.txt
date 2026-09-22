@@ -1,0 +1,9 @@
+Et kundekort kan være oppdatert uten at det er tydelig hva som ble endret, hvem som gjorde det eller hvor endringen kom fra.
+
+En endringshistorikk kan samle felt, tidligere og ny verdi, tidspunkt og kilde. Da får teamet et konkret grunnlag når de må forstå hva som har skjedd.
+
+Hvilke felter som skal logges, hvem som skal ha tilgang og hvor lenge historikken skal beholdes, må avklares for den enkelte virksomheten.
+
+Vil dere gjøre viktige dataendringer lettere å følge? Se klingsystems.no/systemer
+
+#kundedata #systemer #automatisering
