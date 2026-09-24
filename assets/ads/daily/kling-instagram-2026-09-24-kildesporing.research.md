@@ -57,5 +57,9 @@ Sporingen må tilpasses nettsiden, samtykkene og systemene virksomheten bruker. 
 
 - Pakkevalideringen fant nøyaktig én komplett pakke for 2026-09-24 med 596 tegn i captionen.
 - `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto.
-- Commit, push, offentlig mediekontroll og avsluttende dry-run dokumenteres etter deploy.
+- Leveransecommit `189b125` ble pushet til `main`. Eksisterende, uvedkommende arbeidsfiler ble ikke staged eller endret.
+- Offentlig medie-ID: `daily-2026-09-24-kildesporing`.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-24-kildesporing`.
+- Den offentlige URL-en svarte HTTP 200 som `image/png`, 109 068 byte, uten innlogging. Offentlig SHA-256 samsvarer med lokalfilen.
+- Avsluttende `PUBLISH_MODE=dry-run` besto for riktig konto, måldato, pakke, offentlig bilde og duplikatvern. Ingen container ble opprettet.
 - Instagram-publisering er ikke autorisert og skal ikke utføres i denne kjøringen.
