@@ -1,0 +1,9 @@
+At nettsiden svarer, betyr ikke alene at en viktig handling fungerer.
+
+En kontrollert nettlesertest kan åpne siden, utføre en sentral handling og bekrefte at forventet svar vises. Det gir et tydeligere grunnlag for å oppdage feil i kundereisen.
+
+Testen må tilpasses den faktiske løsningen og dekker ikke alle brukere, enheter eller situasjoner.
+
+Vil dere kontrollere de viktigste veiene gjennom nettsiden? Se klingsystems.no/nettsider
+
+#nettsider #testing #kundereise
