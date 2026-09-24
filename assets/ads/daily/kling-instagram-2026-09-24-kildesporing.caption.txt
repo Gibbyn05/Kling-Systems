@@ -1,0 +1,9 @@
+En henvendelse i innboksen forteller ikke alltid hvilken kampanje eller kanal som førte kunden til skjemaet.
+
+Når kampanjelenken bruker konsekvente kildeverdier, kan relevant kilde, medium og kampanje følge med inn i kundeoppfølgingen. Da får teamet et tydeligere grunnlag for å se hvor henvendelsen kom fra.
+
+Sporingen må tilpasses nettsiden, samtykkene og systemene virksomheten bruker. Blokkering av sporing eller manglende merking kan gi ufullstendige data.
+
+Vil dere få bedre sammenheng mellom nettsiden og kundeoppfølgingen? Se klingsystems.no/systemer
+
+#kundereise #systemer #markedsføring
