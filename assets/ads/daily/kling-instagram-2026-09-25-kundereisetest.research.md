@@ -59,5 +59,9 @@ Testen må tilpasses den faktiske løsningen. Ett kontrollert løp dekker ikke a
 - Pakkevalideringen fant nøyaktig én komplett pakke for 2026-09-25 med 467 tegn i captionen og medie-ID `daily-2026-09-25-kundereisetest`.
 - `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto før commit.
 - Uvedkommende brukerendringer i arbeidsområdet ble bevart urørt og skal ikke stages.
-- Leveransecommit, push, offentlig bilde-URL og avsluttende dry-run føres inn etter at deploykontrollene er fullført.
+- Leveransecommit `967f38f` ble pushet til `main`. Uvedkommende arbeidsfiler ble ikke staged eller endret.
+- Offentlig medie-ID: `daily-2026-09-25-kundereisetest`.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-25-kundereisetest`.
+- Den offentlige URL-en svarte HTTP 200 som `image/png`, 142 548 byte, uten innlogging. Offentlig SHA-256 samsvarer med lokalfilen.
+- Avsluttende `PUBLISH_MODE=dry-run` besto for riktig konto, måldato, pakke, offentlig bilde og duplikatvern. Ingen container ble opprettet.
 - Instagram-publisering er ikke autorisert og skal ikke utføres i denne kjøringen.
