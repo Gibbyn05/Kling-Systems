@@ -58,5 +58,10 @@ Den unike ID-en må utformes for den faktiske kilden og arbeidsflyten. Innlegget
 
 ## Leveringskontroller
 
-- Pakkevalidering, prosjektkontroll, build, publiseringstester, diffkontroll, commit, push og offentlig mediekontroll utføres etter at pakken er ferdigstilt.
+- Pakkevalideringen fant nøyaktig én komplett pakke for 2026-09-27 med 490 tegn i captionen og medie-ID `daily-2026-09-27-duplikatvern`.
+- `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto.
+- Leveransecommit `3eaf237` ble pushet til `main`. Eksisterende, uvedkommende arbeidsfiler ble ikke staged eller endret.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-27-duplikatvern`.
+- Den offentlige URL-en svarte HTTP 200 som `image/png`, 149 405 byte, uten innlogging. Offentlig SHA-256 samsvarer med lokalfilen.
+- Avsluttende `PUBLISH_MODE=dry-run` besto for riktig konto, måldato, pakke, offentlig bilde og duplikatvern. Ingen container ble opprettet.
 - Instagram-publisering er ikke autorisert og skal ikke utføres i denne kjøringen.
