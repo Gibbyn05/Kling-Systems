@@ -1,0 +1,7 @@
+Samme innsending kan nå en automatisert arbeidsflyt mer enn én gang. Uten et tydelig duplikatvern kan samme handling bli utført flere ganger.
+
+En løsning kan gi hver innsending en unik ID og kontrollere om den allerede er behandlet før neste steg kjøres. Målet er ikke å skjule gjentakelsen, men å gjøre utfallet kontrollert og synlig.
+
+Har dere en flyt der samme sak kan opprettes to ganger? Se klingsystems.no og finn ut hva dere kan automatisere.
+
+#automatisering #systemer #klingsystems
