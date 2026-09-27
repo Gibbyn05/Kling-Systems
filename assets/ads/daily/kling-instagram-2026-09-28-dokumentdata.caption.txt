@@ -1,0 +1,7 @@
+En PDF kan inneholde data som ellers må registreres manuelt. Dokumentbehandling kan hente ut avtalte felter og sende usikre verdier til kontroll før de brukes videre.
+
+Det avgjørende er ikke bare å lese dokumentet, men å definere hvilke felt som skal hentes, hva som skal valideres, og hvem som håndterer avvik.
+
+Har dere vedlegg som fortsatt tastes inn felt for felt? Se klingsystems.no og finn ut hva dere kan automatisere.
+
+#automatisering #systemer #småbedrift
