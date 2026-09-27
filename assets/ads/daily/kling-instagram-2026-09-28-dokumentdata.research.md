@@ -59,5 +59,8 @@ Hvilke dokumenter, felt og valideringsregler som er egnet, må vurderes i den fa
 
 - Pakkevalideringen fant nøyaktig én komplett pakke for 2026-09-28 med 464 tegn i captionen og medie-ID `daily-2026-09-28-dokumentdata`.
 - `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto.
-- Offentlig bilde-URL etter produksjonsdeploy: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-28-dokumentdata`.
+- Leveransecommit `3800716` ble pushet til `main`. Eksisterende, uvedkommende arbeidsfiler ble ikke staged eller endret.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-28-dokumentdata`.
+- Den offentlige URL-en svarte HTTP 200 som `image/png`, 117 737 byte, uten innlogging. Offentlig SHA-256 samsvarer med lokalfilen.
+- Avsluttende `PUBLISH_MODE=dry-run` besto for riktig konto, måldato, pakke, offentlig bilde og duplikatvern. Ingen container ble opprettet.
 - Instagram-publisering er ikke autorisert og skal ikke utføres i denne kjøringen.
