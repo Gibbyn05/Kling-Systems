@@ -1,0 +1,7 @@
+Firmadata trenger ikke alltid skrives inn felt for felt. Enhetsregisterets åpne API lar systemer søke etter virksomheter og hente en spesifikk enhet med organisasjonsnummer.
+
+I en kundereise kan avtalte felt som navn, organisasjonsform og adresse fylles inn eller foreslås i firmakortet. Løsningen må fortsatt håndtere ugyldige nummer, manglende data og avklare hvilke felt som skal oppdateres.
+
+Skrives firmadata fortsatt inn manuelt hos dere? Se klingsystems.no/systemer og finn ut hva som kan kobles sammen.
+
+#systemer #integrasjon #bedriftsdata
