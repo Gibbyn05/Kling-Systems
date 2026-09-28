@@ -85,4 +85,6 @@ Førsterenderen besto den visuelle kontrollen. Ingen korrigeringsrunde ble brukt
 
 Den komplette pakken ble validert med `findDailyPackage` for måldatoen. `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto. Pakkevalideringen bekreftet én PNG, én caption og én researchlogg med media-ID `daily-2026-09-29-registeroppslag`.
 
-Commit, push og offentlig bildeverifisering føres inn etter utrulling. Ingen Instagram-container skal opprettes, og `media_publish` skal ikke kalles.
+Leveransecommit `cd31196` ble pushet til `main`. Den offentlige bilde-URL-en `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-29-registeroppslag` svarte først 404 under utrulling og deretter HTTP 200 som `image/png`. Den offentlige filen er 1080 × 1350, RGB uten alfa, 104 435 byte og har samme SHA-256 som lokalfilen.
+
+Avsluttende `TARGET_DATE=2026-09-29 PUBLISH_MODE=dry-run` returnerte `status: dry-run` for riktig pakke. `mediaId` og `permalink` var `null`, ingen Instagram-container ble opprettet, og `media_publish` ble ikke kalt.
