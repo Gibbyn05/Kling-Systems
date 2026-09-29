@@ -66,4 +66,7 @@ Konseptet er relevant for Kling fordi `PRODUCT.md` dokumenterer gjentatte e-post
 
 - Pakkevalideringen fant nøyaktig én komplett pakke for 2026-09-30 med 470 tegn i captionen og medie-ID `daily-2026-09-30-statusbeskjed`.
 - `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto før commit.
-- Commit, push og offentlig bytekontroll fylles inn etter utrulling.
+- Leveransecommit `300efe7` ble pushet til `main`. Eksisterende, uvedkommende arbeidsfiler ble ikke staged eller endret.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-09-30-statusbeskjed`.
+- URL-en svarte først 404 under utrulling og deretter HTTP 200 som `image/png`, 122 720 byte, uten innlogging. Den offentlige filen er 1080 × 1350, RGB uten alfa, og SHA-256 samsvarer med lokalfilen.
+- Avsluttende `TARGET_DATE=2026-09-30 PUBLISH_MODE=dry-run` returnerte `status: dry-run` for riktig pakke. `mediaId` og `permalink` var `null`, ingen Instagram-container ble opprettet, og `media_publish` ble ikke kalt.
