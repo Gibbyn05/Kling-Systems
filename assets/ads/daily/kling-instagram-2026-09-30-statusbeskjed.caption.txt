@@ -1,0 +1,7 @@
+Kunden skal ikke måtte spørre hver gang en ordre går videre.
+
+Når et avklart statussteg registreres, kan systemet sende én tydelig beskjed med relevant informasjon. Hvilke steg som skal varsles, hvem som skal motta meldingen og hva som skjer ved avvik, må defineres for den faktiske arbeidsflyten.
+
+Har dere statusoppdateringer som fortsatt sendes manuelt? Se klingsystems.no/automatisering og finn ut hva dere kan automatisere.
+
+#automatisering #kundereise #arbeidsflyt
