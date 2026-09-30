@@ -66,4 +66,13 @@ Komposisjoner med vertikal registerkanal, PDF-til-felt, trekolonners statusflyt,
 
 ## Kontroll, deploy og offentlig bilde
 
-Prosjektkontroll, build, publiseringstest, gitkontroll og offentlig bildeverifisering føres inn etter at den komplette tre-filerspakken er kontrollert og sendt til `main`.
+- Pakkevalideringen fant nøyaktig én komplett pakke for 2026-10-01 med PNG, caption og researchlogg.
+- `npm run check` besto.
+- `npm run build` besto.
+- `npm run test:instagram-publish` besto med 6 av 6 tester.
+- `git diff --check` besto.
+- Leveransecommit `56d0f69` ble pushet til `origin/main` uten å stage eller endre uvedkommende arbeidsfiler.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-10-01-utstyrsskann`.
+- Den offentlige URL-en svarte HTTP 200 med `Content-Type: image/png` og 114 685 byte.
+- Offentlig SHA-256 var `f8f5f81f882f9167d63f958fb177b96542ddcf145324fbede3e6086c858ff293` og matcher lokalfilen byte for byte.
+- Avsluttende `PUBLISH_MODE=dry-run` besto for BUSINESS-kontoen `@klingsystems`, riktig måldato, komplett pakke og offentlig bilde. Status var `dry-run`; ingen container ble opprettet og ingenting ble publisert.
