@@ -1,0 +1,7 @@
+Når flere salgskanaler viser samme vare, kan lagerstatusen bli ulik hvis oppdateringene ikke følger den samme arbeidsflyten.
+
+En kontrollert integrasjon kan koble kanalene til samme vare-ID, gjøre avvik synlige og føre en avklart lagerstatus videre. Hvilket system som er kilde, hvilke hendelser som endrer beholdningen, og hvordan feil håndteres, må defineres for den faktiske løsningen.
+
+Har dere lagertall som spriker mellom kanalene? Se klingsystems.no/systemer og finn ut hva som kan kobles sammen.
+
+#systemer #integrasjon #lagerstyring
