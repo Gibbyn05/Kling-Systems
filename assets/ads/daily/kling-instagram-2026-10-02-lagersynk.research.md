@@ -66,4 +66,13 @@ Komposisjoner med beholdningsmåler, tre kilder inn i en rapport, vertikal regis
 
 ## Kontroll, deploy og offentlig bilde
 
-Prosjektkontroll, build, publiseringstest, gitkontroll og offentlig bildeverifisering føres inn etter at den komplette tre-filerspakken er kontrollert og sendt til `main`.
+- Pakkevalideringen fant nøyaktig én komplett pakke for 2026-10-02 med PNG, caption og researchlogg.
+- `npm run check` besto.
+- `npm run build` besto.
+- `npm run test:instagram-publish` besto med 6 av 6 tester.
+- `git diff --check` besto.
+- Leveransecommit `6b97c90` ble pushet til `origin/main` uten å stage eller endre uvedkommende arbeidsfiler.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-10-02-lagersynk`.
+- URL-en svarte først HTTP 404 rett etter push og deretter HTTP 200 med `Content-Type: image/png` og 132 246 byte etter deploy-propagasjon. Samme URL og media-ID ble beholdt.
+- Offentlig SHA-256 var `21c2102d34dfda8fa9b31b422274c27aff2fa88735b9f6f54388cfb1c7b94db3` og matcher lokalfilen byte for byte.
+- Avsluttende `PUBLISH_MODE=dry-run` besto for BUSINESS-kontoen `@klingsystems`, riktig måldato, komplett pakke, offentlig bilde og duplikatkontroll. Status var `dry-run`; ingen container ble opprettet og ingenting ble publisert.
