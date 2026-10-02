@@ -1,0 +1,7 @@
+Når en side får ny adresse, kan gamle lenker fortsatt ligge i bokmerker, kampanjer og søkeresultater.
+
+En kontrollert videresending kobler den gamle URL-en til riktig ny side. Før flyttingen bør adressene kartlegges, målene avklares og videresendingene testes, slik at brukeren ikke sendes til feil eller irrelevant innhold.
+
+Skal nettsiden ryddes eller bygges om? Se klingsystems.no/nettsider og finn ut hvordan flyttingen kan planlegges.
+
+#nettsider #brukeropplevelse #webutvikling
