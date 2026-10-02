@@ -67,4 +67,13 @@ Komposisjoner med to systemmoduler og manuelt mellomledd, nettlesertest med kont
 
 ## Kontroll, deploy og offentlig bilde
 
-- Pakkevalidering, prosjektkontroll, build, publiseringstester, diff-kontroll, commit, push og offentlig bildeverifisering føres inn etter at leveransen er utført.
+- Pakkevalideringen fant nøyaktig én komplett pakke for 2026-10-03 med PNG, caption og researchlogg. Medie-ID-en er `daily-2026-10-03-videresending`, og captionen er 483 tegn.
+- `npm run check` besto.
+- `npm run build` besto.
+- `npm run test:instagram-publish` besto med 6 av 6 tester.
+- `git diff --check` besto.
+- Leveransecommit `4419aac` ble pushet til `origin/main` uten å stage eller endre uvedkommende arbeidsfiler.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-10-03-videresending`.
+- URL-en svarte først HTTP 404 rett etter push og deretter HTTP 200 med `Content-Type: image/png` og 161 585 byte etter deploy-propagasjon. Samme URL og medie-ID ble beholdt.
+- Offentlig SHA-256 var `562229cb1cc39b699506457824fe306cdc5da2c62e26c388d37bea95a246e967` og matcher lokalfilen byte for byte.
+- Avsluttende `TARGET_DATE=2026-10-03 PUBLISH_MODE=dry-run` besto for BUSINESS-kontoen `@klingsystems`, riktig måldato, komplett pakke, offentlig bilde og duplikatkontroll. Status var `dry-run`; ingen container ble opprettet og ingenting ble publisert.
