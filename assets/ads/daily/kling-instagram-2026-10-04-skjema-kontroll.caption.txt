@@ -1,0 +1,7 @@
+Et kontaktskjema er en åpen inngang til systemet. En synlig kontroll i nettleseren er ikke nok alene dersom innsendingen kan sendes direkte til endepunktet.
+
+En løsning kan legge ved et kontrolltoken og validere det på serveren før henvendelsen behandles videre. Regler, feilhåndtering og tilgjengelighet må tilpasses det faktiske skjemaet. Dette er ett kontrollpunkt, ikke en garanti mot all uønsket trafikk.
+
+Får kontaktskjemaet mer støy enn relevante henvendelser? Se klingsystems.no/nettsider og finn ut hva som bør kontrolleres.
+
+#nettsider #kontaktskjema #webutvikling
