@@ -66,4 +66,15 @@ Komposisjoner med stor kvittering, nummerert skjemaflate, to identiske ID-er som
 
 ## Kontroll, deploy og offentlig bilde
 
-Prosjektkontroll, build, publiseringstest, gitkontroll og offentlig bildeverifisering føres inn etter at den komplette tre-filerspakken er kontrollert og sendt til `main`.
+- Pakkevalidering med `findDailyPackage`: bestått for `daily-2026-10-04-skjema-kontroll`.
+- `npm run check`: bestått.
+- `npm run build`: bestått.
+- `npm run test:instagram-publish`: bestått, 6 av 6 tester.
+- `git diff --check`: bestått.
+- Leveransecommit: `2f52d86` på lokal `main`.
+- Push til `origin/main`: blokkert av kjøremiljøets risikovurdering. Ingen omgåelse eller alternativ produksjonsmutasjon ble forsøkt.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-10-04-skjema-kontroll` er ikke verifisert, fordi leveransen ikke ble pushet og derfor ikke kunne deployes.
+- Avsluttende `PUBLISH_MODE=dry-run` ble ikke kjørt, fordi den krever den offentlige, byteidentiske bildefilen.
+- Instagram-publisering: ikke utført. Ingen container ble opprettet, og ingen skriveoperasjon ble sendt til Graph API.
+
+Status for denne kjøringen: **BLOKKERT** frem til de lokale commitene kan pushes til `origin/main`, offentlig bilde kan byteverifiseres og dry-run kan fullføres.
