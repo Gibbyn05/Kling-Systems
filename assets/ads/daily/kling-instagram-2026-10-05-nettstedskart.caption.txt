@@ -1,0 +1,7 @@
+Viktige sider kan være publisert uten at nettstedets struktur gir søkemotorer en tydelig oversikt over hvilke URL-er dere ønsker å gjøre synlige.
+
+Et XML-nettstedskart kan samle de kanoniske nettadressene og oppdateres når sider legges til, flyttes eller fjernes. Det hjelper søkemotorer med å oppdage og kontrollere URL-ene, men er ingen garanti for indeksering eller rangering.
+
+Er nettstedskartet oppdatert med de viktigste sidene? Se klingsystems.no/nettsider og finn ut hva som bør kontrolleres.
+
+#nettsider #sokemotor #webutvikling
