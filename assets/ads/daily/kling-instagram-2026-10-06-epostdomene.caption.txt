@@ -1,0 +1,7 @@
+Det er sjelden bare én tjeneste som sender e-post på virksomhetens domene. Økonomisystem, kundesystem og nyhetsbrev kan alle være avsendere som må være kjent og riktig konfigurert.
+
+SPF og DKIM brukes til autentisering, mens DMARC kontrollerer samsvar med avsenderdomenet og kan gi rapporter om bruken. Før en strengere DMARC-policy innføres, bør egne avsendere kartlegges og testes. Dette er ikke en garanti for levering eller full beskyttelse mot misbruk.
+
+Vet dere hvilke systemer som sender fra domenet deres? Se klingsystems.no/systemer og finn ut hva som bør kartlegges.
+
+#epost #systemer #datasikkerhet
