@@ -72,7 +72,9 @@ Komposisjoner med tre kilder inn i ett resultat, lineære systemoverganger, en s
 - `npm run build`: bestått.
 - `npm run test:instagram-publish`: bestått, 6 av 6 tester.
 - `git diff --check`: bestått.
-- Leveransecommit: registreres i avsluttende QA-oppdatering etter commit.
-- Push til `origin/main`: venter.
-- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-10-06-epostdomene`, venter på deploy og bytekontroll.
+- Leveransecommit `2b2681f` ble pushet til `origin/main` uten å stage eller endre uvedkommende arbeidsfiler.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-10-06-epostdomene`.
+- Første offentlige kontroll svarte HTTP 404 mens deployen fortsatt forplantet seg. Samme URL ble kontrollert på nytt uten å endre medie-ID og svarte deretter HTTP 200 som `image/png`, 171 342 byte.
+- Offentlig SHA-256 var `08350f603b9610961a88fdc649d11d82c86d944b30cf83b72a7a84e34c526f61` og matcher lokalfilen byte for byte.
+- Avsluttende `TARGET_DATE=2026-10-06 PUBLISH_MODE=dry-run` besto med status `dry-run` for BUSINESS-kontoen `@klingsystems`. Konto, pakke, caption, offentlig bilde og duplikatkontroll besto. Ingen container ble opprettet.
 - Instagram-publisering: ikke utført. Ingen container er opprettet, og ingen skriveoperasjon er sendt til Graph API.
