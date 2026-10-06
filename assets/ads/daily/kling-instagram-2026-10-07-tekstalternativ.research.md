@@ -71,6 +71,9 @@ Komposisjoner med stående mobil, nestede bilderammer, nettlesertest, tre sideko
 - `npm run build`: bestått.
 - `npm run test:instagram-publish`: bestått, 6 av 6 tester.
 - `git diff --check`: bestått.
-- Leveransecommit og push: avventer sluttkontroll.
-- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-10-07-tekstalternativ`, avventer deploy og bytekontroll.
+- Leveransecommit `33d8c80` ble pushet til `origin/main` uten å stage eller endre uvedkommende arbeidsfiler.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-10-07-tekstalternativ`.
+- URL-en svarte HTTP 200 uten innlogging som `image/png`, 150 067 byte, 1080 × 1350 piksler, RGB uten alfa.
+- Offentlig SHA-256 var `fdb15472faee00f988c070994daf1135f3528982a7c19b02e1f62f216ccee2d1` og matcher lokalfilen byte for byte.
+- Avsluttende `TARGET_DATE=2026-10-07 PUBLISH_MODE=dry-run` besto med status `dry-run` for BUSINESS-kontoen `@klingsystems`. Konto, pakke, caption, offentlig bilde og duplikatkontroll besto. Ingen container ble opprettet.
 - Instagram-publisering: ikke utført. Ingen container er opprettet, og ingen skriveoperasjon er sendt til Graph API.
