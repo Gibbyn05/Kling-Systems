@@ -1,0 +1,7 @@
+Et filnavn som «bilde-12.jpg» forteller ikke hva en bruker trenger å vite.
+
+For informative bilder bør tekstalternativet formidle samme mening som bildet. Rent dekorative bilder kan ha tomt alt-attributt, mens bilder som fungerer som lenker eller knapper bør beskrive handlingen. Riktig tekst avhenger derfor av bildets formål og sammenheng.
+
+Har nettsiden bilder som fortsatt mangler meningsfulle tekstalternativer? Se klingsystems.no/nettsider og finn ut hva som bør gjennomgås.
+
+#nettsider #tilgjengelighet #webutvikling
