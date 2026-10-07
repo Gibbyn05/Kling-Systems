@@ -1,0 +1,7 @@
+En bankinnbetaling betyr ikke alltid at riktig faktura blir markert som betalt.
+
+Med KID og en avtalt OCR-flyt kan innbetalingen kobles til fakturaen med samme referanse. Mangler KID, eller er den ukjent, bør betalingen gå til kontroll i stedet for å bli koblet blindt. Det konkrete oppsettet avhenger av banken og regnskapssystemet virksomheten bruker.
+
+Har dere fakturaer som fortsatt står åpne etter at betalingen er mottatt? Se klingsystems.no/systemer og finn ut hvilken flyt som bør kobles sammen.
+
+#systemer #automatisering #faktura
