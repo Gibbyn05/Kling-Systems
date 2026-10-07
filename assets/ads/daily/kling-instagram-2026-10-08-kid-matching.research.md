@@ -72,5 +72,9 @@ Ingen bie brukes. Tilgjengelige analyse-, database- og arbeidsflytposer er aller
 - `npm run build`: bestått.
 - `npm run test:instagram-publish`: bestått, 6 av 6 tester.
 - `git diff --check`: bestått.
-- Commit, push, offentlig bilde-URL og bytekontroll føres inn etter utrulling.
+- Leveransecommit `b1e6ce2` ble pushet til `origin/main` uten å stage eller endre uvedkommende arbeidsfiler.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-10-08-kid-matching`.
+- URL-en svarte først 404 mens produksjonsutrullingen pågikk, deretter HTTP 200 uten innlogging som `image/png`, 84 344 byte.
+- Offentlig SHA-256 var `eec0037b3eb57ec41be07360bece9db34f815c4c41fcdf915ffd56033ac26484` og matcher lokalfilen byte for byte.
+- Avsluttende `TARGET_DATE=2026-10-08 PUBLISH_MODE=dry-run` besto med status `dry-run` for BUSINESS-kontoen `@klingsystems`. Konto, pakke, caption, offentlig bilde og duplikatkontroll besto. Ingen container ble opprettet.
 - Instagram-publisering: ikke utført. Ingen container er opprettet, og ingen skriveoperasjon er sendt til Graph API.
