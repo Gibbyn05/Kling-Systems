@@ -72,5 +72,14 @@ All meningsbærende tekst, forbindelsesgrafikk, grensesnitt, resultatlinje og Kl
 
 ## Kontroll, deploy og offentlig bilde
 
-- Pakkevalidering, prosjektkontroller, build, commit, push, offentlig bytekontroll og avsluttende dry-run dokumenteres etter gjennomføring.
+- Pakkevalidering med `findDailyPackage`: bestått for `daily-2026-10-09-delingsvisning`. Nøyaktig én komplett pakke ble funnet, og captionen er 429 tegn.
+- `npm run check`: bestått.
+- `npm run build`: bestått.
+- `npm run test:instagram-publish`: bestått, 6 av 6 tester.
+- `git diff --check`: bestått.
+- Leveransecommit `58f58df` ble pushet til `origin/main` uten å stage eller endre uvedkommende arbeidsfiler.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-10-09-delingsvisning`.
+- URL-en svarte først 404 mens produksjonsutrullingen pågikk, deretter HTTP 200 uten innlogging som `image/png`, 192 521 byte.
+- Offentlig SHA-256 var `ec95a19565738116136f1b4a5c681d44a1023892d864220860c177e7ea9645ea` og matcher lokalfilen byte for byte.
+- Avsluttende `TARGET_DATE=2026-10-09 PUBLISH_MODE=dry-run` besto med status `dry-run` for BUSINESS-kontoen `@klingsystems`. Konto, pakke, caption, offentlig bilde og duplikatkontroll besto. Ingen container ble opprettet.
 - Instagram-publisering: ikke utført. Ingen container er opprettet, og ingen skriveoperasjon er sendt til Graph API.
