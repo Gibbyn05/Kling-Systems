@@ -1,0 +1,7 @@
+Når en nettsidelenke deles, bør tittel, bilde og beskrivelse være valgt med hensikt.
+
+Open Graph-metadata kan angi hvordan siden skal representeres i en lenkeforhåndsvisning. På LinkedIn kan et eldre bilde være mellomlagret, så forhåndsvisningen bør kontrolleres på nytt etter endringer.
+
+Ser lenkene deres riktige ut når de deles? Se klingsystems.no/nettsider og finn ut hva som bør gjennomgås.
+
+#nettsider #deling #webutvikling
