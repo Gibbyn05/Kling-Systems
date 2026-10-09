@@ -1,0 +1,7 @@
+Et regneark kan se ryddig ut og fortsatt inneholde kolonner, formater eller identifikatorer som ikke passer i målsystemet.
+
+Før en import bør feltene kobles til riktige egenskaper, datatyper kontrolleres og rader med manglende eller ugyldige verdier skilles ut for retting. Hva som må valideres, avhenger av systemet og dataene som skal inn.
+
+Har dere data som fortsatt flyttes manuelt mellom regneark og systemer? Se klingsystems.no/systemer og finn ut hvordan importflyten kan kontrolleres.
+
+#systemer #dataimport #automatisering
