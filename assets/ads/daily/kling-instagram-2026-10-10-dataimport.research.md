@@ -73,4 +73,8 @@ Microsoft Power Query, Odoo og HubSpot ble kontrollert som tre relevante produkt
 
 ## Sluttverifisering
 
-Denne delen oppdateres etter fullført commit, push og offentlig verifisering.
+- Leveransecommit `255af6e` ble pushet direkte til `main`. Bare de tre nye pakkefilene ble staged og committet. Uvedkommende endringer i arbeidsområdet ble bevart urørt.
+- Den offentlige bilde-URL-en svarte HTTP 200 uten innlogging som `image/png`, 1080 × 1350 piksler, RGB uten alfa og 128 595 byte.
+- Offentlig SHA-256 var `9e89e3f8f08a0330c1e89ef1e584607a5f55e379a167ede8ff25fb28f0932195` og samsvarte med lokalfilen byte for byte.
+- Avsluttende kontroll med `TARGET_DATE=2026-10-10` og `PUBLISH_MODE=dry-run` besto for BUSINESS-kontoen `@klingsystems`. Riktig pakke, caption, offentlig bilde og duplikatstatus ble kontrollert.
+- Ingen Instagram-container ble opprettet, og ingenting ble publisert på Instagram.
