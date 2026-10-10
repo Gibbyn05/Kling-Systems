@@ -75,4 +75,13 @@ Ingen bie brukes. En maskot tilfører ikke nødvendig informasjon til tilgangsbe
 
 ## Leveringskontroller
 
-Resultatene for pakkevalidering, prosjektkontroll, build, publiseringstest, Git-kontroll, push og offentlig medieverifisering fylles inn etter fullført leveranse. Instagram-publisering skal ikke utføres.
+- `findDailyPackage` fant nøyaktig én komplett pakke for `2026-10-11` med media-ID `daily-2026-10-11-tilgangsgjennomgang`.
+- `npm run check`: bestått.
+- `npm run build`: bestått.
+- `npm run test:instagram-publish`: 6 av 6 tester bestått.
+- `git diff --check`: bestått.
+- Leveransecommit `e745b95` ble pushet til `origin/main`. Eksisterende, uvedkommende endringer og ukjente mapper i arbeidskopien ble ikke staged eller endret.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-10-11-tilgangsgjennomgang`.
+- Den første offentlige kontrollen svarte 404 under deploy-propagasjon. Samme URL ble kontrollert på nytt og svarte HTTP 200 med `content-type: image/png`, 142 010 byte og SHA-256 identisk med lokalfilen.
+- Avsluttende `PUBLISH_MODE=dry-run` besto for BUSINESS `@klingsystems`, korrekt måldato, komplett pakke, offentlig bilde og duplikatvern. Ingen container ble opprettet, og ingenting ble publisert på Instagram.
+- Sluttkontroll fullført 2026-10-10 18:42:07 CEST.
