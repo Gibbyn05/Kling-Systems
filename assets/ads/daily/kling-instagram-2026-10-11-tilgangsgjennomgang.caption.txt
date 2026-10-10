@@ -1,0 +1,7 @@
+Tilganger kan bli værende når roller, prosjekter og samarbeid endres.
+
+En periodisk gjennomgang kan samle hvem som har tilgang, hvilket system det gjelder, hvilket nivå tilgangen har og hvem som skal bekrefte behovet. Hver tilgang bør få en tydelig beslutning, og uklare forhold bør undersøkes før noe fjernes.
+
+Har dere oversikt over hvem som fortsatt trenger tilgang til systemene deres? Se klingsystems.no/systemer og finn ut hva som kan samles og følges opp.
+
+#systemer #tilgangsstyring #arbeidsflyt
