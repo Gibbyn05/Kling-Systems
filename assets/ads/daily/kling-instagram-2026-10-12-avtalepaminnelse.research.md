@@ -85,5 +85,13 @@ Komposisjoner med gammelt og nytt tidspunkt, to bekreftede utfall, en bred inspe
 - Endelig pakke består av nøyaktig én PNG, én `.caption.txt` og én `.research.md` med felles datert slug `kling-instagram-2026-10-12-avtalepaminnelse`.
 - Offentlig medie-ID: `daily-2026-10-12-avtalepaminnelse`.
 - Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-10-12-avtalepaminnelse`.
-- Prosjektkontroll, build, pakkevalidering, push, offentlig bytekontroll og avsluttende dry-run dokumenteres etter at de er fullført.
-- Instagram-publisering er ikke utført. Ingen container skal opprettes, og `media_publish` skal ikke kalles.
+- `findDailyPackage` fant nøyaktig én komplett pakke for 12. oktober med 1080 × 1350 PNG, caption og researchlogg. Captionen er 532 tegn.
+- `npm run check`: bestått.
+- `npm run build`: bestått.
+- `npm run test:instagram-publish`: 6 av 6 tester bestått.
+- `git diff --check`: bestått før commit.
+- Leveransecommit `1d3b026` ble pushet direkte til `main`. Bare de tre nye pakkefilene ble staged og committet. Eksisterende, uvedkommende endringer og ukjente mapper i arbeidsområdet ble bevart urørt.
+- Den første offentlige kontrollen svarte 404 under Vercel-propagasjon. Samme URL ble kontrollert på nytt og svarte HTTP 200 uten innlogging som `image/png`, 123 687 byte, 1080 × 1350 piksler og RGB uten alfa.
+- Offentlig SHA-256 var `eeeb56bd5fad6bd6dc144bf876dcdef2d786a84aa46b5404487e3828c597ec5d` og samsvarte byte for byte med lokalfilen.
+- Avsluttende `TARGET_DATE=2026-10-12 PUBLISH_MODE=dry-run` besto med status `dry-run` for riktig pakke, offentlig bilde, BUSINESS-kontoen `@klingsystems` og duplikatvernet. Resultatet hadde `mediaId: null` og `permalink: null`.
+- Instagram-publisering er ikke utført. Ingen container ble opprettet, og `media_publish` ble ikke kalt.
