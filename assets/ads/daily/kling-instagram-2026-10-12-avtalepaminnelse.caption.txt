@@ -1,0 +1,7 @@
+En booket avtale kan fortsatt kreve manuell oppfølging før kunden møter opp.
+
+En påminnelsesflyt kan bruke avtaletidspunktet som utgangspunkt og sende en definert melding til riktig mottaker på avtalt tidspunkt. Meldingen kan inneholde tid, sted og en tydelig vei til å bekrefte eller endre avtalen. Reglene må tilpasses bookingløsningen og kanalene virksomheten bruker.
+
+Har dere avtaler som fortsatt følges opp manuelt? Se klingsystems.no/automatisering og finn ut hva som kan kobles sammen.
+
+#automatisering #booking #arbeidsflyt
