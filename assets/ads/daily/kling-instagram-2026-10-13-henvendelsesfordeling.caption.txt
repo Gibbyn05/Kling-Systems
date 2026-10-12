@@ -1,0 +1,7 @@
+Når nye henvendelser havner i samme innboks, må noen fortsatt avgjøre hvem som tar neste sak.
+
+En fordelingsregel kan bruke tilgjengelighet og avtalte kapasitetsgrenser til å velge en kvalifisert mottaker. Hvis ingen er ledige, bør henvendelsen bli synlig i kø i stedet for å få en tilfeldig eier. Den konkrete regelen må tilpasses kanalene, rollene og systemene virksomheten bruker.
+
+Fordeles nye henvendelser fortsatt manuelt hos dere? Se klingsystems.no/automatisering og finn ut hva som kan automatiseres.
+
+#automatisering #kundeservice #arbeidsflyt
