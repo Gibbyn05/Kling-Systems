@@ -90,3 +90,12 @@ Komposisjoner med brede inspeksjonstabeller, horisontale trestegsflyter, tilgang
 - `git diff --check`: bestått før commit.
 - Commit, push og offentlig bytekontroll dokumenteres i sluttverifiseringen etter gjennomføring.
 - Instagram-publisering er ikke utført og skal ikke utføres i denne produksjonsjobben.
+
+## Sluttverifisering
+
+- Leveransecommit `2c81e7c` ble pushet direkte til `main`. Bare de tre nye pakkefilene ble staged og committet. Eksisterende, uvedkommende endringer og ukjente mapper i arbeidskopien ble bevart urørt.
+- Den første offentlige kontrollen svarte HTTP 404 med `x-vercel-cache: MISS` mens deployen fortsatt var under oppstart. Samme URL og samme medie-ID ble kontrollert på nytt etter propagasjon og svarte HTTP 200 uten innlogging som `image/png`.
+- Den offentlige filen er 138 481 byte, 1080 × 1350 piksler og RGB uten alfa.
+- Offentlig SHA-256 er `6ff6777f81ea7e8ed74d1a123f5ed1390fd4f098285a95728c4f1cfc703895a5` og samsvarer byte for byte med lokalfilen.
+- Avsluttende `TARGET_DATE=2026-10-14 PUBLISH_MODE=dry-run` besto med status `dry-run` for korrekt pakke, offentlig bilde, BUSINESS-kontoen `@klingsystems` og duplikatvernet. Resultatet hadde `mediaId: null` og `permalink: null`.
+- Instagram-publisering er ikke utført. Ingen container ble opprettet, og `media_publish` ble ikke kalt.
