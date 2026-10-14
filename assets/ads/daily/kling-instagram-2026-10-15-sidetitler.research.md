@@ -69,5 +69,12 @@ Det valgte innlegget gjelder spesifikt dupliserte HTML-sidetitler. Det bruker en
 
 ## Leveringskontroller
 
-- Pakkevalidering, prosjektkontroll, build, publiseringstest, Git-kontroll, offentlig bilde-URL og avsluttende dry-run dokumenteres etter at de er utført.
+- Pakkevalideringen fant nøyaktig én PNG, én caption og én researchfil for 2026-10-15. Captionen er 474 tegn.
+- `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto før levering.
+- De tre leveransefilene ble committet som `9d8a440` og pushet til `main`. Eksisterende, uvedkommende endringer i arbeidsområdet ble bevart urørt.
+- Offentlig medie-ID: `daily-2026-10-15-sidetitler`.
+- Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-10-15-sidetitler`.
+- Første offentlige forespørsel svarte HTTP 404 med `x-vercel-cache: MISS` mens den nye utrullingen fortsatt var under propagasjon. Den identiske URL-en ble kontrollert på nytt etter 15 sekunder og svarte HTTP 200 uten innlogging som `image/png`, 130 029 byte, 1080 × 1350 og RGB uten alfa.
+- Offentlig SHA-256 samsvarer med lokalfilen: `cc5b8828a00d8e37ca4be27ba694ccd349987e3031d74821d7d18535818549d4`.
+- Avsluttende kontroll med `TARGET_DATE=2026-10-15` og `PUBLISH_MODE=dry-run` besto for riktig konto, komplett pakke, offentlig bilde og null innlegg på måldatoen. Ingen Instagram-container ble opprettet.
 - Instagram-publisering er ikke autorisert og skal ikke utføres i denne kjøringen.
