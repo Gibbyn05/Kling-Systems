@@ -1,0 +1,7 @@
+Når flere sider bruker samme tittel, blir de vanskeligere å skille i nettleserfaner, bokmerker og søkeresultater.
+
+Gi hver side en kort, beskrivende tittel som samsvarer med innholdet. Sidetittelen er en av kildene Google kan bruke til tittellenken i søkeresultatet, men søkemotoren kan velge en annen formulering.
+
+Har nettsiden like eller uklare sidetitler? Se klingsystems.no/nettsider og finn ut hva som bør gjennomgås.
+
+#nettsider #søkemotoroptimalisering #webutvikling
