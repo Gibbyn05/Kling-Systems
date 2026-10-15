@@ -1,0 +1,7 @@
+Når en leverandør ber om nytt kontonummer, bør endringen ikke gå rett fra e-post til betaling.
+
+En kontrollert flyt kan holde kontoen som en foreslått endring, sende den til en navngitt godkjenner og dokumentere beslutningen før leverandørregisteret oppdateres. Opplysningen bør bekreftes via et kjent kontaktpunkt i en annen kanal enn den opprinnelige meldingen.
+
+Har dere en fast kontroll for endringer i betalingsopplysninger? Se klingsystems.no/systemer og finn ut hva som kan samles og følges opp.
+
+#systemer #arbeidsflyt #sikkerhet
