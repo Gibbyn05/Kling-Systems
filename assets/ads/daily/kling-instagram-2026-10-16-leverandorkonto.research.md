@@ -73,5 +73,15 @@ Komposisjoner med fakturakø, betaling–faktura-matching, dokumentstabel, sirke
 - Endelig pakke består av nøyaktig én PNG, én `.caption.txt` og én `.research.md` med felles datert slug `kling-instagram-2026-10-16-leverandorkonto`.
 - Offentlig medie-ID: `daily-2026-10-16-leverandorkonto`.
 - Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-10-16-leverandorkonto`.
-- Pakkevalidering, prosjektkontroll, build, publiseringstester, Git-kontroll, commit, push, offentlig bytekontroll og avsluttende dry-run dokumenteres i sluttverifiseringen etter gjennomføring.
+- Pakkevalideringen fant nøyaktig én PNG, én caption og én researchfil for 2026-10-16. Captionen er 537 tegn.
+- `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto før levering. Alle 6 publiseringstester besto.
 - Instagram-publisering er ikke autorisert og skal ikke utføres i denne produksjonsjobben.
+
+## Sluttverifisering
+
+- Leveransecommit `a7b4eea` ble pushet direkte til `main`. Bare de tre nye pakkefilene ble staged og committet. Eksisterende, uvedkommende endringer og ukjente mapper i arbeidskopien ble bevart urørt.
+- Den første offentlige kontrollen svarte HTTP 404 med `x-vercel-cache: MISS` mens utrullingen fortsatt var under propagasjon. Den identiske URL-en ble kontrollert på nytt etter 15 sekunder og svarte HTTP 200 uten innlogging som `image/png`.
+- Den offentlige filen er 126 372 byte, 1080 × 1350 piksler og RGB uten alfa.
+- Offentlig SHA-256 samsvarer med lokalfilen: `42e382b25eb7d9f4caeeee89043c2e0c6ced99842b555d318e153c2970e6fcf8`.
+- Avsluttende `TARGET_DATE=2026-10-16 PUBLISH_MODE=dry-run` besto med status `dry-run` for korrekt pakke, offentlig bilde, BUSINESS-kontoen `@klingsystems` og null innlegg på måldatoen. Resultatet hadde `mediaId: null` og `permalink: null`.
+- Instagram-publisering er ikke utført. Ingen container ble opprettet, og `media_publish` ble ikke kalt.
