@@ -1,0 +1,5 @@
+En integrasjon kan fungere fint helt til legitimasjonen den bruker utløper. Samle derfor system, eier, utløpsdato og plan for bytte på ett sted. Når løsningen støtter det, kan den nye nøkkelen testes før den gamle deaktiveres. Riktig autentiseringsform og bytteflyt må vurderes for hver løsning, og selve nøkkelverdien bør ikke ligge i oppfølgingsoversikten.
+
+Kling kan hjelpe dere å kartlegge tilkoblinger og bygge en tydelig oppfølgingsflyt. Finn ut hva dere kan automatisere på klingsystems.no/automatisering
+
+#automatisering #integrasjoner #systemer
