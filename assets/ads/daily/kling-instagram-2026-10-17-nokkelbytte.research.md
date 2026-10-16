@@ -81,4 +81,9 @@ Komposisjoner med en feilbane, lineære trestegsflyter, tilgangsrader, kalenderk
 
 ## Sluttverifisering
 
-Fylles ut etter ferdig lokal kontroll, push og offentlig medieverifisering.
+- Leveransecommit `f5c1f3b` ble pushet direkte til `main`. Bare de tre nye pakkefilene ble staged og committet. Eksisterende, uvedkommende endringer og ukjente mapper i arbeidskopien ble bevart urørt.
+- Den første offentlige kontrollen svarte HTTP 404 med `x-vercel-cache: MISS` mens utrullingen fortsatt var under propagasjon. Den identiske URL-en ble kontrollert på nytt etter 15 sekunder og svarte HTTP 200 uten innlogging som `image/png`.
+- Den offentlige filen er 173 048 byte, 1080 × 1350 piksler og RGB uten alfa.
+- Offentlig SHA-256 samsvarer med lokalfilen: `f3edacd396dd08cd6c8a7e104e972dd250f36d07d7d10b3dea852517f49e7572`.
+- Avsluttende `TARGET_DATE=2026-10-17 PUBLISH_MODE=dry-run` besto med status `dry-run` for korrekt pakke, offentlig bilde, BUSINESS-kontoen `@klingsystems` og null innlegg på måldatoen. Resultatet hadde `mediaId: null` og `permalink: null`.
+- Instagram-publisering er ikke utført. Ingen container ble opprettet, og `media_publish` ble ikke kalt.
