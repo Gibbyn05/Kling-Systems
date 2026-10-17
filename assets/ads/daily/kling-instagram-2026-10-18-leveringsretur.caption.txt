@@ -1,0 +1,9 @@
+En e-post kan være sendt fra systemet uten å være levert til mottakeren.
+
+Når e-postløsningen melder en permanent retur, kan hendelsen kobles til riktig kontakt og gi en synlig oppfølgingsstatus. Midlertidige feil og permanente returer må håndteres forskjellig, og reglene må tilpasses løsningen dere bruker.
+
+En ryddig flyt kan markere adressen for kontroll og la ny utsending vente til opplysningen er avklart. Da blir leveringsfeilen en konkret oppgave, ikke bare en teknisk melding.
+
+Se klingsystems.no/automatisering og finn ut hva dere kan automatisere.
+
+#automatisering #systemer #klingsystems
