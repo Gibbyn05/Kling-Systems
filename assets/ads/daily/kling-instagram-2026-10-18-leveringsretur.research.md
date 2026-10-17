@@ -79,4 +79,10 @@ Komposisjoner med avsenderkart, lineære trestegsflyter, mottakerkort, kontrollp
 
 ## Sluttverifisering
 
-- Fullføres etter kontroll, commit, push og offentlig verifisering.
+- Leveransecommit `df45f35` ble pushet direkte til `main`. Bare de tre nye pakkefilene ble staged og committet. Eksisterende, uvedkommende endringer og ukjente mapper i arbeidskopien ble bevart urørt.
+- Pakkevalideringen fant nøyaktig én PNG, én caption og én researchfil for 2026-10-18. `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto. Alle 6 publiseringstester besto.
+- Den første offentlige kontrollen svarte HTTP 404 med `x-vercel-cache: MISS` mens utrullingen fortsatt var under propagasjon. Den identiske URL-en ble kontrollert på nytt etter 15 sekunder og svarte HTTP 200 uten innlogging som `image/png`.
+- Den offentlige filen er 134 945 byte, 1080 × 1350 piksler og RGB uten alfa.
+- Offentlig SHA-256 samsvarer med lokalfilen: `747163a78d848459613071fc96a5a9853b7759dc2efdb3112e2f826d43da8086`.
+- Avsluttende `TARGET_DATE=2026-10-18 PUBLISH_MODE=dry-run` besto med status `dry-run` for korrekt pakke, offentlig bilde, BUSINESS-kontoen `@klingsystems` og null innlegg på måldatoen. Resultatet hadde `mediaId: null` og `permalink: null`.
+- Instagram-publisering er ikke utført. Ingen container ble opprettet, og `media_publish` ble ikke kalt.
