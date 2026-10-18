@@ -80,4 +80,9 @@ Komposisjoner med valideringstabell, lineære trestegsflyter, mottakerkort, insp
 
 ## Sluttverifisering
 
-- Venter på commit, push og offentlig kontroll.
+- Leveransecommit `9ab079b` ble pushet direkte til `main`. Bare de tre nye pakkefilene ble staged og committet. Eksisterende, uvedkommende endringer og ukjente mapper i arbeidskopien ble bevart urørt.
+- Den første offentlige kontrollen svarte HTTP 404 mens utrullingen fortsatt var under propagasjon. Den identiske URL-en ble kontrollert på nytt etter 15 sekunder og svarte HTTP 200 uten innlogging som `image/png`.
+- Den offentlige filen er 136 708 byte, 1080 × 1350 piksler og RGB uten alfa.
+- Offentlig SHA-256 samsvarer byte for byte med lokalfilen: `1fb0396bde361ec0224b3e8337348d73059e005e9ba20941ef1a2eae9a913c3f`.
+- Avsluttende `TARGET_DATE=2026-10-19 PUBLISH_MODE=dry-run` besto med status `dry-run` for korrekt pakke, offentlig bilde, BUSINESS-kontoen `@klingsystems` og null innlegg på måldatoen. Resultatet hadde `mediaId: null` og `permalink: null`.
+- Instagram-publisering er ikke utført. Ingen container ble opprettet, og `media_publish` ble ikke kalt.
