@@ -1,0 +1,7 @@
+Et kontaktskjema kan motta automatiserte innsendinger i tillegg til reelle henvendelser.
+
+En kontroll kan vurdere innsendingen i nettleseren og verifisere resultatet på serveren før meldingen sendes videre. Løsningen bør tilpasses risikoen og samtidig unngå unødvendige barrierer for brukeren. Ingen enkelt kontroll stopper all misbruk, og oppsettet må testes og følges opp.
+
+Får innboksen deres mer skjemastøy enn den bør? Se klingsystems.no/nettsider og finn ut hva som kan forbedres.
+
+#nettsider #skjema #webutvikling
