@@ -75,3 +75,13 @@ Komposisjoner med skjemavindu og kontrollport, leveringskvittering, skrå nøkke
 - Offentlig bilde-URL: `https://www.klingsystems.no/api/instagram-media?id=daily-2026-10-20-tapte-anrop`.
 - Pakkevalidering, prosjektkontroll, build, publiseringstester, diffkontroll, commit, push, offentlig bytekontroll og avsluttende dry-run dokumenteres i sluttverifiseringen.
 - Instagram-publisering er ikke autorisert og skal ikke utføres i denne produksjonsjobben.
+
+## Sluttverifisering
+
+- Leveransecommit `a6f758c` ble pushet direkte til `main`. Bare de tre nye pakkefilene ble staged og committet. Eksisterende, uvedkommende endringer og ukjente mapper i arbeidskopien ble bevart urørt.
+- Pakkevalideringen fant nøyaktig én PNG, én caption og én researchfil for 2026-10-20. `npm run check`, `npm run build`, `npm run test:instagram-publish` og `git diff --check` besto. Alle 6 publiseringstester besto.
+- Den første offentlige kontrollen svarte HTTP 404 med `x-vercel-cache: MISS` mens utrullingen fortsatt var under propagasjon. Den identiske URL-en ble kontrollert på nytt etter 15 sekunder og svarte HTTP 200 uten innlogging som `image/png`.
+- Den offentlige filen er 144 730 byte, 1080 × 1350 piksler og RGB uten alfa.
+- Offentlig SHA-256 samsvarer byte for byte med lokalfilen: `aa195b5241a59dc6adb56961e76cf5ad8c04a02204a51dfd78e8401f544ee1fa`.
+- Avsluttende `TARGET_DATE=2026-10-20 PUBLISH_MODE=dry-run` besto med status `dry-run` for korrekt pakke, offentlig bilde, BUSINESS-kontoen `@klingsystems` og null innlegg på måldatoen. Resultatet hadde `mediaId: null` og `permalink: null`.
+- Instagram-publisering er ikke utført. Ingen container ble opprettet, og `media_publish` ble ikke kalt.
