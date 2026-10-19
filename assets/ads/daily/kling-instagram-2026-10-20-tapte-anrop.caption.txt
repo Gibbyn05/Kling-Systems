@@ -1,0 +1,7 @@
+Et ubesvart anrop kan bli stående i en personlig anropslogg uten at det er synlig hvem som følger opp.
+
+Når telefoniløsningen gir en tydelig status for tapte anrop, kan hendelsen kobles til riktig kontakt og bli en oppgave med eier, frist og status. Regler og tilgjengelige hendelser avhenger av telefoniløsningen og systemene dere bruker.
+
+Blir tapte anrop fulgt opp fra en felles oversikt? Se klingsystems.no/automatisering og finn ut hva dere kan automatisere.
+
+#automatisering #kundeservice #systemer
